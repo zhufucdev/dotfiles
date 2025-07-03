@@ -30,7 +30,7 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, homebrew-core, homebrew-cask, macos-cross-toolchains, ... }:
   let
-    configuration = { pkgs, ... }: {
+    configuration = { pkgs, config, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [
@@ -66,6 +66,8 @@
       # $ darwin-rebuild changelog
       system.stateVersion = 5;
 
+      system.primaryUser = "zhufu";
+
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
     };
@@ -95,6 +97,7 @@
             };
           };
         }
+        ./postgres.nix
       ];
     };
 
