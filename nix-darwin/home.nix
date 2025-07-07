@@ -29,14 +29,13 @@
     "$CARGO_HOME/bin"
   ];
 
-  programs.java = {
-    enable = true;
-    package = pkgs.jdk21;
-  };
+  programs.java = (import ./java.nix) { inherit pkgs; };
 
   programs.poetry.enable = true;
 
-  programs.git.enable = true;
+  programs.git = (import ./git.nix);
+
+  programs.gh.enable = true;
 
   programs.neovim.enable = true;
 
@@ -60,7 +59,7 @@
     export MCFLY_FUZZY=2
     eval "$(pyenv init -)"
     eval "$(mcfly init zsh)"
-    '';
+    '' + (builtins.readFile ./zshrc);
 
     zplug = {
       enable = true;

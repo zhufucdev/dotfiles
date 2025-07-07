@@ -28,80 +28,19 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, homebrew-core, homebrew-cask, macos-cross-toolchains, ... }:
-  let
-    configuration = { pkgs, config, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs; [
-        vim
-        home-manager
-        git
-        curl
-        tmux
-        xz
-        gnupg
-        nixd
-        mcfly
-        git-lfs
-        watch
-        fish
-      ];
-
-      environment.pathsToLink = [ "/share/zsh" ];
-
-      # nix.package = pkgs.nix;
-
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
-
-      # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true;  # default shell on catalina
-      # programs.fish.enable = true;
-
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 5;
-
-      system.primaryUser = "zhufu";
-
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
-    };
-  in
+  outputs = inputs@{ self, nix-darwin, ... }:
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#zhufusmbp
+    # $ darwin-rebuild build --flake .#zhusmacmini
+    darwinConfigurations."zhusmacmini" = nix-darwin.lib.darwinSystem {
+      modules = (import ./modules.nix) inputs;
+    };
+
     darwinConfigurations."zhufusmbp" = nix-darwin.lib.darwinSystem {
-      modules = [
-        configuration
-        home-manager.darwinModules.home-manager {
-          home-manager = {
-            users.zhufu = ./home.nix;
-            useGlobalPkgs = true;
-            useUserPackages = true;
-          };
-          users.users.zhufu.home = "/Users/zhufu";
-        }
-        nix-homebrew.darwinModules.nix-homebrew {
-          nix-homebrew = {
-            enable = true;
-            user = "zhufu";
-            taps = {
-              "homebrew/homebrew-core" = homebrew-core;
-              "homebrew/homebrew-cask" = homebrew-cask;
-              "messense/macos-cross-toolchains" = macos-cross-toolchains;
-            };
-          };
-        }
-        ./postgres.nix
-      ];
+      modules = (import ./modules.nix) inputs;
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."zhufusmbp".pkgs;
+    darwinPackages = self.darwinConfigurations."zhusmacmini".pkgs;
   };
 }
