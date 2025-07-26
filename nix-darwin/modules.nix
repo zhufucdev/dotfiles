@@ -16,6 +16,7 @@ let toolchains =
     watch
     fish
     neovim
+    fzf
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
