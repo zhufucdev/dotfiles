@@ -17,6 +17,7 @@ let toolchains =
     fish
     neovim
     fzf
+    ripgrep
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
