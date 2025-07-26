@@ -15,6 +15,7 @@ let toolchains =
     git-lfs
     watch
     fish
+    neovim
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
