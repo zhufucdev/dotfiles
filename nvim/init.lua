@@ -101,6 +101,13 @@ local ni = { 'n', 'i' }
 vim.keymap.set(ni, '<D-[>', '<C-o>')
 vim.keymap.set(ni, '<D-]>', '<C-i>')
 
+-- Open current directory
+vim.keymap.set('n', '<D->>', '<cmd>cd %:p:h<CR>')
+
+-- Sync with system clipboard
+vim.keymap.set(nit, '<D-v>', '<cmd>"+p<CR>')
+vim.keymap.set(nit, '<D-c>', '<cmd>"+y<CR>')
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
