@@ -102,7 +102,10 @@ vim.keymap.set(ni, '<D-[>', '<C-o>')
 vim.keymap.set(ni, '<D-]>', '<C-i>')
 
 -- Open current directory
-vim.keymap.set('n', '<D->>', '<cmd>cd %:p:h<CR>')
+vim.keymap.set('n', '<D->>', function()
+  vim.api.nvim_command 'cd %:p:h'
+  vim.api.nvim_command 'Neotree reveal'
+end)
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
