@@ -79,18 +79,22 @@ vim.o.confirm = false
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Diagnostic keymaps
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
 -- Close windows
-vim.keymap.set('n', '<D-w>', '<cmd>q<CR>')
-vim.keymap.set('n', '<S-q>', '<cmd>wqa<CR>')
+local nit = { 'n', 'i', 't' }
+vim.keymap.set(nit, '<D-w>', '<cmd>q<CR>')
+vim.keymap.set(nit, '<S-q>', '<cmd>wqa<CR>')
 
 -- Save files
-vim.keymap.set('', '<D-s>', '<cmd>w<CR>')
-vim.keymap.set('', '<D-S>', '<cmd>wa<CR>')
+vim.keymap.set(nit, '<D-s>', '<cmd>w<CR>')
+vim.keymap.set(nit, '<D-S>', '<cmd>wa<CR>')
 
 -- macOS tab management
-vim.keymap.set('', '<D-}>', '<cmd>:tabnext<CR>')
-vim.keymap.set('', '<D-{>', '<cmd>:tabprevious<CR>')
-vim.keymap.set('', '<D-t>', '<cmd>tabnew<CR>')
+vim.keymap.set(nit, '<D-}>', '<cmd>:tabnext<CR>')
+vim.keymap.set(nit, '<D-{>', '<cmd>:tabprevious<CR>')
+vim.keymap.set(nit, '<D-t>', '<cmd>tabnew<CR>')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -164,6 +168,7 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+  'stevearc/dressing.nvim',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -346,6 +351,9 @@ require('lazy').setup({
           --  For example, in C this would take you to the header.
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+          -- This is Goto Definition
+          map('gd', vim.lsp.buf.definition, '[G]oto [d]efinition')
+
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
           map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
@@ -472,7 +480,6 @@ require('lazy').setup({
         kotlin_lsp = {},
         prismals = {},
         nil_ls = {},
-        dcm = {},
 
         lua_ls = {
           -- cmd = { ... },
