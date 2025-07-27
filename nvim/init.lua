@@ -58,9 +58,6 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- Indent size
-vim.o.tabstop = 2
-
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
@@ -197,7 +194,7 @@ require('lazy').setup({
       },
       on_space_options = { -- A table of vim options when spaces are detected
         ['expandtab'] = true,
-        ['tabstop'] = false, -- If the option value is 'detected', The value is set to the automatically detected indent size.
+        ['tabstop'] = 2, -- If the option value is 'detected', The value is set to the automatically detected indent size.
         ['softtabstop'] = 'detected',
         ['shiftwidth'] = 'detected',
       },
@@ -498,7 +495,6 @@ require('lazy').setup({
         clangd = {},
         gopls = {},
         pyright = {},
-        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -509,6 +505,8 @@ require('lazy').setup({
         kotlin_lsp = {},
         prismals = {},
         nil_ls = {},
+        codelldb = {},
+        -- rust_analyzer = {},
 
         lua_ls = {
           -- cmd = { ... },
@@ -525,7 +523,7 @@ require('lazy').setup({
           },
         },
       }
-
+      --
       -- Ensure the servers and tools above are installed
       --
       -- To check the current status of installed tools and/or manually install
