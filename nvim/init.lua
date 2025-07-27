@@ -58,6 +58,9 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- Indent size
+vim.o.tabstop = 2
+
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
@@ -183,6 +186,21 @@ require('lazy').setup({
     lazy = false,
     opts = {
       auto_cmd = true,
+      buftype_exclude = { -- A list of buffer types for which the auto command gets disabled
+        'help',
+        'nofile',
+        'terminal',
+        'prompt',
+      },
+      on_tab_options = { -- A table of vim options when tabs are detected
+        ['expandtab'] = false,
+      },
+      on_space_options = { -- A table of vim options when spaces are detected
+        ['expandtab'] = true,
+        ['tabstop'] = false, -- If the option value is 'detected', The value is set to the automatically detected indent size.
+        ['softtabstop'] = 'detected',
+        ['shiftwidth'] = 'detected',
+      },
     },
   },
   'stevearc/dressing.nvim', -- Better UI implementation
