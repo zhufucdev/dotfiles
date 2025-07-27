@@ -5,5 +5,11 @@ return {
     'nvim-lua/plenary.nvim',
     'stevearc/dressing.nvim', -- optional for vim.ui.select
   },
-  config = true,
+  config = {
+    debugger = {
+      enabled = true,
+      exception_breakpoints = true,
+      evaluate_to_string_in_debug_views = true,
+    },
+  },
 }
