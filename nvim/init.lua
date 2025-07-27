@@ -471,6 +471,7 @@ require('lazy').setup({
         ts_ls = {},
         kotlin_lsp = {},
         prismals = {},
+        nixd = {},
 
         lua_ls = {
           -- cmd = { ... },
