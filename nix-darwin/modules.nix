@@ -18,6 +18,8 @@ let toolchains =
     neovim
     fzf
     ripgrep
+    go
+    rustup
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
