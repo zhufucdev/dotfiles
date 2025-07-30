@@ -24,6 +24,8 @@ let toolchains =
 
   environment.pathsToLink = [ "/share/zsh" ];
 
+  environment.systemPath = import ./path.nix;
+
   # nix.package = pkgs.nix;
 
   # Necessary for using flakes on this system.
