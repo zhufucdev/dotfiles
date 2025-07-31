@@ -124,6 +124,12 @@ return {
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
           end, '[T]oggle Inlay [H]ints')
         end
+
+        -- Call navic to setup winbar
+        if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentSymbol, event.buf) then
+          local navic = require 'nvim-navic'
+          navic.attach(client, event.buf)
+        end
       end,
     })
 
