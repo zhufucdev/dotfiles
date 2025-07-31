@@ -507,6 +507,7 @@ require('lazy').setup({
         nil_ls = {},
         codelldb = {},
         -- rust_analyzer = {},
+        markdownlint = {},
 
         lua_ls = {
           -- cmd = { ... },
