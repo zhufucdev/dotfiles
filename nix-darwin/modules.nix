@@ -5,6 +5,7 @@ let toolchains =
     home-manager
     git
     git-lfs
+    git-filter-repo
     pyenv
     curl
     tmux
@@ -12,7 +13,6 @@ let toolchains =
     gnupg
     nixd
     mcfly
-    git-lfs
     watch
     fish
     neovim

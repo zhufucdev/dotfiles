@@ -40,6 +40,10 @@
       modules = (import ./modules.nix) inputs;
     };
 
+    darwinConfigurations."zhufusmba" = nix-darwin.lib.darwinSystem {
+      modules = (import ./modules.nix) inputs;
+    };
+
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations."zhusmacmini".pkgs;
   };
