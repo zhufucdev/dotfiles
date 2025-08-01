@@ -426,3 +426,4 @@ require('lazy').setup({
 
 -- Color schema
 vim.cmd 'colorscheme onedark_dark'
+vim.cmd 'highlight CursorLine guibg=#434852'
