@@ -85,7 +85,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Close windows
 local nit = { 'n', 'i', 't' }
 vim.keymap.set(nit, '<D-w>', '<cmd>q<CR>')
-vim.keymap.set(nit, '<S-q>', '<cmd>wqa<CR>')
+vim.keymap.set(nit, '<D-W>', '<cmd>wqa<CR>')
 
 -- Save files
 vim.keymap.set(nit, '<D-s>', '<cmd>w<CR>')
