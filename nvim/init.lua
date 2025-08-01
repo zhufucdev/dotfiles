@@ -320,15 +320,14 @@ require('lazy').setup({
   },
 
   {
-    'olimorris/onedarkpro.nvim',
+    'navarasu/onedark.nvim',
     priority = 1000, -- Ensure it loads first
     config = function()
-      require('onedarkpro').setup {
-        colors = {
-          purple = '#ffafe4',
-          green = '#ccff66',
-        },
+      local theme = require('onedark')
+      theme.setup {
+        style = 'warmer'
       }
+      theme.load()
     end,
   },
 
@@ -424,6 +423,3 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
--- Color schema
-vim.cmd 'colorscheme onedark_dark'
-vim.cmd 'highlight CursorLine guibg=#434852'
