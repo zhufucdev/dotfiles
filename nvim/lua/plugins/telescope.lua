@@ -68,7 +68,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     local builtin = require 'telescope.builtin'
     vim.keymap.set('n', '<D-F>', builtin.live_grep)
     vim.keymap.set('n', '<D-f>', builtin.find_files)
-    vim.keymap.set('n', '<S-Tab>', builtin.oldfiles)
+    vim.keymap.set('n', '<C-Tab>', builtin.oldfiles)
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
