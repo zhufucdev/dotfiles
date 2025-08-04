@@ -12,5 +12,10 @@ return {
       evaluate_to_string_in_debug_views = true,
     },
     flutter_path = '/Users/zhufu/flutter/bin/flutter',
+    lsp = {
+      settings = {
+        lineLength = 120,
+      },
+    },
   },
 }
