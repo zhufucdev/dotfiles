@@ -59,6 +59,8 @@
     export MCFLY_FUZZY=2
     eval "$(pyenv init -)"
     eval "$(mcfly init zsh)"
+    bindkey ';3C' forward-word
+    bindkey ';3D' backward-word
     '' + (builtins.readFile ./zshrc);
 
     zplug = {
