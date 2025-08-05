@@ -16,6 +16,17 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+
+  home.packages = with pkgs; [
+    go
+    rustup
+    pyenv
+    uv
+    git-lfs
+    git-filter-repo
+    mcfly
+  ];
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "less";

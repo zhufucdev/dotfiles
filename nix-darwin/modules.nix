@@ -4,22 +4,14 @@ let toolchains =
     vim
     home-manager
     git
-    git-lfs
-    git-filter-repo
-    pyenv
     curl
     tmux
     xz
     gnupg
     nixd
-    mcfly
     watch
-    fish
-    neovim
     fzf
     ripgrep
-    go
-    rustup
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
