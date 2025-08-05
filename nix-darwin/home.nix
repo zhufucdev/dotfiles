@@ -25,6 +25,7 @@
     git-lfs
     git-filter-repo
     mcfly
+    nerd-fonts.jetbrains-mono
   ];
 
   home.sessionVariables = {
@@ -83,4 +84,6 @@
       ];
     };
   };
+
+  fonts.fontconfig.enable = true;
 }
