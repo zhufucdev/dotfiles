@@ -16,8 +16,6 @@ let toolchains =
 
   environment.pathsToLink = [ "/share/zsh" ];
 
-  environment.systemPath = import ./path.nix;
-
   # nix.package = pkgs.nix;
 
   # Necessary for using flakes on this system.
@@ -44,7 +42,7 @@ in
   (toolchains { inherit self; })
   home-manager.darwinModules.home-manager {
     home-manager = {
-      users.zhufu = ./home.nix;
+      users.zhufu = ./home;
       useGlobalPkgs = true;
       useUserPackages = true;
     };

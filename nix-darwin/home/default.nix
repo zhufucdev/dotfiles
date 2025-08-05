@@ -39,7 +39,7 @@
     "$HOME/.local/bin"
     "$GOPATH/bin"
     "$CARGO_HOME/bin"
-  ];
+  ] ++ (import ./path.nix);
 
   programs.java = (import ./java.nix) { inherit pkgs; };
 
