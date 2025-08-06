@@ -5,13 +5,14 @@ return {
     'nvim-lua/plenary.nvim',
     'stevearc/dressing.nvim', -- optional for vim.ui.select
   },
-  config = {
+  opts = {
+    root_patterns = { 'pubspec.yaml' },
+    fvm = true,
     debugger = {
       enabled = true,
       exception_breakpoints = true,
       evaluate_to_string_in_debug_views = true,
     },
-    flutter_path = vim.fn.expand('$HOME/flutter/bin/flutter'),
     lsp = {
       settings = {
         lineLength = 120,
