@@ -7,40 +7,44 @@
 --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 --  - settings (table): Override the default settings passed when initializing the server.
 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-local servers = {
-  clangd = {},
-  gopls = {},
-  pyright = {},
-  -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-  --
-  -- Some languages (like typescript) have entire language plugins that can be useful:
-  --    https://github.com/pmizio/typescript-tools.nvim
-  --
-  -- But for many setups, the LSP (`ts_ls`) will work just fine
-  ts_ls = {},
-  kotlin_lsp = {},
-  prismals = {},
-  codelldb = {},
-  -- rust_analyzer = {},
-  markdownlint = {},
-  prettier = {},
-  jsonls = {},
+local function get_servers()
+  local root_pattern = require('lspconfig').util.root_pattern
+  return {
+    clangd = {},
+    gopls = {},
+    pyright = {},
+    -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
+    --
+    -- Some languages (like typescript) have entire language plugins that can be useful:
+    --    https://github.com/pmizio/typescript-tools.nvim
+    --
+    -- But for many setups, the LSP (`ts_ls`) will work just fine
+    ts_ls = {},
+    kotlin_lsp = {},
+    prismals = {},
+    codelldb = {},
+    -- rust_analyzer = {},
+    markdownlint = {},
+    prettier = {},
+    jsonls = {},
 
-  lua_ls = {
-    -- cmd = { ... },
-    -- filetypes = { ... },
-    -- capabilities = {},
-    settings = {
-      Lua = {
-        completion = {
-          callSnippet = 'Replace',
+    lua_ls = {
+      -- cmd = { ... },
+      -- filetypes = { ... },
+      -- capabilities = {},
+      settings = {
+        Lua = {
+          completion = {
+            callSnippet = 'Replace',
+          },
+          -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+          -- diagnostics = { disable = { 'missing-fields' } },
         },
-        -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-        -- diagnostics = { disable = { 'missing-fields' } },
       },
+      root_dir = vim.fn.getcwd
     },
-  },
-}
+  }
+end
 
 return {
   -- Main LSP Configuration
@@ -228,6 +232,7 @@ return {
     --
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
+    local servers = get_servers()
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
