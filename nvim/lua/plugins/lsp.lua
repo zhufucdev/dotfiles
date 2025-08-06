@@ -8,7 +8,6 @@
 --  - settings (table): Override the default settings passed when initializing the server.
 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 local function get_servers()
-  local root_pattern = require('lspconfig').util.root_pattern
   return {
     clangd = {},
     gopls = {},
@@ -41,7 +40,6 @@ local function get_servers()
           -- diagnostics = { disable = { 'missing-fields' } },
         },
       },
-      root_dir = vim.fn.getcwd
     },
   }
 end
