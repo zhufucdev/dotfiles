@@ -58,6 +58,13 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- Enable extc support. The current directory is searched for the following files, in order of precedence:
+-- - ".nvim.lua"
+-- - ".nvimrc"
+-- - ".exrc"
+-- The first that exists is used, the others are ignored.
+vim.o.exrc = true
+
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
@@ -323,9 +330,9 @@ require('lazy').setup({
     'navarasu/onedark.nvim',
     priority = 1000, -- Ensure it loads first
     config = function()
-      local theme = require('onedark')
+      local theme = require 'onedark'
       theme.setup {
-        style = 'warmer'
+        style = 'warmer',
       }
       theme.load()
     end,
@@ -397,7 +404,7 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
-  { import = 'plugins' },
+  { import = 'plugins', change_detection = { enabled = false } },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -422,4 +429,3 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
