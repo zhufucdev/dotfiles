@@ -63,7 +63,8 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- - ".nvimrc"
 -- - ".exrc"
 -- The first that exists is used, the others are ignored.
-vim.o.exrc = true
+-- vim.o.exrc = true
+-- WARN: somehow this is not working
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
