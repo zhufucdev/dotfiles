@@ -109,6 +109,14 @@ local ni = { 'n', 'i' }
 vim.keymap.set(ni, '<D-[>', '<C-o>')
 vim.keymap.set(ni, '<D-]>', '<C-i>')
 
+-- Jump between diagnostics
+vim.keymap.set(ni, '<D-+>', function ()
+  vim.diagnostic.jump({count = 1})
+end)
+vim.keymap.set(ni, '<D-_>', function ()
+  vim.diagnostic.jump({count = -1})
+end)
+
 -- Open current directory
 vim.keymap.set('n', '<D->>', function()
   vim.api.nvim_command 'cd %:p:h'
