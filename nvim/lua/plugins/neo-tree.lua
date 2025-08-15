@@ -36,7 +36,7 @@ return {
             local buf = vim.api.nvim_create_buf(false, true)
             vim.keymap.set('n', '<CR>', function()
               local commit_message = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
-              vim.fn.execute("term git commit -m '" .. commit_message .. "'")
+              vim.fn.execute("term git commit -m '" .. table.concat(commit_message, '\n') .. "'")
             end, {
               buffer = buf,
             })
