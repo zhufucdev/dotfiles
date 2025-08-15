@@ -75,9 +75,20 @@ return { -- Autocompletion
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = { 'lsp', 'path', 'snippets', 'lazydev', 'gitmoji' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+        gitmoji = {
+          name = 'gitmoji',
+          module = 'gitmoji.blink',
+          opts = { -- gitmoji config values goes here
+            filetypes = { 'gitcommit', 'jj' },
+            completion = {
+              append_space = true,
+              complete_as = 'text',
+            },
+          },
+        },
       },
     },
 

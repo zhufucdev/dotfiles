@@ -29,5 +29,34 @@ return {
         visible = true,
       },
     },
+    git_status = {
+      window = {
+        mappings = {
+          ['gc'] = function()
+            local buf = vim.api.nvim_create_buf(false, true)
+            vim.keymap.set('n', '<CR>', function()
+              local commit_message = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+              vim.fn.execute("term git commit -m '" .. commit_message .. "'")
+            end, {
+              buffer = buf,
+            })
+
+            vim.api.nvim_set_option_value('filetype', 'gitcommit', { buf = buf })
+            parent_win = vim.api.nvim_get_current_win()
+            msg_win_id = vim.api.nvim_open_win(buf, 1, {
+              relative = 'win',
+              width = 50,
+              height = 10,
+              anchor = 'SW',
+              row = vim.api.nvim_win_get_height(parent_win),
+              col = 0,
+              style = 'minimal',
+              title = 'commit message',
+            })
+            vim.fn.execute 'startinsert'
+          end,
+        },
+      },
+    },
   },
 }
