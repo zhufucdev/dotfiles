@@ -34,9 +34,16 @@ return {
         mappings = {
           ['gc'] = function()
             local buf = vim.api.nvim_create_buf(false, true)
-            vim.keymap.set('n', '<CR>', function()
+            function commit()
               local commit_message = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
               vim.fn.execute("term git commit -m '" .. table.concat(commit_message, '\n') .. "'")
+            end
+            vim.keymap.set('n', '<CR>', commit, {
+              buffer = buf,
+            })
+            vim.keymap.set('n', 'p', function()
+              commit()
+              vim.fn.executable('term git push')
             end, {
               buffer = buf,
             })
