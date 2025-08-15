@@ -1,3 +1,8 @@
+local function get_command_from_buf(buf)
+  local commit_message = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+  return "git commit -m '" .. table.concat(commit_message, '\n') .. "'"
+end
+
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
@@ -34,23 +39,22 @@ return {
         mappings = {
           ['gc'] = function()
             local buf = vim.api.nvim_create_buf(false, true)
-            function commit()
-              local commit_message = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
-              vim.fn.execute("term git commit -m '" .. table.concat(commit_message, '\n') .. "'")
-            end
-            vim.keymap.set('n', '<CR>', commit, {
+            vim.keymap.set('n', '<CR>', function()
+              local cmd = get_command_from_buf(buf)
+              vim.fn.execute('term ' .. cmd)
+            end, {
               buffer = buf,
             })
             vim.keymap.set('n', 'p', function()
-              commit()
-              vim.fn.executable('term git push')
+              local cmd = get_command_from_buf(buf) .. ' && git push'
+              vim.fn.execute('term ' .. cmd)
             end, {
               buffer = buf,
             })
 
             vim.api.nvim_set_option_value('filetype', 'gitcommit', { buf = buf })
-            parent_win = vim.api.nvim_get_current_win()
-            msg_win_id = vim.api.nvim_open_win(buf, 1, {
+            local parent_win = vim.api.nvim_get_current_win()
+            local msg_win_id = vim.api.nvim_open_win(buf, true, {
               relative = 'win',
               width = 50,
               height = 10,
@@ -61,6 +65,9 @@ return {
               title = 'commit message',
             })
             vim.fn.execute 'startinsert'
+            vim.keymap.set('n', '<ESC>', function()
+              vim.api.nvim_win_close(msg_win_id, false)
+            end, { buffer = buf })
           end,
         },
       },
