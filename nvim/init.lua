@@ -106,8 +106,8 @@ vim.keymap.set(nit, '<D-t>', '<cmd>tabnew<CR>')
 
 -- Navigations
 local ni = { 'n', 'i' }
-vim.keymap.set(ni, '<D-[>', '<C-o>')
-vim.keymap.set(ni, '<D-]>', '<C-i>')
+vim.keymap.set(ni, '<D-[>', '<ESC><C-o>')
+vim.keymap.set(ni, '<D-]>', '<ESC><C-i>')
 
 -- Jump between diagnostics
 vim.keymap.set(ni, '<D-+>', function ()
