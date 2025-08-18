@@ -25,6 +25,7 @@
     git-lfs
     git-filter-repo
     mcfly
+    prettierd
     nerd-fonts.jetbrains-mono
   ];
 

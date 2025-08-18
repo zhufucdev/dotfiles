@@ -24,7 +24,6 @@ local function get_servers()
     codelldb = {},
     -- rust_analyzer = {},
     markdownlint = {},
-    prettier = {},
     jsonls = {},
 
     lua_ls = {
