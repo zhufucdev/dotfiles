@@ -22,6 +22,8 @@
     rustup
     pyenv
     uv
+    nodejs_22
+    pnpm
     git-lfs
     git-filter-repo
     mcfly
