@@ -45,7 +45,7 @@ return {
             end, {
               buffer = buf,
             })
-            vim.keymap.set('n', 'p', function()
+            vim.keymap.set('n', 'P', function()
               local cmd = get_command_from_buf(buf) .. ' && git push'
               vim.fn.execute('term ' .. cmd)
             end, {
