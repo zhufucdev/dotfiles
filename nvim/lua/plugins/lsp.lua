@@ -25,6 +25,7 @@ local function get_servers()
     -- rust_analyzer = {},
     markdownlint = {},
     jsonls = {},
+    eslint_d = {},
 
     lua_ls = {
       -- cmd = { ... },
