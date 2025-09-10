@@ -28,6 +28,7 @@ return { -- Autoformat
       typescriptreact = use_prettier,
       markdown = use_prettier,
       json = use_prettier,
+      yaml = use_prettier
     },
   },
 }
