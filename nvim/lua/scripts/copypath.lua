@@ -13,7 +13,7 @@ vim.keymap.set('n', '<leader>p', function()
   local cursor = vim.api.nvim_win_get_cursor(current_window);
   vim.api.nvim_open_win(buf, true, {
     relative = 'win',
-    width = math.max(string.len(path), math.floor(vim.api.nvim_win_get_width(current_window) * 0.8)),
+    width = math.min(string.len(path), math.floor((vim.api.nvim_win_get_width(current_window) - cursor[2]) * 0.618)),
     height = 5,
     anchor = 'NW',
     bufpos = cursor,
