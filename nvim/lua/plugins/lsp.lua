@@ -22,10 +22,11 @@ local function get_servers()
     kotlin_lsp = {},
     prismals = {},
     codelldb = {},
-    -- rust_analyzer = {},
+    rust_analyzer = {},
     markdownlint = {},
     jsonls = {},
     ["eslint-lsp"] = {},
+    buf = {},
 
     lua_ls = {
       -- cmd = { ... },
