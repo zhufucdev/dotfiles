@@ -27,7 +27,7 @@ local function get_servers()
     jsonls = {},
     ["eslint-lsp"] = {},
     buf = {},
-
+    taplo = {},
     lua_ls = {
       -- cmd = { ... },
       -- filetypes = { ... },
