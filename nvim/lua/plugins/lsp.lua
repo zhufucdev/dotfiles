@@ -25,7 +25,7 @@ local function get_servers()
     rust_analyzer = {},
     markdownlint = {},
     jsonls = {},
-    ["eslint-lsp"] = {},
+    ['eslint-lsp'] = {},
     buf = {},
     taplo = {},
     lua_ls = {
@@ -63,6 +63,7 @@ return {
     'saghen/blink.cmp',
   },
   config = function()
+    require('venv-lsp').setup()
     vim.lsp.enable 'nixd'
 
     --  This function gets run when an LSP attaches to a particular buffer.
