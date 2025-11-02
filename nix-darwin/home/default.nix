@@ -76,6 +76,10 @@
     eval "$(mcfly init zsh)"
     bindkey ';3C' forward-word
     bindkey ';3D' backward-word
+
+    autoload -U select-word-style
+    select-word-style bash
+    export WORDCHARS='.-'
     '' + (builtins.readFile ./zshrc);
 
     zplug = {
