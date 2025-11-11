@@ -36,9 +36,14 @@ let toolchains =
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  homebrew = {
+    enable = true;
+    brews = ["macism"];
+  };
 };
 in
-{ self, home-manager, nix-homebrew, homebrew-core, homebrew-cask, macos-cross-toolchains, ... }: [
+{ self, home-manager, nix-homebrew, homebrew-core, homebrew-cask, macos-cross-toolchains, laishulu, ... }: [
   (toolchains { inherit self; })
   home-manager.darwinModules.home-manager {
     home-manager = {
@@ -56,8 +61,13 @@ in
         "homebrew/homebrew-core" = homebrew-core;
         "homebrew/homebrew-cask" = homebrew-cask;
         "messense/macos-cross-toolchains" = macos-cross-toolchains;
+        "laishulu/homebrew" = laishulu;
       };
     };
   }
+  #Align homebrew taps config with nix-homebrew
+  ({config, ...}: {
+    homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+  })
   ./postgres.nix
 ]

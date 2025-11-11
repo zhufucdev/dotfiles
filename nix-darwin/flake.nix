@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -24,6 +24,10 @@
     };
     macos-cross-toolchains = {
       url = "github:messense/macos-cross-toolchains";
+      flake = false;
+    };
+    laishulu = {
+      url = "github:laishulu/homebrew-homebrew";
       flake = false;
     };
   };
