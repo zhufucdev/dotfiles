@@ -1,4 +1,5 @@
-{pkgs, ...}: {
-    enable = true;
-    package = pkgs.jdk21;
+{ pkgs, ... }:
+{
+  enable = true;
+  package = pkgs.jdk21;
 }

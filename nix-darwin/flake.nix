@@ -5,8 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nix-darwin = {
-     url = "github:LnL7/nix-darwin";
-     inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -32,23 +32,24 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, ... }:
-  {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#zhusmacmini
-    darwinConfigurations."zhusmacmini" = nix-darwin.lib.darwinSystem {
-      modules = (import ./modules.nix) inputs;
-    };
+  outputs =
+    inputs@{ self, nix-darwin, ... }:
+    {
+      # Build darwin flake using:
+      # $ darwin-rebuild build --flake .#zhusmacmini
+      darwinConfigurations."zhusmacmini" = nix-darwin.lib.darwinSystem {
+        modules = (import ./modules.nix) inputs;
+      };
 
-    darwinConfigurations."zhufusmbp" = nix-darwin.lib.darwinSystem {
-      modules = (import ./modules.nix) inputs;
-    };
+      darwinConfigurations."zhufusmbp" = nix-darwin.lib.darwinSystem {
+        modules = (import ./modules.nix) inputs;
+      };
 
-    darwinConfigurations."zhufusmba" = nix-darwin.lib.darwinSystem {
-      modules = (import ./modules.nix) inputs;
-    };
+      darwinConfigurations."zhufusmba" = nix-darwin.lib.darwinSystem {
+        modules = (import ./modules.nix) inputs;
+      };
 
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."zhusmacmini".pkgs;
-  };
+      # Expose the package set, including overlays, for convenience.
+      darwinPackages = self.darwinConfigurations."zhusmacmini".pkgs;
+    };
 }

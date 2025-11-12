@@ -1,4 +1,5 @@
-{config, pkgs, ...}: {
+{ config, pkgs, ... }:
+{
   home = {
     username = "zhufu";
     homeDirectory = "/Users/zhufu";
@@ -15,7 +16,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
 
   home.packages = with pkgs; [
     go
@@ -42,7 +42,8 @@
     "$HOME/.local/bin"
     "$GOPATH/bin"
     "$CARGO_HOME/bin"
-  ] ++ (import ./path.nix);
+  ]
+  ++ (import ./path.nix);
 
   programs.java = (import ./java.nix) { inherit pkgs; };
 
@@ -71,23 +72,33 @@
     };
 
     initContent = ''
-    export MCFLY_FUZZY=2
-    eval "$(pyenv init -)"
-    eval "$(mcfly init zsh)"
-    bindkey ';3C' forward-word
-    bindkey ';3D' backward-word
+      export MCFLY_FUZZY=2
+      eval "$(pyenv init -)"
+      eval "$(mcfly init zsh)"
+      bindkey ';3C' forward-word
+      bindkey ';3D' backward-word
 
-    autoload -U select-word-style
-    select-word-style bash
-    export WORDCHARS='.-'
-    '' + (builtins.readFile ./zshrc);
+      autoload -U select-word-style
+      select-word-style bash
+      export WORDCHARS='.-'
+    ''
+    + (builtins.readFile ./zshrc);
 
     zplug = {
       enable = true;
       plugins = [
         { name = "zsh-users/zsh-autosuggestions"; } # Simple plugin installation
-        { name = "0i0/0i0.zsh-theme"; tags = [ as:theme depth:1 ]; } # Installations with additional options. For the list of options, please refer to Zplug README.
-        { name = "zsh-users/zsh-history-substring-search"; tags = [ as:plugin ]; }
+        {
+          name = "0i0/0i0.zsh-theme";
+          tags = [
+            "as:theme"
+            "depth:1"
+          ];
+        } # Installations with additional options. For the list of options, please refer to Zplug README.
+        {
+          name = "zsh-users/zsh-history-substring-search";
+          tags = [ "as:plugin" ];
+        }
       ];
     };
   };
