@@ -9,6 +9,7 @@ let toolchains =
     xz
     gnupg
     nixd
+    nixfmt
     watch
     fzf
     ripgrep

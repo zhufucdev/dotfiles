@@ -64,7 +64,15 @@ return {
   },
   config = function()
     require('venv-lsp').setup()
-    vim.lsp.enable 'nixd'
+    require('lspconfig').nixd.setup {
+      settings = {
+        nixd = {
+          formatting = {
+            command = { 'nixfmt' },
+          },
+        },
+      },
+    }
 
     --  This function gets run when an LSP attaches to a particular buffer.
     --    That is to say, every time a new file is opened that is associated with
