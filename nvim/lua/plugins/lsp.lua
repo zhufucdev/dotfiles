@@ -8,6 +8,8 @@
 --  - settings (table): Override the default settings passed when initializing the server.
 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 local function get_servers()
+  local vue_language_server_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
+
   return {
     clangd = {},
     gopls = {},
@@ -18,7 +20,21 @@ local function get_servers()
     --    https://github.com/pmizio/typescript-tools.nvim
     --
     -- But for many setups, the LSP (`ts_ls`) will work just fine
-    ts_ls = {},
+    ts_ls = {
+      init_options = {
+        plugins = {
+          {
+            name = '@vue/typescript-plugin',
+            location = vue_language_server_path,
+            languages = { 'vue' },
+            configNamespace = 'typescript',
+          },
+        },
+      },
+      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    },
+    vue_ls = {},
+    html = {},
     kotlin_lsp = {},
     prismals = {},
     codelldb = {},
@@ -64,7 +80,7 @@ return {
   },
   config = function()
     require('venv-lsp').setup()
-    require('lspconfig').nixd.setup {
+    vim.lsp.config('nixd', {
       settings = {
         nixd = {
           formatting = {
@@ -72,7 +88,7 @@ return {
           },
         },
       },
-    }
+    })
 
     --  This function gets run when an LSP attaches to a particular buffer.
     --    That is to say, every time a new file is opened that is associated with
@@ -247,19 +263,13 @@ return {
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+    for name, config in pairs(servers) do
+      vim.lsp.config(name, config)
+    end
+
     require('mason-lspconfig').setup {
       ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
       automatic_installation = false,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for ts_ls)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
     }
   end,
 }
