@@ -2,10 +2,7 @@ return {
   'amekusa/auto-input-switch.nvim',
   opts = {
     match = {
-      enable = true,
-      languages = {
-        Zh = { enable = true, priority = 0 },
-      },
+      enable = false,
     },
     restore = {
       enable = true,
