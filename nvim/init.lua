@@ -7,7 +7,7 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
+vim.o.guifont = "Monocraft Nerd Font:h14"
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
