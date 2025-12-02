@@ -58,6 +58,16 @@ local function get_servers()
         },
       },
     },
+    nixd = {
+      no_install = true,
+      settings = {
+        nixd = {
+          formatting = {
+            command = { 'nixfmt' },
+          },
+        },
+      },
+    },
   }
 end
 
@@ -80,16 +90,6 @@ return {
   },
   config = function()
     require('venv-lsp').setup()
-    vim.lsp.config('nixd', {
-      settings = {
-        nixd = {
-          formatting = {
-            command = { 'nixfmt' },
-          },
-        },
-      },
-    })
-
     --  This function gets run when an LSP attaches to a particular buffer.
     --    That is to say, every time a new file is opened that is associated with
     --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
@@ -257,13 +257,23 @@ return {
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
     local servers = get_servers()
-    local ensure_installed = vim.tbl_keys(servers or {})
+
+    local ensure_installed = vim
+      .iter(pairs(servers or {}))
+      :map(function(name, value)
+        if value.no_install ~= true then
+          return name
+        end
+      end)
+      :totable()
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     for name, config in pairs(servers) do
+      config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+      vim.lsp.enable(name)
       vim.lsp.config(name, config)
     end
 
