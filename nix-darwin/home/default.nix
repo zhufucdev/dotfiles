@@ -29,6 +29,7 @@
     mcfly
     prettierd
     monocraft
+    nerd-fonts.jetbrains-mono
   ];
 
   home.sessionVariables = {
