@@ -444,3 +444,4 @@ require('lazy').setup({
 -- Extra scripts
 require('scripts.copypath')
 require('scripts.fontsize')
+require('scripts.focusback')
