@@ -92,5 +92,17 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
+
+    -- Search for LSP symbols
+    local symbol_by_shortcut = {
+      f = 'function',
+      c = 'class',
+      v = 'variable',
+    }
+    for k, v in pairs(symbol_by_shortcut) do
+      vim.keymap.set('n', '<leader>s' .. k, function()
+        builtin.lsp_document_symbols { symbols = v }
+      end, { desc = '[S]ymbol of [' .. string.upper(string.sub(v, 1, 1)) .. ']' .. string.sub(v, 2) })
+    end
   end,
 }
