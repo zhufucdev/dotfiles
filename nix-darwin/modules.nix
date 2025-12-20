@@ -41,9 +41,13 @@ let
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
 
+      nixpkgs.config = {
+        allowUnfree = true;
+      };
+
       homebrew = {
         enable = true;
-        brews = [ "macism" ];
+        brews = [ ];
       };
     };
 in

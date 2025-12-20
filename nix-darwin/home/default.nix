@@ -30,6 +30,8 @@
     prettierd
     monocraft
     nerd-fonts.jetbrains-mono
+    macism
+    raycast
   ];
 
   home.sessionVariables = {

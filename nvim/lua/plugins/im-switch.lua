@@ -9,8 +9,8 @@ return {
     },
     os_settings = {
         macos = {
-            cmd_get = '/opt/homebrew/bin/macism',
-            cmd_set = '/opt/homebrew/bin/macism %s'
+            cmd_get = 'macism',
+            cmd_set = 'macism %s'
         }
     }
   },

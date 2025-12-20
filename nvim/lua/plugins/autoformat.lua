@@ -1,6 +1,5 @@
 local use_prettier = { 'prettierd', 'prettier', stop_after_first = true }
 
-
 return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
@@ -24,12 +23,13 @@ return { -- Autoformat
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = use_prettier,
-      typescript = use_prettier,
-      typescriptreact = use_prettier,
+      typescript = { 'eslint_d', 'prettierd', stop_after_first = true },
+      typescriptreact = { 'eslint_d', 'prettierd', stop_after_first = true },
       markdown = use_prettier,
       json = use_prettier,
       yaml = use_prettier,
-      css = use_prettier
+      css = use_prettier,
+      vue = { 'eslint_d' },
     },
   },
 }
