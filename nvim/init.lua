@@ -28,6 +28,7 @@ vim.o.showmode = false
 
 -- Enable break indent
 vim.o.breakindent = true
+vim.o.breakindentopt = 'shift:2'
 
 -- Save undo history
 vim.o.undofile = true
