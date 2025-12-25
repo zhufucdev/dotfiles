@@ -29,6 +29,7 @@
   "nvim-dap": { "branch": "master", "commit": "5860c7c501eb428d3137ee22c522828d20cca0b3" },
   "nvim-dap-exception-breakpoints": { "branch": "main", "commit": "6bc8d52fb48d20c8cd61920a8c1a4b487eff3afd" },
   "nvim-dap-go": { "branch": "main", "commit": "b4421153ead5d726603b02743ea40cf26a51ed5f" },
+  "nvim-dap-python": { "branch": "master", "commit": "1808458eba2b18f178f990e01376941a42c7f93b" },
   "nvim-dap-ui": { "branch": "master", "commit": "cf91d5e2d07c72903d052f5207511bf7ecdb7122" },
   "nvim-lint": { "branch": "master", "commit": "d1118791070d090777398792a73032a0ca5c79ff" },
   "nvim-lspconfig": { "branch": "master", "commit": "30a2b191bccf541ce1797946324c9329e90ec448" },

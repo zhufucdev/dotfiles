@@ -30,6 +30,7 @@
     prettierd
     monocraft
     nerd-fonts.jetbrains-mono
+    python313Packages.debugpy
     macism
     raycast
   ];

@@ -129,6 +129,10 @@ vim.keymap.set('n', '<D->>', function()
   vim.api.nvim_command 'Neotree reveal'
 end)
 
+-- Clipboard shortcuts
+vim.keymap.set('i', '<D-v>', '<ESC>"+p<CR>i')
+
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
