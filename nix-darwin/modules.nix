@@ -47,7 +47,9 @@ let
 
       homebrew = {
         enable = true;
-        brews = [ ];
+        brews = [ "tw93/tap/mole" ];
+        taps = [ "tw93/tap" ];
+        casks = [ ];
       };
     };
 in
@@ -58,7 +60,7 @@ in
   homebrew-core,
   homebrew-cask,
   macos-cross-toolchains,
-  laishulu,
+  tw93,
   ...
 }:
 [
@@ -81,7 +83,7 @@ in
         "homebrew/homebrew-core" = homebrew-core;
         "homebrew/homebrew-cask" = homebrew-cask;
         "messense/macos-cross-toolchains" = macos-cross-toolchains;
-        "laishulu/homebrew" = laishulu;
+        "tw93/homebrew-tap" = tw93;
       };
     };
   }

@@ -26,8 +26,8 @@
       url = "github:messense/macos-cross-toolchains";
       flake = false;
     };
-    laishulu = {
-      url = "github:laishulu/homebrew-homebrew";
+    tw93 = {
+      url = "github:tw93/homebrew-tap";
       flake = false;
     };
   };
