@@ -43,7 +43,8 @@ local function get_servers()
     markdownlint = {},
     jsonls = {},
     ['eslint-lsp'] = {},
-    ['astro-language-server'] = {},
+    astro = {},
+    tailwindcss = {},
     buf = {},
     taplo = {},
     lua_ls = {
