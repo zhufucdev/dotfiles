@@ -22,6 +22,12 @@ return {
     { '<D-3>', '<cmd>:Neotree buffers<CR>', silent = true, mode = default_mode },
   },
   opts = {
+    clipboard = {
+      sync = 'global',
+    },
+    window = {
+      position = 'float',
+    },
     filesystem = {
       window = {
         mappings = {
