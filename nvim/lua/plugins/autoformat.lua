@@ -25,6 +25,7 @@ return { -- Autoformat
       javascript = use_prettier,
       typescript = { 'eslint_d', 'prettierd', stop_after_first = true },
       typescriptreact = { 'eslint_d', 'prettierd', stop_after_first = true },
+      astro = use_prettier,
       markdown = use_prettier,
       json = use_prettier,
       yaml = use_prettier,
