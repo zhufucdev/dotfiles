@@ -133,7 +133,6 @@ end)
 -- Clipboard shortcuts
 vim.keymap.set('i', '<D-v>', '<ESC>"+p<CR>i')
 
-
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -425,8 +424,7 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
-
-  { import = 'plugins', change_detection = { enabled = false } },
+  { import = 'plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -447,6 +445,7 @@ require('lazy').setup({
       lazy = '💤 ',
     },
   },
+  change_detection = { notify = false },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
