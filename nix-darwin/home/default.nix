@@ -33,6 +33,7 @@
     python313Packages.debugpy
     macism
     raycast
+    neovide
   ];
 
   home.sessionVariables = {
