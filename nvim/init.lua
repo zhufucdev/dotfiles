@@ -95,11 +95,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- Close windows
 local nit = { 'n', 'i', 't' }
-vim.keymap.set(nit, '<D-w>', function()
-  local win = vim.api.nvim_get_current_win()
-  pcall(require('mini.bufremove').delete, vim.api.nvim_win_get_buf(win), true)
-  pcall(vim.api.nvim_win_close, win, true)
-end)
+vim.keymap.set(nit, '<D-w>', '<cmd>q!<CR>')
 vim.keymap.set(nit, '<D-W>', '<cmd>wqa<CR>')
 
 -- Save files
