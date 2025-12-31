@@ -1,5 +1,12 @@
 local use_prettier = { 'prettierd', 'prettier', stop_after_first = true }
 
+local function use_fontend()
+  if vim.fn.filereadable 'eslint.config.js' == 1 or vim.fn.filereadable 'eslint.config.mjs' == 1 then
+    return { 'eslint_d' }
+  end
+  return use_prettier
+end
+
 return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
@@ -22,15 +29,15 @@ return { -- Autoformat
       python = { 'isort', 'black', stop_after_first = false },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
-      javascript = use_prettier,
-      typescript = { 'eslint_d', 'prettierd', stop_after_first = true },
-      typescriptreact = { 'eslint_d', 'prettierd', stop_after_first = true },
-      astro = use_prettier,
-      markdown = use_prettier,
-      json = use_prettier,
+      javascript = use_fontend,
+      typescript = use_fontend,
+      typescriptreact = use_fontend,
+      astro = use_fontend,
+      markdown = use_fontend,
+      json = use_fontend,
       yaml = use_prettier,
-      css = use_prettier,
-      vue = { 'eslint_d' },
+      css = use_fontend,
+      vue = use_fontend,
     },
   },
 }
