@@ -82,7 +82,7 @@ return { -- Autocompletion
     },
 
     sources = {
-      default = { 'supermaven', 'lsp', 'path', 'snippets', 'lazydev', 'gitmoji' },
+      default = { 'lsp', 'supermaven', 'path', 'snippets', 'lazydev', 'gitmoji' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         gitmoji = {
@@ -100,6 +100,7 @@ return { -- Autocompletion
           name = 'supermaven',
           module = 'blink-cmp-supermaven',
           async = true,
+          score_offset = -100
         },
       },
     },
