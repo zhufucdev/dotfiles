@@ -75,6 +75,6 @@
     defaultEditor = true;
   };
 
-  programs.zsh = import ../../nix-common/zsh.nix;
-  programs.git = (import ../../nix-common/git.nix) { inherit config; };
+  programs.zsh = import ../../nix-common/zsh.nix { inherit config; };
+  programs.git = import ../../nix-common/git.nix;
 }
