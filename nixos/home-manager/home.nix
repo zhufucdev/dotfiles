@@ -26,6 +26,8 @@
     pyenv
     mcfly
     tmux
+    monocraft
+    nerd-fonts.jetbrains-mono
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -65,6 +67,8 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  fonts.fontconfig.enable = true;
 
   programs.neovim = {
     enable = true;

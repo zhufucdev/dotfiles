@@ -149,6 +149,8 @@
     nixfmt
     file
     lsof
+    neovide
+    gnome-console
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
