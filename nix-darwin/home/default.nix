@@ -60,52 +60,11 @@
 
   programs.neovim.enable = true;
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
+  programs.zsh = (import ../../nix-common/zsh.nix) { inherit config; } // {
     shellAliases = {
       tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
       adb = "/Users/zhufu/Library/Android/sdk/platform-tools/adb";
       fastboot = "/Users/zhufu/Library/Android/sdk/platform-tools/fastboot";
-    };
-
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-    };
-
-    initContent = ''
-      export MCFLY_FUZZY=2
-      eval "$(pyenv init -)"
-      eval "$(mcfly init zsh)"
-      bindkey ';3C' forward-word
-      bindkey ';3D' backward-word
-      bindkey -v
-
-      autoload -U select-word-style
-      select-word-style bash
-      export WORDCHARS='.-'
-    ''
-    + (builtins.readFile ./zshrc);
-
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; } # Simple plugin installation
-        {
-          name = "0i0/0i0.zsh-theme";
-          tags = [
-            "as:theme"
-            "depth:1"
-          ];
-        } # Installations with additional options. For the list of options, please refer to Zplug README.
-        {
-          name = "zsh-users/zsh-history-substring-search";
-          tags = [ "as:plugin" ];
-        }
-      ];
     };
   };
 
