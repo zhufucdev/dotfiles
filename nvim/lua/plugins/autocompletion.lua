@@ -31,7 +31,14 @@ return { -- Autocompletion
     },
     'folke/lazydev.nvim',
     'huijiro/blink-cmp-supermaven',
-    { 'supermaven-inc/supermaven-nvim', opts = { disable_inline_completion = true, disable_keymaps = true } },
+    {
+      'supermaven-inc/supermaven-nvim',
+      opts = {
+        disable_inline_completion = true,
+        disable_keymaps = true,
+        log_level = 'off',
+      },
+    },
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -100,7 +107,7 @@ return { -- Autocompletion
           name = 'supermaven',
           module = 'blink-cmp-supermaven',
           async = true,
-          score_offset = -100
+          score_offset = -100,
         },
       },
     },
