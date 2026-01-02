@@ -107,13 +107,5 @@
     };
   };
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "zhufucdev";
-        email = "zhufuzhufu1@gmail.com";
-      };
-    };
-  };
+  programs.git = import ../../nix-common/git.nix;
 }

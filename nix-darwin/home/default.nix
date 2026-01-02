@@ -54,7 +54,7 @@
 
   programs.poetry.enable = true;
 
-  programs.git = (import ./git.nix);
+  programs.git = (import ../../nix-common/git.nix);
 
   programs.gh.enable = true;
 
@@ -82,6 +82,7 @@
       eval "$(mcfly init zsh)"
       bindkey ';3C' forward-word
       bindkey ';3D' backward-word
+      bindkey -v
 
       autoload -U select-word-style
       select-word-style bash
