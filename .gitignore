@@ -1,2 +1,4 @@
 result
 .DS_Store
+
+nixos/system-cron.nix
