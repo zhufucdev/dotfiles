@@ -215,12 +215,11 @@
   # Tailscale
   services.tailscale.enable = true;
 
-  services.cron = {
-    enable = true;
-    # This file is excluded from VCS
-    systemCronJobs =
-      [ ] ++ lib.optional (builtins.pathExists ./system-cron.local.nix) (import ./system-cron.local.nix);
-  };
+  services.cron =
+    if builtins.pathExists ./system-cron.local.nix then
+      import ./system-cron.local.nix { inherit lib pkgs; }
+    else
+      { };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
