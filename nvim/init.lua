@@ -7,7 +7,7 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.o.guifont = "Monocraft Nerd Font,JetBrainsMono Nerd Font Mono:h14"
+vim.o.guifont = 'Monocraft Nerd Font,JetBrainsMono Nerd Font Mono:h14'
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -113,11 +113,11 @@ vim.keymap.set(ni, '<D-[>', '<ESC><C-o>')
 vim.keymap.set(ni, '<D-]>', '<ESC><C-i>')
 
 -- Jump between diagnostics
-vim.keymap.set(ni, '<D-+>', function ()
-  vim.diagnostic.jump({count = 1})
+vim.keymap.set(ni, '<D-+>', function()
+  vim.diagnostic.jump { count = 1 }
 end)
-vim.keymap.set(ni, '<D-_>', function ()
-  vim.diagnostic.jump({count = -1})
+vim.keymap.set(ni, '<D-_>', function()
+  vim.diagnostic.jump { count = -1 }
 end)
 
 -- Open current directory
@@ -420,6 +420,7 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+  'davidmh/mdx.nvim',
   { import = 'plugins' },
 }, {
   ui = {
@@ -448,6 +449,13 @@ require('lazy').setup({
 -- vim: ts=2 sts=2 sw=2 et
 
 -- Extra scripts
-require('scripts.copypath')
-require('scripts.fontsize')
-require('scripts.focusback')
+require 'scripts.copypath'
+require 'scripts.fontsize'
+require 'scripts.focusback'
+
+-- Custom file types
+vim.filetype.add {
+  extension = {
+    mdx = 'mdx'
+  }
+}

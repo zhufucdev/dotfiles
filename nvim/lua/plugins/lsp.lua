@@ -41,6 +41,7 @@ local function get_servers()
     codelldb = {},
     rust_analyzer = {},
     markdownlint = {},
+    mdx_analyzer = {},
     jsonls = {},
     ['eslint-lsp'] = {},
     astro = {},
