@@ -16,6 +16,7 @@ let
         watch
         fzf
         ripgrep
+        blahaj
       ];
 
       environment.pathsToLink = [ "/share/zsh" ];
