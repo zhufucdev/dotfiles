@@ -134,7 +134,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO+cV1MGvbTix/2rL1cUMfLbbhBXwOutUwNUNYle+c5F zhufu@zhufusmbp.local"
     ];
   };
-  # programs.firefox.enable = true;
+  programs.firefox.enable = true;
   programs.zsh.enable = true;
 
   # List packages installed in system profile.
