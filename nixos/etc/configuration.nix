@@ -127,6 +127,7 @@
       "wheel"
       "networkmanager"
       "uinput"
+      "docker"
     ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
@@ -220,6 +221,15 @@
       import ./system-cron.local.nix { inherit lib pkgs; }
     else
       { };
+
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings = {
+      fixed-cidr-v6 = "fd00::/80";
+      ipv6 = true;
+      live-restore = true;
+    };
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
