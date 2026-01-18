@@ -72,6 +72,42 @@ local function get_servers()
         },
       },
     },
+    harper_ls = {
+      settings = {
+        linters = {
+          SentenceCapitalization = false,
+        },
+      },
+      filetypes = {
+        'asciidoc',
+        'c',
+        'cpp',
+        'cs',
+        'gitcommit',
+        'go',
+        'html',
+        'java',
+        'javascript',
+        'lua',
+        'markdown',
+        'mdx',
+        'nix',
+        'python',
+        'ruby',
+        'rust',
+        'swift',
+        'toml',
+        'typescript',
+        'typescriptreact',
+        'haskell',
+        'cmake',
+        'typst',
+        'php',
+        'dart',
+        'clojure',
+        'sh',
+      },
+    },
   }
 end
 
