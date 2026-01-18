@@ -34,6 +34,7 @@
     macism
     raycast
     neovide
+    openapi-generator-cli
   ];
 
   home.sessionVariables = {
