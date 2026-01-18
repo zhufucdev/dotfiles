@@ -30,6 +30,10 @@
       url = "github:tw93/homebrew-tap";
       flake = false;
     };
+    zewo = {
+      url = "github:zewo/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =

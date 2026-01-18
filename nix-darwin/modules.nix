@@ -48,7 +48,10 @@ let
 
       homebrew = {
         enable = true;
-        brews = [ "tw93/tap/mole" ];
+        brews = [
+          "tw93/tap/mole"
+          "zewo/tap/libdill"
+        ];
         taps = [ "tw93/tap" ];
         casks = [ ];
       };
@@ -62,6 +65,7 @@ in
   homebrew-cask,
   macos-cross-toolchains,
   tw93,
+  zewo,
   ...
 }:
 [
@@ -85,6 +89,7 @@ in
         "homebrew/homebrew-cask" = homebrew-cask;
         "messense/macos-cross-toolchains" = macos-cross-toolchains;
         "tw93/homebrew-tap" = tw93;
+        "zewo/homebrew-tap" = zewo;
       };
     };
   }

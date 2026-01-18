@@ -168,7 +168,8 @@
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",
-        "tw93": "tw93"
+        "tw93": "tw93",
+        "zewo": "zewo"
       }
     },
     "systems": {
@@ -198,6 +199,22 @@
       },
       "original": {
         "owner": "tw93",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
+    "zewo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1510570258,
+        "narHash": "sha256-mNvp5UGHNxgHc//c/NtiyF/d4eJUW6hgnHmPpvV1+A8=",
+        "owner": "zewo",
+        "repo": "homebrew-tap",
+        "rev": "4bd657d5528c8ca60ac1a506bd28b1c291fdd57a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zewo",
         "repo": "homebrew-tap",
         "type": "github"
       }
