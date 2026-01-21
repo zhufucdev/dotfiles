@@ -91,12 +91,22 @@
         "netbios name" = "functionaltux";
         "security" = "user";
 
-        "guest account" = "nobody";
+        "guest account" = "sambaguest";
+        "map to guest" = "bad user";
+        "access based share enum" = "yes";
 
         "usershare path" = "/var/lib/samba/usershares";
         "usershare max shares" = "100";
-        "usershare allow guests" = "yes";
+        "usershare allow guests" = "no";
         "usershare owner only" = "no";
+      };
+      public = {
+        "path" = "/mnt/pool/public";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
+        "create mask" = "0644";
+        "directory mask" = "0755";
       };
     };
     openFirewall = true;
@@ -133,6 +143,10 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO+cV1MGvbTix/2rL1cUMfLbbhBXwOutUwNUNYle+c5F zhufu@zhufusmbp.local"
     ];
+  };
+  users.users.sambaguest = {
+    isNormalUser = true;
+    shell = null;
   };
   programs.firefox.enable = true;
   programs.zsh.enable = true;
