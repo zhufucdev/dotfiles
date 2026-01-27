@@ -26,7 +26,7 @@
     pyenv
     mcfly
     tmux
-    monocraft
+    maple-mono.NF-CN
     nerd-fonts.jetbrains-mono
   ];
 

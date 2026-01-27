@@ -28,7 +28,7 @@
     git-filter-repo
     mcfly
     prettierd
-    monocraft
+    maple-mono.NF-CN
     nerd-fonts.jetbrains-mono
     python313Packages.debugpy
     macism
