@@ -39,6 +39,7 @@ local function get_servers()
     kotlin_lsp = {},
     prismals = {},
     codelldb = {},
+    rust_analyzer = {},
     markdownlint = {},
     mdx_analyzer = {},
     jsonls = {},
@@ -107,9 +108,6 @@ local function get_servers()
         'sh',
       },
     },
-    stylua = { no_config = true }, -- Used to format Lua code,
-    black = { no_config = true }, -- Used to format Python,
-    isort = { no_config = true }, -- Used to sort Python imports
   }
 end
 
@@ -244,6 +242,7 @@ return {
         -- Call navic to setup winbar
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentSymbol, event.buf) then
           local navic = require 'nvim-navic'
+          navic.attach(client, event.buf)
         end
       end,
     })
@@ -307,16 +306,17 @@ return {
         end
       end)
       :totable()
+    vim.list_extend(ensure_installed, {
+      'stylua', -- Used to format Lua code,
+      'black', -- Used to format Python,
+      'isort', -- Used to sort Python imports
+    })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     for name, config in pairs(servers) do
       config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
-      if config.no_config then
-        goto continue
-      end
       vim.lsp.enable(name)
       vim.lsp.config(name, config)
-      ::continue::
     end
 
     require('mason-lspconfig').setup {
