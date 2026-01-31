@@ -124,9 +124,7 @@ return {
 
     -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
-
-    -- Allows extra capabilities provided by blink.cmp
-    'saghen/blink.cmp',
+    'hrsh7th/nvim-cmp',
   },
   config = function()
     require('venv-lsp').setup()
@@ -279,8 +277,8 @@ return {
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.
     --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
-    --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    --  So, we create new capabilities with cmp-nvim, and then broadcast that to the servers.
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     --
     -- Ensure the servers and tools above are installed
