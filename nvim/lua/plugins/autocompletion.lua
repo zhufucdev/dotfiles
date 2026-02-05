@@ -13,7 +13,15 @@ return { -- Autocompletion
         log_level = 'off',
       },
     },
-    'Dynge/gitmoji.nvim',
+    {
+      'Dynge/gitmoji.nvim',
+      opts = {
+        completion = {
+          complete_as = 'text',
+          append_space = true,
+        },
+      },
+    },
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
