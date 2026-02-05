@@ -36,7 +36,6 @@ local function get_servers()
     vue_ls = {},
     html = {},
     cssls = {},
-    kotlin_lsp = {},
     prismals = {},
     codelldb = {},
     rust_analyzer = {},
