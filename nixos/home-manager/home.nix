@@ -24,6 +24,7 @@
     nodejs_24
     pnpm
     pyenv
+    uv
     mcfly
     tmux
     maple-mono.NF-CN
