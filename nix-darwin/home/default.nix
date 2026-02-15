@@ -31,6 +31,7 @@
     maple-mono.NF-CN
     nerd-fonts.jetbrains-mono
     python313Packages.debugpy
+    python313Packages.huggingface-hub
     macism
     raycast
     neovide
