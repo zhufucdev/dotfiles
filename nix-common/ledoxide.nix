@@ -1,10 +1,15 @@
 {
   lib,
+  pkgs,
   fetchFromGitHub,
   rustPlatform,
+  cudaPackages,
   features ? [ ],
   ...
 }:
+let
+  useCuda = lib.elem "cuda" features;
+in
 rustPlatform.buildRustPackage rec {
   pname = "ledoxide";
   version = "0.1.0";
@@ -22,4 +27,8 @@ rustPlatform.buildRustPackage rec {
   };
 
   buildFeatures = features;
+  nativeBuildInputs = lib.optionals useCuda [
+    cudaPackages.cuda_nvcc
+  ];
+  CUDA_PATH = if useCuda then "${cudaPackages.cudatoolkit}" else null;
 }
