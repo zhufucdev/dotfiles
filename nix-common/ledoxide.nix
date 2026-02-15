@@ -29,6 +29,7 @@ rustPlatform.buildRustPackage rec {
   buildFeatures = features;
   buildInputs = [
     rustPlatform.bindgenHook
+    cudaPackages.cudatoolkit
   ];
   nativeBuildInputs = lib.optionals useCuda [
     cudaPackages.cuda_nvcc
