@@ -27,8 +27,14 @@ rustPlatform.buildRustPackage rec {
   };
 
   buildFeatures = features;
+  buildInputs = [
+    rustPlatform.bindgenHook
+  ];
   nativeBuildInputs = lib.optionals useCuda [
     cudaPackages.cuda_nvcc
   ];
-  CUDA_PATH = if useCuda then "${cudaPackages.cudatoolkit}" else null;
+  env = lib.optionalAttrs useCuda {
+    CUDA_PATH = "${cudaPackages.cudatoolkit}";
+    CUDA_COMPUTE_CAP = "89";
+  };
 }

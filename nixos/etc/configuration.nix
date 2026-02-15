@@ -167,7 +167,7 @@
     lsof
     neovide
     gnome-console
-    (callPackage ../../nix-common/ledoxide.nix { features = [ "cuda" ]; })
+    (callPackage ../../nix-common/ledoxide.nix { features = [ "cuda" ]; cudaPackages = cudaPackages_13; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
