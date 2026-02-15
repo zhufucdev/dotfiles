@@ -27,10 +27,14 @@ rustPlatform.buildRustPackage rec {
   };
 
   buildFeatures = features;
-  buildInputs = [
-    rustPlatform.bindgenHook
-    cudaPackages.cudatoolkit
-  ];
+  buildInputs =
+    if useCuda then
+      [
+        rustPlatform.bindgenHook
+        cudaPackages.cudatoolkit
+      ]
+    else
+      [ rustPlatform.bindgenHook ];
   nativeBuildInputs = lib.optionals useCuda [
     cudaPackages.cuda_nvcc
   ];
