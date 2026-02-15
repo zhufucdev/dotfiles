@@ -36,6 +36,7 @@
     raycast
     neovide
     openapi-generator-cli
+    (callPackage ../../nix-common/ledoxide.nix { features = [ "metal" ]; })
   ];
 
   home.sessionVariables = {
