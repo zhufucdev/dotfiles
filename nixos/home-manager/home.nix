@@ -29,6 +29,7 @@
     tmux
     maple-mono.NF-CN
     nerd-fonts.jetbrains-mono
+    python313Packages.huggingface-hub
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
