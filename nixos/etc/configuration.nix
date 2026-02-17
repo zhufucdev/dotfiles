@@ -151,6 +151,10 @@
   };
   programs.firefox.enable = true;
   programs.zsh.enable = true;
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -167,7 +171,10 @@
     lsof
     neovide
     gnome-console
-    (callPackage ../../nix-common/ledoxide.nix { features = [ "cuda" ]; cudaPackages = cudaPackages_13; })
+    (callPackage ../../nix-common/ledoxide.nix {
+      features = [ "cuda" ];
+      cudaPackages = cudaPackages_13;
+    })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
