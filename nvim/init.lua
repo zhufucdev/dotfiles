@@ -9,6 +9,13 @@ vim.g.have_nerd_font = true
 
 vim.o.guifont = 'Maple Mono NF CN,JetBrainsMono Nerd Font Mono:h14'
 
+-- Relaod buffer when file changed
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGained' }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { '*' },
+})
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
@@ -456,6 +463,6 @@ require 'scripts.focusback'
 -- Custom file types
 vim.filetype.add {
   extension = {
-    mdx = 'mdx'
-  }
+    mdx = 'mdx',
+  },
 }
