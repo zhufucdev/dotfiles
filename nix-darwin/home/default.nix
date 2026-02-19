@@ -36,6 +36,7 @@
     raycast
     neovide
     openapi-generator-cli
+    ghostty-bin
   ];
 
   home.sessionVariables = {
