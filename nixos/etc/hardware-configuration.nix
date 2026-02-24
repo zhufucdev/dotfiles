@@ -80,4 +80,5 @@
     # I am using a GTX1080 Ti
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+  hardware.nvidia-container-toolkit.enable = true;
 }
