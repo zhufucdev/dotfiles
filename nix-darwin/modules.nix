@@ -16,7 +16,7 @@ let
         watch
         fzf
         ripgrep
-        blahaj
+        llama-cpp
       ];
 
       environment.pathsToLink = [ "/share/zsh" ];
