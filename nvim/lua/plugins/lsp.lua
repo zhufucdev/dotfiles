@@ -107,6 +107,9 @@ local function get_servers()
         'sh',
       },
     },
+    ['docker-language-server'] = {
+      filetypes = { 'dockerfile' },
+    },
   }
 end
 

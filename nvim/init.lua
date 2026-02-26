@@ -459,6 +459,7 @@ require('lazy').setup({
 require 'scripts.copypath'
 require 'scripts.fontsize'
 require 'scripts.focusback'
+require 'scripts.cargofeatures'
 
 -- Custom file types
 vim.filetype.add {

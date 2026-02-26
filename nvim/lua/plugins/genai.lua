@@ -1,4 +1,4 @@
-local opencode_version = 'v1.1.20'
+local opencode_version = 'v1.2.10'
 local opencode_instances = {}
 
 local function get_term(id)
