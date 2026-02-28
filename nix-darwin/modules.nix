@@ -17,6 +17,7 @@ let
         fzf
         ripgrep
         llama-cpp
+        ninja
       ];
 
       environment.pathsToLink = [ "/share/zsh" ];
