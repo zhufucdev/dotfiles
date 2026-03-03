@@ -14,6 +14,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./qbittorent.nix
+    ./ledoxide.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -156,6 +157,17 @@
     enableZshIntegration = true;
   };
 
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "zhufuzhufu1@gmail.com";
+    certs."ledoxide.zhufucdev.com" = {
+      dnsProvider = "cloudflare";
+      environmentFile = "${pkgs.writeText "cloudflare-creds" ''
+        CLOUDFLARE_DNS_API_TOKEN=QYvomhb4M4wCnXNkvgbD64EEc68_OcFBUWQyOLr3
+      ''}";
+    };
+  };
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
@@ -171,10 +183,8 @@
     lsof
     neovide
     gnome-console
-    (callPackage ../../nix-common/ledoxide.nix {
-      features = [ "cuda" ];
-      cudaPackages = cudaPackages_13;
-    })
+    sops
+    age
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -245,6 +255,28 @@
     else
       { };
 
+  sops = {
+    defaultSopsFile = ./secrets/default.yaml;
+    age = {
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      # This will generate a new key if the key specified above does not exist
+      generateKey = true;
+    };
+    secrets = {
+      "ledoxide/server.env" = {
+        format = "dotenv";
+        sopsFile = ./secrets/ledoxide_server.env;
+        mode = "444";
+      };
+      "ledoxide/frpc.env" = {
+        format = "dotenv";
+        sopsFile = ./secrets/ledoxide_frpc.env;
+        mode = "444";
+      };
+    };
+  };
+
   virtualisation.docker = {
     enable = true;
     daemon.settings = {
@@ -252,11 +284,6 @@
       ipv6 = true;
       live-restore = true;
     };
-  };
-
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-cuda;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system

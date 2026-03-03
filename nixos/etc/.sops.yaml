@@ -1,0 +1,9 @@
+keys:
+  - &steve age1r88ywupg9nh2y0smc36mh2mpj2gp73q5kfz2rqxaj37l37pcgexql62wjr
+  - &functionaltux age1dhdz820tmka86x5r5h39fdhw35x8jpxxvpnv9krxxgne7lwrlcts4t8hax
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *steve
+      - *functionaltux
