@@ -19,7 +19,7 @@ return {
     lazy = false,
     keys = {
       { '<D-1>', '<cmd>:Neotree reveal<CR>', silent = true, mode = default_mode },
-      { '<D-2>', '<cmd>:Neotree git_status<CR>', silent = true, mode = default_mode },
+      -- { '<D-2>', '<cmd>:Neotree git_status<CR>', silent = true, mode = default_mode },
       { '<D-3>', '<cmd>:Neotree buffers<CR>', silent = true, mode = default_mode },
     },
     opts = {
