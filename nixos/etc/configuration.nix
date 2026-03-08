@@ -110,6 +110,16 @@
         "create mask" = "0644";
         "directory mask" = "0755";
       };
+
+      steve_home = {
+        "path" = "/home/steve/share";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "steve";
+      };
     };
     openFirewall = true;
   };
@@ -249,11 +259,10 @@
   # Tailscale
   services.tailscale.enable = true;
 
-  services.cron =
-    if builtins.pathExists ./system-cron.local.nix then
-      import ./system-cron.local.nix { inherit lib pkgs; }
-    else
-      { };
+  services.cron = {
+    enable = true;
+    systemCronJobs = [ ];
+  };
 
   sops = {
     defaultSopsFile = ./secrets/default.yaml;
