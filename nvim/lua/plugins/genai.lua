@@ -31,7 +31,7 @@ return {
       local opencode = require 'opencode'
       ---@type opencode.Opts
       vim.g.opencode_opts = {
-        provider = {
+        server = {
           toggle = function()
             get_term(vim.fn.getcwd()):toggle()
           end,

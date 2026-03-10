@@ -1,8 +1,3 @@
-local function get_command_from_buf(buf)
-  local commit_message = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
-  return "git commit -m '" .. table.concat(commit_message, '\n') .. "'"
-end
-
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
@@ -41,21 +36,6 @@ return {
           visible = true,
         },
       },
-      git_status = {
-        window = {
-          mappings = {
-            ['gc'] = function()
-              vim.api.nvim_command 'CommitPad'
-            end,
-          },
-        },
-      },
     },
-  },
-  {
-    'Sengoku11/commitpad.nvim',
-    dependencies = { 'MunifTanjim/nui.nvim' },
-    cmd = { 'CommitPad' },
-    opts = {},
   },
 }
