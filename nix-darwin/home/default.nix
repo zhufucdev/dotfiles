@@ -22,7 +22,7 @@
     rustup
     pyenv
     uv
-    nodejs_22
+    nodejs-slim
     pnpm
     git-lfs
     git-filter-repo
