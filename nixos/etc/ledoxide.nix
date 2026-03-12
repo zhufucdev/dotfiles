@@ -39,7 +39,7 @@
     ];
   };
   virtualisation.oci-containers.containers."ledoxide-server" = {
-    image = "zhufucdev/ledoxide:v0.10.2";
+    image = "zhufucdev/ledoxide:v0.11.0";
     environment = {
       "RUST_LOG" = "info";
     };
