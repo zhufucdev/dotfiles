@@ -27,6 +27,27 @@
     uv
     mcfly
     tmux
+    # Language servers & tools
+    ripgrep
+    clang
+    clang-tools
+    vue-language-server
+    astro-language-server
+    vscode-css-languageserver
+    vtsls
+    docker-language-server
+    gopls
+    isort
+    black
+    delve
+    markdownlint-cli
+    vscode-json-languageserver
+    stylua
+    tailwindcss-language-server
+    pyrefly
+    mdx-language-server
+    harper
+
     maple-mono.NF-CN
     nerd-fonts.jetbrains-mono
     python313Packages.huggingface-hub
