@@ -85,7 +85,13 @@
   # Samba share zfs pool
   services.samba = {
     enable = true;
-    package = pkgs.sambaFull;
+    package = pkgs.samba.override {
+      enableLDAP = true;
+      enablePrinting = true;
+      enableMDNS = true;
+      enableDomainController = true;
+      enableRegedit = true;
+    };
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
