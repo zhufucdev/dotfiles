@@ -234,7 +234,7 @@
   # Enable mihomo service
   services.mihomo = {
     enable = true;
-    configFile = "/etc/mihomo/config.yml";
+    configFile = "/run/secrets/mihomo";
     tunMode = true;
   };
 
@@ -288,6 +288,12 @@
         format = "dotenv";
         sopsFile = ./secrets/ledoxide_frpc.env;
         mode = "444";
+      };
+      "mihomo" = {
+        format = "yaml";
+        sopsFile = ./secrets/mihomo.yaml;
+        mode = "444";
+        key = "";
       };
     };
   };
