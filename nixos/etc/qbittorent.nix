@@ -67,7 +67,7 @@
       ExecStop = "docker network rm -f qbittorent_default";
     };
     script = ''
-      docker network inspect qbittorent_default || docker network create qbittorent_default
+      docker network inspect qbittorent_default || docker network create -d bridge qbittorent_default --opt com.docker.network.bridge.name=br-qbittorrent
     '';
     partOf = [ "docker-compose-qbittorent-root.target" ];
     wantedBy = [ "docker-compose-qbittorent-root.target" ];
