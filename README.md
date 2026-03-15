@@ -2,7 +2,7 @@
 
 They use nix, nixOS and nix-darwin to setup their development env
 and share common aspects across systems. The editor of their choice
-is Neovim. You can get a copy in this repo
+is Neovim. You can get a copy of configuraion in this repo
 
 To get started, symbolically link per system as follows
 
