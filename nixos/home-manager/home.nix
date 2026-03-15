@@ -47,6 +47,7 @@
     pyrefly
     mdx-language-server
     harper
+    prettierd
 
     maple-mono.NF-CN
     nerd-fonts.jetbrains-mono
