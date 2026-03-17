@@ -267,6 +267,11 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
+    extraDaemonFlags = [
+      "--tun=userspace-networking"
+      "--socks5-server=0.0.0.0:1099"
+    ];
+    extraSetFlags = [ "--advertise-exit-node" ];
   };
 
   services.cron = {
