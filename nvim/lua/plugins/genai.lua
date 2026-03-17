@@ -1,75 +1,106 @@
-local opencode_version = 'v1.2.10'
-local opencode_instances = {}
-
-local function get_term(id)
-  if opencode_instances[id] then
-    return opencode_instances[id]
-  end
-  local Terminal = require('toggleterm.terminal').Terminal
-  local new_instance = Terminal:new {
-    cmd = 'nix run github:anomalyco/opencode/' .. opencode_version .. ' -- --port',
-    direction = 'float',
-    float_opts = {
-      border = 'curved',
-    },
-    hidden = true,
-  }
-  opencode_instances[id] = new_instance
-  return new_instance
-end
-
 return {
   {
-    'NickvanDyke/opencode.nvim',
-    dependencies = {
-      -- Recommended for `ask()` and `select()`.
-      -- Required for `snacks` provider.
-      ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
-      { 'folke/snacks.nvim', opts = { input = {}, picker = {}, terminal = {} } },
-    },
+    'ThePrimeagen/99',
     config = function()
-      local opencode = require 'opencode'
-      ---@type opencode.Opts
-      vim.g.opencode_opts = {
-        server = {
-          toggle = function()
-            get_term(vim.fn.getcwd()):toggle()
-          end,
-          start = function()
-            get_term(vim.fn.getcwd()):open()
-          end,
-          stop = function()
-            get_term(vim.fn.getcwd()):shutdown()
-          end,
+      local _99 = require '99'
+
+      -- For logging that is to a file if you wish to trace through requests
+      -- for reporting bugs, i would not rely on this, but instead the provided
+      -- logging mechanisms within 99.  This is for more debugging purposes
+      local cwd = vim.uv.cwd()
+      local basename = vim.fs.basename(cwd)
+      _99.setup {
+        -- provider = _99.Providers.ClaudeCodeProvider,  -- default: OpenCodeProvider
+        logger = {
+          level = _99.DEBUG,
+          path = '/tmp/' .. basename .. '.99.debug',
+          print_on_error = true,
+        },
+        model = 'packy-anthropic/claude-sonnet-4-6',
+        -- When setting this to something that is not inside the CWD tools
+        -- such as claude code or opencode will have permission issues
+        -- and generation will fail refer to tool documentation to resolve
+        -- https://opencode.ai/docs/permissions/#external-directories
+        -- https://code.claude.com/docs/en/permissions#read-and-edit
+        tmp_dir = './tmp',
+
+        --- Completions: #rules and @files in the prompt buffer
+        completion = {
+          -- I am going to disable these until i understand the
+          -- problem better.  Inside of cursor rules there is also
+          -- application rules, which means i need to apply these
+          -- differently
+          -- cursor_rules = "<custom path to cursor rules>"
+
+          --- A list of folders where you have your own SKILL.md
+          --- Expected format:
+          --- /path/to/dir/<skill_name>/SKILL.md
+          ---
+          --- Example:
+          --- Input Path:
+          --- "scratch/custom_rules/"
+          ---
+          --- Output Rules:
+          --- {path = "scratch/custom_rules/vim/SKILL.md", name = "vim"},
+          --- ... the other rules in that dir ...
+          ---
+          custom_rules = {
+            'scratch/custom_rules/',
+          },
+
+          --- Configure @file completion (all fields optional, sensible defaults)
+          files = {
+            -- enabled = true,
+            -- max_file_size = 102400,     -- bytes, skip files larger than this
+            -- max_files = 5000,            -- cap on total discovered files
+            -- exclude = { ".env", ".env.*", "node_modules", ".git", ... },
+          },
+          --- File Discovery:
+          --- - In git repos: Uses `git ls-files` which automatically respects .gitignore
+          --- - Non-git repos: Falls back to filesystem scanning with manual excludes
+          --- - Both methods apply the configured `exclude` list on top of gitignore
+
+          --- What autocomplete engine to use. Defaults to native (built-in) if not specified.
+          source = 'cmp', -- "native" (default), "cmp", or "blink"
+        },
+
+        --- WARNING: if you change cwd then this is likely broken
+        --- ill likely fix this in a later change
+        ---
+        --- md_files is a list of files to look for and auto add based on the location
+        --- of the originating request.  That means if you are at /foo/bar/baz.lua
+        --- the system will automagically look for:
+        --- /foo/bar/AGENT.md
+        --- /foo/AGENT.md
+        --- assuming that /foo is project root (based on cwd)
+        md_files = {
+          'AGENT.md',
         },
       }
 
-      -- Required for `opts.events.reload`.
-      vim.o.autoread = true
+      -- take extra note that i have visual selection only in v mode
+      -- technically whatever your last visual selection is, will be used
+      -- so i have this set to visual mode so i dont screw up and use an
+      -- old visual selection
+      --
+      -- likely ill add a mode check and assert on required visual mode
+      -- so just prepare for it now
+      vim.keymap.set('v', '<leader>9v', function()
+        _99.visual()
+      end)
 
-      vim.keymap.set({ 'n', 'x' }, 'gop', function()
-        opencode.ask('@this: ', { submit = true })
-      end, { desc = '[G]oto [O]pencode [P]rompt' })
-      vim.keymap.set({ 'n', 'x' }, 'goa', function()
-        opencode.select()
-      end, { desc = '[G]oto [O]pencode [A]ction' })
-      vim.keymap.set({ 'n', 't' }, '<D-.>', function()
-        opencode.toggle()
-      end, { desc = 'Toggle OpenCode' })
+      --- if you have a request you dont want to make any changes, just cancel it
+      vim.keymap.set('n', '<leader>9x', function()
+        _99.stop_all_requests()
+      end)
 
-      vim.keymap.set({ 'n', 'x' }, 'goA', function()
-        return opencode.operator '@this '
-      end, { expr = true, desc = '[G]oto [O]pencode [A]dd range' })
-      vim.keymap.set('n', 'gol', function()
-        return opencode.operator '@this ' .. '_'
-      end, { expr = true, desc = '[G]oto [O]pencode Add [Line]' })
+      vim.keymap.set('n', '<leader>9s', function()
+        _99.search()
+      end)
 
-      vim.keymap.set('n', '<S-C-u>', function()
-        opencode.command 'session.half.page.up'
-      end, { desc = 'opencode half page up' })
-      vim.keymap.set('n', '<S-C-d>', function()
-        opencode.command 'session.half.page.down'
-      end, { desc = 'opencode half page down' })
+      vim.keymap.set('n', '<leader>9m', function()
+        require("99.extensions.telescope").select_model()
+      end)
     end,
   },
 }

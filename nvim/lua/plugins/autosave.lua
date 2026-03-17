@@ -10,5 +10,15 @@ return {
       cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
     },
     trigger_events = { 'InsertLeave' },
+    condition = function(buf)
+      local fn = vim.fn
+      local utils = require 'auto-save.utils.data'
+      local excluded_filetypes = { '99prompt' }
+
+      if fn.getbufvar(buf, '&modifiable') == 1 and utils.not_in(fn.getbufvar(buf, '&filetype'), excluded_filetypes) then
+        return true -- met condition(s), can save
+      end
+      return false -- can't save
+    end,
   },
 }
