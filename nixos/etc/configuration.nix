@@ -234,8 +234,9 @@
   # Enable mihomo service
   services.mihomo = {
     enable = true;
-    configFile = "/run/secrets/mihomo";
+    configFile = /run/secrets/mihomo;
     tunMode = true;
+    processesInfo = true;
   };
 
   # Minimal Gnome desktop environment
@@ -263,7 +264,10 @@
   hardware.uinput.enable = true;
 
   # Tailscale
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "both";
+  };
 
   services.cron = {
     enable = true;
