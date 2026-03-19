@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
     ./qbittorent.nix
     ./ledoxide.nix
+    ./mihomo-mod.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -232,9 +233,9 @@
   networking.firewall.enable = false;
 
   # Enable mihomo service
-  services.mihomo = {
+  services.mihomo-mod = {
     enable = true;
-    configFile = /run/secrets/mihomo;
+    configFile = "/run/secrets/mihomo";
     tunMode = true;
     processesInfo = true;
   };
