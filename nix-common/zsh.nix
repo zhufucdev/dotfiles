@@ -23,6 +23,8 @@
 
     bindkey ';3C' forward-word
     bindkey ';3D' backward-word
+    # Vim mode
+    bindkey -v
 
     autoload -U select-word-style
     select-word-style bash
