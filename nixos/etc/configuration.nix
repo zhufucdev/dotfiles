@@ -272,7 +272,14 @@
       "--tun=userspace-networking"
       "--socks5-server=0.0.0.0:1099"
     ];
-    extraSetFlags = [ "--advertise-exit-node" ];
+    extraSetFlags = [
+      "--advertise-exit-node"
+    ];
+    extraUpFlags = [
+      "--advertise-connector"
+      "--advertise-exit-node"
+      "--advertise-tags=tag:qbittorent-web"
+    ];
   };
 
   services.cron = {
