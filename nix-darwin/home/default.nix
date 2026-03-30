@@ -22,22 +22,19 @@
     rustup
     pyenv
     uv
-    nodejs-slim
+    nodejs
     pnpm
     git-lfs
     git-filter-repo
     mcfly
     prettierd
-    maple-mono.NF-CN
-    nerd-fonts.jetbrains-mono
     python313Packages.debugpy
     python313Packages.huggingface-hub
     macism
     raycast
-    neovide
     openapi-generator-cli
     ghostty-bin
-  ];
+  ] ++ (import ../../nix-common/nvim.nix { inherit pkgs; });
 
   home.sessionVariables = {
     EDITOR = "nvim";

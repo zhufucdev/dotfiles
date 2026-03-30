@@ -9,6 +9,8 @@ vim.g.have_nerd_font = true
 
 vim.o.guifont = 'Maple Mono NF CN,JetBrainsMono Nerd Font Mono:h14'
 
+vim.g.neovide_scroll_animation_length = 0
+
 -- Relaod buffer when file changed
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGained' }, {

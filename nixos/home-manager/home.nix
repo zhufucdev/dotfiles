@@ -27,32 +27,10 @@
     uv
     mcfly
     tmux
-    # Language servers & tools
-    ripgrep
-    clang
-    clang-tools
-    vue-language-server
-    astro-language-server
-    vscode-css-languageserver
-    vtsls
-    docker-language-server
-    gopls
-    isort
-    black
-    delve
-    markdownlint-cli
-    vscode-json-languageserver
-    stylua
-    tailwindcss-language-server
-    pyrefly
-    mdx-language-server
-    harper
-    prettierd
 
-    maple-mono.NF-CN
     nerd-fonts.jetbrains-mono
     python313Packages.huggingface-hub
-  ];
+  ] ++ (import ../../nix-common/nvim.nix { inherit pkgs; });
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

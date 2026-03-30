@@ -6,4 +6,5 @@
       email = "zhufuzhufu1@gmail.com";
     };
   };
+  signing.format = "openpgp";
 }

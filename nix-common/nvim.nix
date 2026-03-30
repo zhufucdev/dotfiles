@@ -1,0 +1,33 @@
+{ pkgs, ... }:
+with pkgs;
+[
+  # Client
+  neovide
+  maple-mono.NF-CN
+  nerd-fonts.jetbrains-mono
+  # Language servers & tools
+  ripgrep
+  clang
+  clang-tools
+  vue-language-server
+  astro-language-server
+  vtsls
+  docker-language-server
+  gopls
+  isort
+  black
+  delve
+  markdownlint-cli
+  stylua
+  tailwindcss-language-server
+  pyrefly
+  mdx-language-server
+  harper
+  prettierd
+  vscode-langservers-extracted
+  lldb
+  taplo
+  buf
+  lua
+  lua-language-server
+]

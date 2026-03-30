@@ -11,9 +11,15 @@ local function get_servers()
   local vue_language_server_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
 
   return {
-    clangd = {},
-    gopls = {},
-    pyrefly = {},
+    clangd = {
+      no_install = true,
+    },
+    gopls = {
+      no_install = true,
+    },
+    pyrefly = {
+      no_install = true,
+    },
     -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -21,6 +27,7 @@ local function get_servers()
     --
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     ts_ls = {
+      no_install = true,
       init_options = {
         plugins = {
           {
@@ -33,24 +40,45 @@ local function get_servers()
       },
       filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
     },
-    vue_ls = {},
-    html = {},
-    cssls = {},
+    vue_ls = {
+      no_install = true,
+    },
+    html = {
+      no_install = true,
+    },
+    cssls = {
+      no_install = true,
+    },
     prismals = {},
-    codelldb = {},
-    rust_analyzer = {},
-    markdownlint = {},
-    mdx_analyzer = {},
-    jsonls = {},
-    ['eslint-lsp'] = {},
-    astro = {},
-    tailwindcss = {},
-    buf = {},
-    taplo = {},
+    rust_analyzer = {
+      no_install = true,
+    },
+    markdownlint = {
+      no_install = true,
+    },
+    mdx_analyzer = {
+      no_install = true,
+    },
+    jsonls = {
+      no_install = true,
+    },
+    eslint = {
+      no_install = true,
+    },
+    astro = {
+      no_install = true,
+    },
+    tailwindcss = {
+      no_install = true,
+    },
+    buf = {
+      no_install = true,
+    },
+    taplo = {
+      no_install = true,
+    },
     lua_ls = {
-      -- cmd = { ... },
-      -- filetypes = { ... },
-      -- capabilities = {},
+      no_install = true,
       settings = {
         Lua = {
           completion = {
@@ -72,6 +100,7 @@ local function get_servers()
       },
     },
     harper_ls = {
+      no_install = true,
       settings = {
         linters = {
           SentenceCapitalization = false,
@@ -108,8 +137,13 @@ local function get_servers()
       },
     },
     ['docker-language-server'] = {
+      no_install = true,
       filetypes = { 'dockerfile' },
     },
+
+    stylua = { no_install = true }, -- Used to format Lua code,
+    black = { no_install = true }, -- Used to format Python,
+    isort = { no_install = true }, -- Used to sort Python imports
   }
 end
 
@@ -306,11 +340,6 @@ return {
         end
       end)
       :totable()
-    vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code,
-      'black', -- Used to format Python,
-      'isort', -- Used to sort Python imports
-    })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     for name, config in pairs(servers) do

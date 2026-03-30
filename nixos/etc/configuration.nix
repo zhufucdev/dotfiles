@@ -198,7 +198,6 @@
     nixfmt
     file
     lsof
-    neovide
     gnome-console
     sops
     age
