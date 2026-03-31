@@ -17,20 +17,26 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    rustup
-    go
-    python3
-    nodejs_24
-    pnpm
-    pyenv
-    uv
-    mcfly
-    tmux
+  home.packages =
+    with pkgs;
+    [
+      rustup
+      go
+      python3
+      nodejs_24
+      pnpm
+      pyenv
+      uv
+      mcfly
+      tmux
 
-    nerd-fonts.jetbrains-mono
-    python313Packages.huggingface-hub
-  ] ++ (import ../../nix-common/nvim.nix { inherit pkgs; });
+      clang
+      clang-tools
+
+      nerd-fonts.jetbrains-mono
+      python313Packages.huggingface-hub
+    ]
+    ++ (import ../../nix-common/nvim.nix { inherit pkgs; });
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

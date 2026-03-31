@@ -7,8 +7,6 @@ with pkgs;
   nerd-fonts.jetbrains-mono
   # Language servers & tools
   ripgrep
-  clang
-  clang-tools
   vue-language-server
   astro-language-server
   vtsls
