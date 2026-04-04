@@ -8,9 +8,7 @@
 
 return {
   {
-    -- NOTE: Yes, you can install new plugins here!
     'mfussenegger/nvim-dap',
-    -- NOTE: And you can specify dependencies as well
     dependencies = {
       -- Creates a beautiful debugger UI
       'rcarriga/nvim-dap-ui',
@@ -96,7 +94,7 @@ return {
         -- online, please don't ask me how to install them :)
         ensure_installed = {
           -- Update this to ensure that you have the debuggers for the langs you want
-          'codelldb'
+          'codelldb',
         },
       }
 
@@ -161,10 +159,14 @@ return {
   {
     'lucaSartore/nvim-dap-exception-breakpoints',
     dependencies = { 'mfussenegger/nvim-dap' },
-    config = function()
-      local set_exception_breakpoints = require 'nvim-dap-exception-breakpoints'
-
-      vim.api.nvim_set_keymap('n', '<leader>dc', '', { desc = '[D]ebug [C]ondition breakpoints', callback = set_exception_breakpoints })
-    end,
+    keys = {
+      {
+        '<leader>dc',
+        function()
+          require 'nvim-dap-exception-breakpoints'
+        end,
+        desc = '[D]ebug [C]ondition breakpoints',
+      },
+    },
   },
 }
