@@ -26,7 +26,7 @@
         modules = [
           ./configuration.nix
           sops-nix.nixosModules.sops
-          not-yet.nixosModules.cli
+          not-yet.nixosModules.telegram
         ];
       };
     };
