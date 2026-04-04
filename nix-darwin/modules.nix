@@ -56,7 +56,7 @@ let
           "zewo/tap/libdill"
         ];
         taps = [ "tw93/tap" ];
-        casks = [ ];
+        casks = ["Sikarugir-App/sikarugir/sikarugir" ];
       };
     };
 in
