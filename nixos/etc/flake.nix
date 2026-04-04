@@ -10,12 +10,15 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    not-yet.url = "github:zhufucdev/not-yet";
   };
   outputs =
     inputs@{
       self,
       nixpkgs,
       sops-nix,
+      not-yet,
       ...
     }:
     {
@@ -23,6 +26,7 @@
         modules = [
           ./configuration.nix
           sops-nix.nixosModules.sops
+          not-yet.nixosModules.cli
         ];
       };
     };
