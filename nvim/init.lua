@@ -353,14 +353,10 @@ require('lazy').setup({
   },
 
   {
-    'navarasu/onedark.nvim',
+    'rebelot/kanagawa.nvim',
     priority = 1000, -- Ensure it loads first
     config = function()
-      local theme = require 'onedark'
-      theme.setup {
-        style = 'warmer',
-      }
-      theme.load()
+      vim.cmd 'colorscheme kanagawa-dragon'
     end,
   },
 
