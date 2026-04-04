@@ -6,6 +6,7 @@ with pkgs;
   maple-mono.NF-CN
   nerd-fonts.jetbrains-mono
   # Language servers & tools
+  tree-sitter-latest
   ripgrep
   vue-language-server
   astro-language-server

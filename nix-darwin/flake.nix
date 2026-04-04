@@ -34,6 +34,8 @@
       url = "github:zewo/homebrew-tap";
       flake = false;
     };
+
+    tree-sitter.url = "github:tree-sitter/tree-sitter";
   };
 
   outputs =

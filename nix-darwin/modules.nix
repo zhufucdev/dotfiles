@@ -56,7 +56,7 @@ let
           "zewo/tap/libdill"
         ];
         taps = [ "tw93/tap" ];
-        casks = ["Sikarugir-App/sikarugir/sikarugir" ];
+        casks = [ "Sikarugir-App/sikarugir/sikarugir" ];
       };
     };
 in
@@ -67,6 +67,7 @@ in
   homebrew-core,
   homebrew-cask,
   macos-cross-toolchains,
+  tree-sitter,
   tw93,
   zewo,
   ...
@@ -104,4 +105,11 @@ in
     }
   )
   ./postgres.nix
+  {
+    nixpkgs.overlays = [
+      (final: prev: {
+        tree-sitter-latest = tree-sitter.packages.${prev.system}.cli;
+      })
+    ];
+  }
 ]

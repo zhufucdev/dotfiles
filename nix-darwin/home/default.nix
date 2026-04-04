@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   home = {
     username = "zhufu";
@@ -17,24 +21,29 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
-    go
-    rustup
-    pyenv
-    uv
-    nodejs
-    pnpm
-    git-lfs
-    git-filter-repo
-    mcfly
-    prettierd
-    python313Packages.debugpy
-    python313Packages.huggingface-hub
-    macism
-    raycast
-    openapi-generator-cli
-    ghostty-bin
-  ] ++ (import ../../nix-common/nvim.nix { inherit pkgs; });
+  home.packages =
+    with pkgs;
+    [
+      go
+      rustup
+      pyenv
+      uv
+      nodejs
+      pnpm
+      git-lfs
+      git-filter-repo
+      mcfly
+      prettierd
+      python313Packages.debugpy
+      python313Packages.huggingface-hub
+      macism
+      raycast
+      openapi-generator-cli
+      ghostty-bin
+    ]
+    ++ (import ../../nix-common/nvim.nix {
+      inherit pkgs;
+    });
 
   home.sessionVariables = {
     EDITOR = "nvim";

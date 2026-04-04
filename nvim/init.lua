@@ -11,7 +11,7 @@ vim.o.guifont = 'Maple Mono NF CN,JetBrainsMono Nerd Font Mono:h14'
 
 vim.g.neovide_scroll_animation_length = 0
 
--- Relaod buffer when file changed
+-- Reload buffer when file changed
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGained' }, {
   command = "if mode() != 'c' | checktime | endif",
@@ -402,8 +402,9 @@ require('lazy').setup({
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    version = 'main',
+    lazy = false,
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
