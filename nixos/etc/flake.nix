@@ -11,7 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    not-yet.url = "github:zhufucdev/not-yet";
+    not-yet = {
+      url = "github:zhufucdev/not-yet";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{
