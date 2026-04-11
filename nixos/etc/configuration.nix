@@ -23,7 +23,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use LTS kernel
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   # ZFS support
   networking = {

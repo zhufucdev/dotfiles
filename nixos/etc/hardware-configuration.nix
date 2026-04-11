@@ -78,7 +78,7 @@
     nvidiaSettings = true;
 
     # I am using a GTX1080 Ti
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
   hardware.nvidia-container-toolkit.enable = true;
 }

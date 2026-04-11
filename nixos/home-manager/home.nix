@@ -35,6 +35,7 @@
 
       nerd-fonts.jetbrains-mono
       python313Packages.huggingface-hub
+      nvtopPackages.nvidia
     ]
     ++ (import ../../nix-common/nvim.nix { inherit pkgs; });
 
@@ -85,4 +86,7 @@
 
   programs.zsh = import ../../nix-common/zsh.nix { inherit config; };
   programs.git = import ../../nix-common/git.nix;
+
+  # Enable unfree packages
+  nixpkgs.config.allowUnfree = true;
 }
