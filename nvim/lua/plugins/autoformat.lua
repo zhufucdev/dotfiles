@@ -39,6 +39,7 @@ return { -- Autoformat
       yaml = use_prettier,
       css = use_frontend,
       vue = use_frontend,
+      rust = { 'rustfmt' },
     },
   },
 }

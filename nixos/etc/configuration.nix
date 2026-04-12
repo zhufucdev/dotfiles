@@ -14,7 +14,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./qbittorent.nix
-    ./ledoxide.nix
     ./mihomo-mod.nix
   ];
 
@@ -283,8 +282,14 @@
   };
 
   services.cron = {
-    enable = true;
+    enable = false;
     systemCronJobs = [ ];
+  };
+
+  services.ledoxide = {
+    enable = true;
+    authKeyFile = "/var/run/secrets/ledoxide";
+    extraEnv = "HF_HOME=/var/lib/hf-hub";
   };
 
   sops = {
@@ -296,14 +301,9 @@
       generateKey = true;
     };
     secrets = {
-      "ledoxide/server.env" = {
+      "ledoxide" = {
         format = "dotenv";
-        sopsFile = ./secrets/ledoxide_server.env;
-        mode = "444";
-      };
-      "ledoxide/frpc.env" = {
-        format = "dotenv";
-        sopsFile = ./secrets/ledoxide_frpc.env;
+        sopsFile = ./secrets/ledoxide.env;
         mode = "444";
       };
       "mihomo" = {

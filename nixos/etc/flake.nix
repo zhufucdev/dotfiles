@@ -15,6 +15,11 @@
       url = "github:zhufucdev/not-yet";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ledoxide = {
+      url = "github:zhufucdev/ledoxide";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{
@@ -22,6 +27,7 @@
       nixpkgs,
       sops-nix,
       not-yet,
+      ledoxide,
       ...
     }:
     {
@@ -30,6 +36,8 @@
           ./configuration.nix
           sops-nix.nixosModules.sops
           not-yet.nixosModules.telegram
+          ledoxide.nixosModules.ledoxide
+          ledoxide.nixosModules.package
         ];
       };
     };

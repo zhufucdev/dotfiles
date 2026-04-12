@@ -2,6 +2,21 @@
   "nodes": {
     "crane": {
       "locked": {
+        "lastModified": 1775839657,
+        "narHash": "sha256-SPm9ck7jh3Un9nwPuMGbRU04UroFmOHjLP56T10MOeM=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "7cf72d978629469c4bd4206b95c402514c1f6000",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_2": {
+      "locked": {
         "lastModified": 1775236976,
         "narHash": "sha256-gCgX+AXN7K1gAIEqcLcZHxmC+QoZcwn9m6Z9r2Az+N8=",
         "owner": "ipetkov",
@@ -12,6 +27,27 @@
       "original": {
         "owner": "ipetkov",
         "repo": "crane",
+        "type": "github"
+      }
+    },
+    "ledoxide": {
+      "inputs": {
+        "crane": "crane",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775962393,
+        "narHash": "sha256-PsK0f3t95bT5M+q5Xxuy/N6oepzoF0LI8Zoi4qX4RMg=",
+        "owner": "zhufucdev",
+        "repo": "ledoxide",
+        "rev": "ff53f3b94093e7d4854de7ee6048d194535554a0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zhufucdev",
+        "repo": "ledoxide",
         "type": "github"
       }
     },
@@ -33,7 +69,7 @@
     },
     "not-yet": {
       "inputs": {
-        "crane": "crane",
+        "crane": "crane_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -54,6 +90,7 @@
     },
     "root": {
       "inputs": {
+        "ledoxide": "ledoxide",
         "nixpkgs": "nixpkgs",
         "not-yet": "not-yet",
         "sops-nix": "sops-nix"
