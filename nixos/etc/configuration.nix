@@ -173,17 +173,6 @@
     enableZshIntegration = true;
   };
 
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "zhufuzhufu1@gmail.com";
-    certs."ledoxide.zhufucdev.com" = {
-      dnsProvider = "cloudflare";
-      environmentFile = "${pkgs.writeText "cloudflare-creds" ''
-        CLOUDFLARE_DNS_API_TOKEN=QYvomhb4M4wCnXNkvgbD64EEc68_OcFBUWQyOLr3
-      ''}";
-    };
-  };
-
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
