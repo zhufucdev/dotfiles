@@ -26,6 +26,13 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "zfs" ];
+  boot.kernelParams = [
+    "zswap.enabled=1"
+    "zswap.compressor=lz4"
+    "zswap.max_pool_percent=20"
+    "zswap.shrinker_enabled=1" # whether to shrink the pool proactively on high memory pressure
+    "zfs.zfs_arc_max=0" # Disable ARC for there's already an SSD for that
+  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/4b80006f-7ebf-4123-88f6-07efdda5fbe0";
