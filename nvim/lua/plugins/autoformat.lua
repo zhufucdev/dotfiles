@@ -40,6 +40,7 @@ return { -- Autoformat
       css = use_frontend,
       vue = use_frontend,
       rust = { 'rustfmt' },
+      xml = { 'xmllint' },
     },
   },
 }

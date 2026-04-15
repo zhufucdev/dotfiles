@@ -29,4 +29,5 @@ with pkgs;
   buf
   lua
   lua-language-server
+  libxml2
 ]
