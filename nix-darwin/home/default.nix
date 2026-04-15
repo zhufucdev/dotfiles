@@ -38,7 +38,7 @@
       python313Packages.huggingface-hub
       macism
       raycast
-      openapi-generator-cli
+      # openapi-generator-cli
       ghostty-bin
     ]
     ++ (import ../../nix-common/nvim.nix {

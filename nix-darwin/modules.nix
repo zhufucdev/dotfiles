@@ -108,7 +108,7 @@ in
   {
     nixpkgs.overlays = [
       (final: prev: {
-        tree-sitter-latest = tree-sitter.packages.${prev.system}.cli;
+        tree-sitter-latest = tree-sitter.packages.${prev.stdenv.hostPlatform.system}.cli;
       })
     ];
   }
