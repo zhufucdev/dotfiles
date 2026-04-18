@@ -24,6 +24,7 @@ with pkgs;
   harper
   prettierd
   vscode-langservers-extracted
+  typescript-language-server
   lldb
   taplo
   buf
