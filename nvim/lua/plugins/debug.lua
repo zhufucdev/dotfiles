@@ -70,7 +70,7 @@ return {
       },
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
       {
-        '<F6>',
+        '<D-4>',
         function()
           require('dapui').toggle()
         end,
@@ -141,9 +141,6 @@ return {
       dap.listeners.after.event_initialized['dapui_config'] = dapui.open
       dap.listeners.before.event_terminated['dapui_config'] = dapui.close
       dap.listeners.before.event_exited['dapui_config'] = dapui.close
-
-      -- Dap UI keybinds
-      vim.keymap.set('n', '<D-4>', dapui.toggle)
 
       -- Install golang specific config
       require('dap-go').setup {
