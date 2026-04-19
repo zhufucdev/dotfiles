@@ -140,6 +140,7 @@ local function get_servers()
       no_install = true,
       filetypes = { 'dockerfile' },
     },
+    cmake = { no_install = true },
 
     stylua = { no_install = true }, -- Used to format Lua code,
     black = { no_install = true }, -- Used to format Python,

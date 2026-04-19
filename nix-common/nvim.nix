@@ -31,4 +31,5 @@ with pkgs;
   lua
   lua-language-server
   libxml2
+  cmake-language-server
 ]
