@@ -36,6 +36,12 @@
               (final: prev: {
                 tree-sitter-latest = tree-sitter.packages.${prev.system}.cli;
               })
+              (final: prev: {
+                gaphor = prev.gaphor.overrideAttrs (old: {
+                  doCheck = false;
+                  doInstallCheck = false;
+                });
+              })
             ];
           }
         ];

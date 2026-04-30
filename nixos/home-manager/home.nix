@@ -29,6 +29,7 @@
       uv
       mcfly
       tmux
+      gaphor
 
       clang
       clang-tools
