@@ -2,6 +2,7 @@
 with pkgs;
 [
   # Client
+  neovim
   neovide
   maple-mono.NF-CN
   nerd-fonts.jetbrains-mono
@@ -32,4 +33,5 @@ with pkgs;
   lua-language-server
   libxml2
   cmake-language-server
+  jinja-lsp
 ]

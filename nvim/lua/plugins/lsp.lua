@@ -141,6 +141,7 @@ local function get_servers()
       filetypes = { 'dockerfile' },
     },
     cmake = { no_install = true },
+    jinja_lsp = { no_install = true, filetypes = { 'jinja' } },
 
     stylua = { no_install = true }, -- Used to format Lua code,
     black = { no_install = true }, -- Used to format Python,

@@ -67,8 +67,6 @@
 
   programs.gh.enable = true;
 
-  programs.neovim.enable = true;
-
   programs.zsh = (import ../../nix-common/zsh.nix) { inherit config; } // {
     shellAliases = {
       tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
