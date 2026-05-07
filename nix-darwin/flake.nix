@@ -36,6 +36,7 @@
     };
 
     tree-sitter.url = "github:tree-sitter/tree-sitter";
+    opencode.url = "github:anomalyco/opencode/production";
   };
 
   outputs =

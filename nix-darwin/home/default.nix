@@ -40,6 +40,7 @@
       raycast
       # openapi-generator-cli
       ghostty-bin
+      opencode-production
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;

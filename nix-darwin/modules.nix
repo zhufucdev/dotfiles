@@ -56,7 +56,10 @@ let
           "zewo/tap/libdill"
         ];
         taps = [ "tw93/tap" ];
-        casks = [ "Sikarugir-App/sikarugir/sikarugir" "gaphor" ];
+        casks = [
+          "Sikarugir-App/sikarugir/sikarugir"
+          "gaphor"
+        ];
       };
     };
 in
@@ -70,6 +73,7 @@ in
   tree-sitter,
   tw93,
   zewo,
+  opencode,
   ...
 }:
 [
@@ -109,6 +113,13 @@ in
     nixpkgs.overlays = [
       (final: prev: {
         tree-sitter-latest = tree-sitter.packages.${prev.stdenv.hostPlatform.system}.cli;
+      })
+    ];
+  }
+  {
+    nixpkgs.overlays = [
+      (final: prev: {
+        opencode-production = opencode.packages.${prev.stdenv.hostPlatform.system}.opencode;
       })
     ];
   }
