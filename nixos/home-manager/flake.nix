@@ -24,7 +24,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      homeConfigurations."steve" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."caturday" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,

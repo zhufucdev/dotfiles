@@ -117,14 +117,14 @@
         "directory mask" = "0755";
       };
 
-      steve_home = {
-        "path" = "/home/steve/share";
+      caturday_home = {
+        "path" = "/home/caturday/share";
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "no";
         "create mask" = "0644";
         "directory mask" = "0755";
-        "force user" = "steve";
+        "force user" = "caturday";
       };
     };
     openFirewall = true;
@@ -148,23 +148,27 @@
     allowInterfaces = [ config.networking.interfaces.br0.name ];
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.steve = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "uinput"
-      "docker"
-    ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO+cV1MGvbTix/2rL1cUMfLbbhBXwOutUwNUNYle+c5F zhufu@zhufusmbp.local"
-    ];
-  };
-  users.users.sambaguest = {
-    isNormalUser = true;
-    shell = null;
+  users.mutableUsers = false;
+  users.users = {
+    # Define a user account. Password is kept as screts.
+    caturday = {
+      isNormalUser = true;
+      extraGroups = [
+        "wheel" # Enable ‘sudo’ for the user.
+        "networkmanager"
+        "uinput"
+        "docker"
+      ];
+      shell = pkgs.zsh;
+      hashedPasswordFile = config.sops.secrets.caturday-pwd.path;
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO+cV1MGvbTix/2rL1cUMfLbbhBXwOutUwNUNYle+c5F zhufu@zhufusmbp.local"
+      ];
+    };
+    sambaguest = {
+      isNormalUser = true;
+      shell = pkgs.shadow; # No login
+    };
   };
   programs.firefox.enable = true;
   programs.zsh.enable = true;
@@ -208,7 +212,9 @@
     settings = {
       PasswordAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ "steve" ];
+      AllowUsers = [
+        "caturday"
+      ];
     };
   };
 
@@ -241,7 +247,7 @@
     gnome-user-docs
   ];
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "steve";
+  services.displayManager.autoLogin.user = "caturday";
 
   services.sunshine = {
     enable = true;
@@ -299,7 +305,13 @@
         format = "yaml";
         sopsFile = ./secrets/mihomo.yaml;
         mode = "444";
-        key = "";
+        key = ""; # Requires the plain file
+      };
+      "caturday-pwd" = {
+        format = "binary";
+        sopsFile = ./secrets/caturday_pwd.bin;
+        mode = "444";
+        neededForUsers = true;
       };
     };
   };
