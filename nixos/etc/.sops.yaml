@@ -1,9 +1,11 @@
 keys:
   - &steve age1r88ywupg9nh2y0smc36mh2mpj2gp73q5kfz2rqxaj37l37pcgexql62wjr
   - &functionaltux age1dhdz820tmka86x5r5h39fdhw35x8jpxxvpnv9krxxgne7lwrlcts4t8hax
+  - &fk age14hdk3gjygvkfqz47y5ae87z0l60sda3yapj2q06pt23xfltqlf7skx5fpl
 creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini|bin)$
     key_groups:
-    - age:
-      - *steve
-      - *functionaltux
+      - age:
+          - *steve
+          - *functionaltux
+          - *fk
