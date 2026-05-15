@@ -72,18 +72,13 @@
   #  /etc/profiles/per-user/caturday/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   fonts.fontconfig.enable = true;
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 
   programs.zsh = import ../../nix-common/zsh.nix { inherit config; };
   programs.git = import ../../nix-common/git.nix;

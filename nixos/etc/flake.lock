@@ -36,11 +36,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1775963440,
-        "narHash": "sha256-4dOoU9agGa0V8n/4Vz9NzGVDj8g9+MOYqH+ZiUOfQp8=",
+        "lastModified": 1778813327,
+        "narHash": "sha256-KXt6HNdUuyC7sMeenCFBMIr6jOPUZnnN4qQ5LooSotU=",
         "owner": "zhufucdev",
         "repo": "ledoxide",
-        "rev": "e54481604d9c5fa0fedfecf1b26426f435436620",
+        "rev": "cc45c822a03f98f80b36e24a1717c654535322ec",
         "type": "github"
       },
       "original": {
