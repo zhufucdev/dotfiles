@@ -14,7 +14,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./qbittorent.nix
-    ./mihomo-mod.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -193,7 +192,7 @@
     gnome-console
     sops
     age
-    not-yet
+    # not-yet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -227,9 +226,9 @@
   networking.firewall.enable = false;
 
   # Enable mihomo service
-  services.mihomo-mod = {
+  services.mihomo = {
     enable = true;
-    configFile = "/run/secrets/mihomo";
+    configFile = config.sops.secrets.mihomo.path;
     tunMode = true;
     processesInfo = true;
   };
@@ -268,10 +267,12 @@
     ];
     extraSetFlags = [
       "--advertise-exit-node"
+      "--accept-dns=false"
     ];
     extraUpFlags = [
       "--advertise-connector"
       "--advertise-exit-node"
+      "--exit-node-allow-lan-access"
       "--advertise-tags=tag:qbittorent-web"
     ];
   };
@@ -306,6 +307,8 @@
         sopsFile = ./secrets/mihomo.yaml;
         mode = "444";
         key = ""; # Requires the plain file
+        neededForUsers = true;
+        restartUnits = [ "mihomo.service" ];
       };
       "caturday-pwd" = {
         format = "binary";
