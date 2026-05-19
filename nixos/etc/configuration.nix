@@ -193,6 +193,9 @@
     sops
     age
     # not-yet
+    jellyfin
+    jellyfin-web
+    jellyfin-ffmpeg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -289,6 +292,15 @@
     enable = true;
     authKeyFile = "/var/run/secrets/ledoxide";
     extraEnv = "HF_HOME=/var/lib/hf-hub";
+  };
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    hardwareAcceleration = {
+      enable = true;
+      device = "/dev/dri/renderD128";
+    };
   };
 
   sops = {
