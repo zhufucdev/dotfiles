@@ -32,10 +32,6 @@
     # Configure network connections interactively with nmcli or nmtui.
     networkmanager.enable = true;
 
-    # Configure network proxy if necessary
-    proxy.default = "http://localhost:7890";
-    proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
     bridges.br0.interfaces = [
       "enp37s0"
       "enp38s0"
@@ -169,7 +165,9 @@
       shell = pkgs.shadow; # No login
     };
   };
+
   programs.firefox.enable = true;
+  programs.chromium.enable = true;
   programs.zsh.enable = true;
   programs.direnv = {
     enable = true;
@@ -196,6 +194,8 @@
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
+    llama-cpp-rocm
+    chromium
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -218,11 +218,6 @@
         "caturday"
       ];
     };
-  };
-
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
 
   # Open ports in the firewall.
@@ -259,7 +254,7 @@
     autoStart = true;
     capSysAdmin = true; # only needed for Wayland -- omit this when using with Xorg
     openFirewall = true;
-    package = pkgs.sunshine.override { cudaSupport = true; };
+    package = pkgs.sunshine;
   };
   hardware.uinput.enable = true;
 
@@ -288,11 +283,12 @@
     systemCronJobs = [ ];
   };
 
-  services.ledoxide = {
-    enable = true;
-    authKeyFile = "/var/run/secrets/ledoxide";
-    extraEnv = "HF_HOME=/var/lib/hf-hub";
-  };
+  # services.ledoxide = {
+  #   package = pkgs.ledoxide.override { features = [ "rocm" ]; };
+  #   enable = true;
+  #   authKeyFile = "/var/run/secrets/ledoxide";
+  #   extraEnv = "HF_HOME=/var/lib/hf-hub";
+  # };
 
   services.jellyfin = {
     enable = true;

@@ -36,7 +36,7 @@
 
       nerd-fonts.jetbrains-mono
       python313Packages.huggingface-hub
-      nvtopPackages.nvidia
+      nvtopPackages.amd
     ]
     ++ (import ../../nix-common/nvim.nix { inherit pkgs; });
 

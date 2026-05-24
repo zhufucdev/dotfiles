@@ -14,7 +14,15 @@ To get started, symbolically link per system as follows
 | nixos/home-manager | ~/.config/home-manager |
 | nvim               | ~/.config/nvim         |
 
+Do they same for following files, but copying
+
+| Source                      | Dest                   |
+| :-------------------------- | :--------------------- |
+| nixos/usr/lib/firmware/edid | /usr/lib/firmware/edid |
+
 ## macOS
+
+Symbolically link
 
 | Source     | Dest              |
 | :--------- | :---------------- |
