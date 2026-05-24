@@ -24,7 +24,7 @@
   ];
   boot.initrd.kernelModules = [ ];
   boot.initrd.extraFiles = [ /usr/lib/firmware/edid/samsung-q800t-hdmi2.1 ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "amdgpu" ];
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "zfs" ];
   boot.kernelParams = [

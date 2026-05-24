@@ -15,9 +15,9 @@
       url = "github:zhufucdev/not-yet";
     };
 
-    # ledoxide = {
-    #   url = "github:zhufucdev/ledoxide";
-    # };
+    ledoxide = {
+      url = "github:zhufucdev/ledoxide";
+    };
 
     nix-gaming-edge = {
       url = "github:powerofthe69/nix-gaming-edge";
@@ -30,7 +30,7 @@
       nixpkgs,
       sops-nix,
       not-yet,
-      # ledoxide,
+      ledoxide,
       nix-gaming-edge,
       ...
     }:
@@ -42,8 +42,8 @@
           ./gaming.nix
           sops-nix.nixosModules.sops
           not-yet.nixosModules.telegram
-          # ledoxide.nixosModules.ledoxide
-          # ledoxide.nixosModules.package
+          ledoxide.nixosModules.ledoxide
+          ledoxide.nixosModules.package
         ];
       };
     };

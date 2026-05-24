@@ -194,7 +194,6 @@
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
-    llama-cpp-rocm
     chromium
   ];
 
@@ -283,12 +282,11 @@
     systemCronJobs = [ ];
   };
 
-  # services.ledoxide = {
-  #   package = pkgs.ledoxide.override { features = [ "rocm" ]; };
-  #   enable = true;
-  #   authKeyFile = "/var/run/secrets/ledoxide";
-  #   extraEnv = "HF_HOME=/var/lib/hf-hub";
-  # };
+  services.ledoxide = {
+    enable = true;
+    authKeyFile = "/var/run/secrets/ledoxide";
+    extraEnv = "RUST_LOG=debug";
+  };
 
   services.jellyfin = {
     enable = true;
@@ -297,6 +295,12 @@
       enable = true;
       device = "/dev/dri/renderD128";
     };
+  };
+
+  # llama-cpp and open web UI
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-rocm;
   };
 
   sops = {
