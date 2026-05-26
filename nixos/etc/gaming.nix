@@ -3,13 +3,8 @@
   imports = [
     nix-gaming-edge.nixosModules.default
   ];
-  # destructure module args by 'importing' pkgs - only needed when defining a protonPackage
-  nix.settings = {
-    # set the binary cache declaratively - optional
-    substituters = [ "https://nix-cache.tokidoki.dev/tokidoki" ];
-    trusted-public-keys = [ "tokidoki:MD4VWt3kK8Fmz3jkiGoNRJIW31/QAm7l1Dcgz2Xa4hk=" ];
-  };
 
+  # destructure module args by 'importing' pkgs - only needed when defining a protonPackage
   nixpkgs.overlays = [
     nix-gaming-edge.overlays.default
     # nix-gaming-edge.overlays.mesa-git
