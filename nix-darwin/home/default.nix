@@ -41,6 +41,7 @@
       # openapi-generator-cli
       ghostty-bin
       opencode-production
+      ollama
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
