@@ -297,10 +297,14 @@
     };
   };
 
-  # llama-cpp and open web UI
+  # ollama
   services.ollama = {
     enable = true;
     package = pkgs.ollama-rocm;
+    environmentVariables = {
+      OLLAMA_ORIGINS = "https://ollama.tail8a9e0.ts.net";
+    };
+    host = "[::]";
   };
 
   sops = {
