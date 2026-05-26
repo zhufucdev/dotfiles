@@ -1,41 +1,28 @@
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
-local default_mode = { 'i', 'n', 't' }
 return {
   {
-    'nvim-neo-tree/neo-tree.nvim',
-    version = '*',
+    'mikavilpas/yazi.nvim',
     dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-      'MunifTanjim/nui.nvim',
+      { 'nvim-lua/plenary.nvim', lazy = true },
     },
     lazy = false,
     keys = {
-      { '<D-1>', '<cmd>:Neotree reveal<CR>', silent = true, mode = default_mode },
+      { '<D-1>', '<cmd>Yazi cwd<CR>', silent = true, mode = default_mode },
       -- { '<D-2>', '<cmd>:Neotree git_status<CR>', silent = true, mode = default_mode },
       { '<D-3>', '<cmd>:Neotree buffers<CR>', silent = true, mode = default_mode },
     },
     opts = {
-      clipboard = {
-        sync = 'global',
+      keymaps = {
+        show_help = '?',
       },
-      window = {
-        position = 'float',
-      },
-      filesystem = {
-        window = {
-          mappings = {
-            ['<D-1>'] = 'close_window',
-            ['<D-n>'] = 'add',
-            ['<D-N>'] = 'add_directory',
-          },
-        },
-        filtered_items = {
-          visible = true,
-        },
-      },
+      change_neovim_cwd_on_close = true,
+      open_for_directories = false,
     },
+    init = function()
+      -- mark netrw as loaded so it's not loaded at all.
+      vim.g.loaded_netrwPlugin = 1
+    end,
   },
 }

@@ -34,4 +34,5 @@ with pkgs;
   libxml2
   cmake-language-server
   jinja-lsp
+  yazi
 ]
