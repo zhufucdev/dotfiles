@@ -9,16 +9,16 @@ return {
     },
     lazy = false,
     keys = {
-      { '<D-1>', '<cmd>Yazi cwd<CR>', silent = true, mode = default_mode },
-      -- { '<D-2>', '<cmd>:Neotree git_status<CR>', silent = true, mode = default_mode },
-      { '<D-3>', '<cmd>:Neotree buffers<CR>', silent = true, mode = default_mode },
+      { '<D-1>', '<cmd>Yazi<CR>', silent = true, mode = default_mode },
+      { '<D-3>', '<cmd>Yazi cwd<CR>', silent = true, mode = default_mode },
     },
+    ---@type YaziConfig | {}
     opts = {
       keymaps = {
         show_help = '?',
       },
-      change_neovim_cwd_on_close = true,
       open_for_directories = false,
+      change_neovim_cwd_on_close = true,
     },
     init = function()
       -- mark netrw as loaded so it's not loaded at all.
