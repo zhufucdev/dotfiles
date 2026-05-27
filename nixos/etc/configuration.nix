@@ -307,6 +307,11 @@
     host = "[::]";
   };
 
+  services.not-yet = {
+    enable = true;
+    extraEnv = ''RUST_LOG="error,lib_common=trace,app_bot=trace,tg_clarhandler=trace"'';
+  };
+
   sops = {
     defaultSopsFile = ./secrets/default.yaml;
     age = {
