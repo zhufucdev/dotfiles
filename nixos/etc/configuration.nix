@@ -195,6 +195,7 @@
     jellyfin-web
     jellyfin-ffmpeg
     chromium
+    (callPackage ../../nix-common/gamemode.nix { })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
