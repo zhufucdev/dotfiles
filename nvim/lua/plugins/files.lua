@@ -18,7 +18,6 @@ return {
         show_help = '?',
       },
       open_for_directories = false,
-      change_neovim_cwd_on_close = true,
     },
     init = function()
       -- mark netrw as loaded so it's not loaded at all.
