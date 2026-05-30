@@ -55,4 +55,6 @@
     ignoreDups = true;
     share = true;
   };
+
+  dotDir = config.home.homeDirectory;
 }

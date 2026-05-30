@@ -13,7 +13,8 @@
 
     not-yet = {
       url = "github:zhufucdev/not-yet";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      # https://nixpk.gs/pr-tracker.html?pr=524985
     };
 
     ledoxide = {

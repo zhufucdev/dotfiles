@@ -6,7 +6,7 @@
   ...
 }:
 let
-  not-yet-lockfile = if pkgs.stdenv.isLinux then "/tmp/not-yet.lock" else "/tmp/not-yet.pid";
+  not-yet-lockfile = if pkgs.stdenv.isLinux then "/run/not-yet/not-yet.lock" else "/tmp/not-yet.pid";
   exec = if wrapPkg == null then "$@" else "${lib.getExe wrapPkg} $@";
 in
 writeShellApplication {

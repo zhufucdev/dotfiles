@@ -17,11 +17,11 @@
     },
     "crane_2": {
       "locked": {
-        "lastModified": 1775236976,
-        "narHash": "sha256-gCgX+AXN7K1gAIEqcLcZHxmC+QoZcwn9m6Z9r2Az+N8=",
+        "lastModified": 1779130139,
+        "narHash": "sha256-BLrtr42azquO7MdGFU5a7KiMl3YpFlTeIXqy1fT5GlQ=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "6c23998526351a53ce734f0ac84940da988ccef1",
+        "rev": "edb38893982a3338972bb4a2ec7ce7c29ba10fd9",
         "type": "github"
       },
       "original": {
@@ -87,19 +87,32 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1779970709,
+        "narHash": "sha256-fYNYgVuxLMXnEjJUnq4a9EVl7/cs8JcID9xSnz2vL48=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "41caf512154ceb8fd639cee5f9eec3fc28074c84",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "not-yet": {
       "inputs": {
         "crane": "crane_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1779895323,
-        "narHash": "sha256-EVh145PmLnRhVyhD+Nh/1VXL1kxyMZAAL4NN02BKjLQ=",
+        "lastModified": 1780121529,
+        "narHash": "sha256-M/1WLFbaXw5fJ6jN4ydQn3X6T9VyXy85AtnLI6Hk3j8=",
         "owner": "zhufucdev",
         "repo": "not-yet",
-        "rev": "d523d227a20a7966dd6802217e116172cd5622be",
+        "rev": "6b1dbfde2be5e93f23d70e519bd24c803dd44745",
         "type": "github"
       },
       "original": {

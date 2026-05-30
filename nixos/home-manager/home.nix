@@ -86,4 +86,25 @@
 
   # Enable unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  programs.bash.enable = true;
+  xdg = {
+    enable = true;
+    mime.enable = true;
+    desktopEntries.steam-gamemode = {
+      name = "Steam (Gamemode)";
+      exec = "${pkgs.gamemode}/bin/gamemode steam %U";
+      icon = "steam";
+      terminal = null;
+      categories = [
+        "Network"
+        "FileTransfer"
+        "Game"
+      ];
+      mimeType = [
+        "x-scheme-handler/steam"
+        "x-scheme-handler/steamlink"
+      ];
+    };
+  };
 }

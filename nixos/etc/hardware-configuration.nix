@@ -65,4 +65,5 @@
     enable = true;
     enable32Bit = true;
   };
+  services.hardware.openrgb.enable = true;
 }

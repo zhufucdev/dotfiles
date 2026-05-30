@@ -8,7 +8,7 @@
   nixpkgs.overlays = [
     nix-gaming-edge.overlays.default
     (final: prev: {
-      gamemode = pkgs.callPackage ../../nix-common/gamemode.nix {  };
+      gamemode = pkgs.callPackage ../../nix-common/gamemode.nix { };
     })
     # nix-gaming-edge.overlays.mesa-git
     # nix-gaming-edge.overlays.proton-cachyos
@@ -24,6 +24,9 @@
     extraCompatPackages = with pkgs; [
       proton-cachyos
       proton-ge-bin
+    ];
+    extraPackages = with pkgs; [
+      gamemode
     ];
   };
 }
