@@ -309,7 +309,7 @@
 
   services.not-yet = {
     enable = true;
-    extraEnv = ''RUST_LOG="error,lib_common=trace,app_bot=trace,tg_clarhandler=trace"'';
+    extraEnv = ''RUST_LOG="warn,lib_common::polling::schedule=DEBUG"'';
   };
 
   sops = {
