@@ -10,6 +10,7 @@
     };
 
     tree-sitter.url = "github:tree-sitter/tree-sitter";
+    llama-cpp.url = "github:ggml-org/llama.cpp";
   };
 
   outputs =
@@ -17,6 +18,7 @@
       nixpkgs,
       home-manager,
       tree-sitter,
+      llama-cpp,
       ...
     }:
     let
@@ -34,7 +36,8 @@
           {
             nixpkgs.overlays = [
               (final: prev: {
-                tree-sitter-latest = tree-sitter.packages.${prev.system}.cli;
+                tree-sitter-latest = tree-sitter.packages.${final.stdenv.system}.cli;
+                llama-cpp-rocm = llama-cpp.packages.${final.stdenv.system}.rocm;
               })
               (final: prev: {
                 gaphor = prev.gaphor.overrideAttrs (old: {

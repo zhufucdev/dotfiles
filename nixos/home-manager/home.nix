@@ -38,6 +38,8 @@
       python313Packages.huggingface-hub
       nvtopPackages.amd
       nix-output-monitor
+
+      llama-cpp-rocm
     ]
     ++ (import ../../nix-common/nvim.nix { inherit pkgs; });
 
