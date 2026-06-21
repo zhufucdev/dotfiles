@@ -1,7 +1,7 @@
 let
   toolchains =
     { self }:
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       environment.systemPackages = with pkgs; [
         vim
@@ -55,7 +55,8 @@ let
           "tw93/tap/mole"
           "zewo/tap/libdill"
         ];
-        taps = [ "tw93/tap" ];
+        #Align homebrew taps config with nix-homebrew
+        taps = builtins.attrNames config.nix-homebrew.taps;
         casks = [
           "Sikarugir-App/sikarugir/sikarugir"
           "gaphor"
@@ -77,13 +78,13 @@ in
   ...
 }:
 [
-  (toolchains { inherit self; })
   home-manager.darwinModules.home-manager
   {
     home-manager = {
       users.zhufu = ./home;
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "bak";
     };
     users.users.zhufu.home = "/Users/zhufu";
   }
@@ -95,32 +96,27 @@ in
       taps = {
         "homebrew/homebrew-core" = homebrew-core;
         "homebrew/homebrew-cask" = homebrew-cask;
-        "messense/macos-cross-toolchains" = macos-cross-toolchains;
         "tw93/homebrew-tap" = tw93;
         "zewo/homebrew-tap" = zewo;
       };
+      mutableTaps = false;
+      autoMigrate = true;
+      trust = {
+        taps = [
+          "tw93/homebrew-tap"
+          "zewo/homebrew-tap"
+        ];
+      };
     };
   }
-  #Align homebrew taps config with nix-homebrew
-  (
-    { config, ... }:
-    {
-      homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
-    }
-  )
   ./postgres.nix
   {
     nixpkgs.overlays = [
       (final: prev: {
         tree-sitter-latest = tree-sitter.packages.${prev.stdenv.hostPlatform.system}.cli;
-      })
-    ];
-  }
-  {
-    nixpkgs.overlays = [
-      (final: prev: {
         opencode-production = opencode.packages.${prev.stdenv.hostPlatform.system}.opencode;
       })
     ];
   }
+  (toolchains { inherit self; })
 ]

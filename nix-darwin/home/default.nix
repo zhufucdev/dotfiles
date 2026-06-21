@@ -40,7 +40,7 @@
       raycast
       # openapi-generator-cli
       ghostty-bin
-      opencode-production
+      opencode
       ollama
     ]
     ++ (import ../../nix-common/nvim.nix {
