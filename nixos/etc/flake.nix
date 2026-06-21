@@ -30,6 +30,11 @@
       url = "github:zhufucdev/ollama";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rlamus = {
+      url = "github:sumalr-developers/rlamus";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{
@@ -40,6 +45,7 @@
       ledoxide,
       nix-gaming-edge,
       ollama,
+      rlamus,
       ...
     }:
     {
@@ -53,6 +59,7 @@
           ledoxide.nixosModules.ledoxide
           ledoxide.nixosModules.package
           ollama.nixosModules.default
+          rlamus.nixosModules.server
         ];
       };
     };

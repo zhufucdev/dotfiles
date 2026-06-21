@@ -306,13 +306,26 @@
     package = pkgs.ollama-rocm;
     environmentVariables = {
       OLLAMA_ORIGINS = "https://ollama.tail8a9e0.ts.net";
+      OLLAMA_CONTEXT_LENGTH = "128000";
     };
     host = "[::]";
   };
 
   services.not-yet = {
     enable = true;
-    extraEnv = ''RUST_LOG="warn,lib_common::polling::schedule=DEBUG"'';
+    package = pkgs.not-yet.override {
+      features = [
+        "telegram"
+        "serve-rss"
+        "daemon"
+      ];
+    };
+    extraEnv = ''RUST_LOG="warn,lib_common::polling::schedule=DEBUG" NOT_YET_MODEL="gemma4:12b"'';
+  };
+
+  services.rlamus = {
+    enable = true;
+    bind = "[::]:54813";
   };
 
   sops = {
