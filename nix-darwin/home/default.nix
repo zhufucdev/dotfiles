@@ -38,7 +38,6 @@
       python313Packages.huggingface-hub
       macism
       raycast
-      # openapi-generator-cli
       ghostty-bin
       opencode
       ollama

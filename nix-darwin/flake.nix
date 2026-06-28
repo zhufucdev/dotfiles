@@ -34,9 +34,12 @@
       url = "github:zewo/homebrew-tap";
       flake = false;
     };
+    shichizip = {
+      url = "github:shichizip/homebrew-tap";
+      flake = false;
+    };
 
     tree-sitter.url = "github:tree-sitter/tree-sitter";
-    opencode.url = "github:anomalyco/opencode/production";
   };
 
   outputs =

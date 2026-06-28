@@ -60,6 +60,7 @@ let
         casks = [
           "Sikarugir-App/sikarugir/sikarugir"
           "gaphor"
+          "shichizip"
         ];
       };
     };
@@ -70,11 +71,10 @@ in
   nix-homebrew,
   homebrew-core,
   homebrew-cask,
-  macos-cross-toolchains,
   tree-sitter,
   tw93,
   zewo,
-  opencode,
+  shichizip,
   ...
 }:
 [
@@ -98,6 +98,7 @@ in
         "homebrew/homebrew-cask" = homebrew-cask;
         "tw93/homebrew-tap" = tw93;
         "zewo/homebrew-tap" = zewo;
+        "shichizip/tap" = shichizip;
       };
       mutableTaps = false;
       autoMigrate = true;
@@ -105,6 +106,8 @@ in
         taps = [
           "tw93/homebrew-tap"
           "zewo/homebrew-tap"
+          "Sikarugir-App/sikarugir"
+          "shichizip/tap"
         ];
       };
     };
@@ -114,7 +117,6 @@ in
     nixpkgs.overlays = [
       (final: prev: {
         tree-sitter-latest = tree-sitter.packages.${prev.stdenv.hostPlatform.system}.cli;
-        opencode-production = opencode.packages.${prev.stdenv.hostPlatform.system}.opencode;
       })
     ];
   }
