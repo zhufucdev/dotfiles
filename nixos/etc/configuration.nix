@@ -326,6 +326,8 @@
   services.rlamus = {
     enable = true;
     bind = "[::]:54813";
+    extraOpts = "--apn-p12 ${config.sops.secrets.rlamus-apn-p12.path}";
+    extraEnv = "REDDIT_HEADERS=file:${config.sops.secrets.rlamus-reddit.path} APN_P12_PASSWORD=file:${config.sops.secrets.rlamus-apn-p12-password.path}";
   };
 
   sops = {
@@ -355,6 +357,24 @@
         sopsFile = ./secrets/caturday_pwd.bin;
         mode = "444";
         neededForUsers = true;
+      };
+      "rlamus-reddit" = {
+        format = "binary";
+        sopsFile = ./secrets/rlamus_reddit.toml;
+        mode = "444";
+        restartUnits = [ "rlamus.service" ];
+      };
+      "rlamus-apn-p12" = {
+        format = "binary";
+        sopsFile = ./secrets/rlamus_apn.p12;
+        mode = "444";
+        restartUnits = [ "rlamus.service" ];
+      };
+      "rlamus-apn-p12-password" = {
+        format = "binary";
+        sopsFile = ./secrets/rlamus_apn_password.txt;
+        mode = "444";
+        restartUnits = [ "rlamus.service" ];
       };
     };
   };
