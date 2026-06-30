@@ -98,7 +98,7 @@ in
         "homebrew/homebrew-cask" = homebrew-cask;
         "tw93/homebrew-tap" = tw93;
         "zewo/homebrew-tap" = zewo;
-        "shichizip/tap" = shichizip;
+        "shichizip/homebrew-tap" = shichizip;
       };
       mutableTaps = false;
       autoMigrate = true;
@@ -107,7 +107,7 @@ in
           "tw93/homebrew-tap"
           "zewo/homebrew-tap"
           "Sikarugir-App/sikarugir"
-          "shichizip/tap"
+          "shichizip/homebrew-tap"
         ];
       };
     };

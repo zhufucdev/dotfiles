@@ -39,7 +39,6 @@
       macism
       raycast
       ghostty-bin
-      opencode
       ollama
     ]
     ++ (import ../../nix-common/nvim.nix {
