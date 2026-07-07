@@ -151,11 +151,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782740957,
-        "narHash": "sha256-LreLtWGyph9ljT8u9DA2X0TG8T9Rf4tHxNJus1hzINc=",
+        "lastModified": 1783329619,
+        "narHash": "sha256-tIAWwJEQb6YP+WJv6jeXMfbQi54w5cF6rC3doIb9LwA=",
         "owner": "sumalr-developers",
         "repo": "rlamus",
-        "rev": "19a3c6784bbbdb1fa8908bf39c27834e3291f445",
+        "rev": "b65e91da123373ed20686061c4e8277ed6e145e0",
         "type": "github"
       },
       "original": {

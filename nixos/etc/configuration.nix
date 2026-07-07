@@ -326,7 +326,7 @@
   services.rlamus = {
     enable = true;
     bind = "[::]:54813";
-    extraOpts = "--apn-p12 ${config.sops.secrets.rlamus-apn-p12.path}";
+    extraOpts = "--apn-p12 ${config.sops.secrets.rlamus-apn-p12.path} --apn-sandbox";
     extraEnv = "REDDIT_HEADERS=file:${config.sops.secrets.rlamus-reddit.path} APN_P12_PASSWORD=file:${config.sops.secrets.rlamus-apn-p12-password.path}";
   };
 
