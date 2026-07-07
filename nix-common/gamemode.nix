@@ -16,6 +16,9 @@ writeShellApplication {
 
   text = ''
     set -euo pipefail
+    for running_model in $(ollama ps | tail -n +2 | awk '{printf $1}'); do
+      ollama stop "$running_model"
+    done
     echo -n "$$" > ${not-yet-lockfile}
     exec "${exec}"
   '';
