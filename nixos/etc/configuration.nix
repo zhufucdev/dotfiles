@@ -288,7 +288,10 @@
   services.ledoxide = {
     enable = true;
     authKeyFile = "/var/run/secrets/ledoxide";
+    captionModel = "gemma4-uncensored:12b";
+    extractModel = "gemma4:e4b";
     extraEnv = "RUST_LOG=debug";
+    extraOpts = "--offline";
   };
 
   services.jellyfin = {
