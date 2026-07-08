@@ -257,6 +257,9 @@
     capSysAdmin = true; # only needed for Wayland -- omit this when using with Xorg
     openFirewall = true;
     package = pkgs.sunshine;
+    settings = {
+      csrf_allowed_origins = "https://sunshine.tail8a9e0.ts.net";
+    };
   };
   hardware.uinput.enable = true;
 
@@ -333,6 +336,55 @@
     extraEnv = "REDDIT_HEADERS=file:${config.sops.secrets.rlamus-reddit.path} APN_P12_PASSWORD=file:${config.sops.secrets.rlamus-apn-p12-password.path}";
   };
 
+  # Observability
+  services.grafana = {
+    enable = true;
+    settings = {
+      server = {
+        http_addr = "127.0.0.1";
+        http_port = 58193;
+        enable_gzip = true;
+        domain = "grafana.tail8a9e0.ts.net";
+      };
+      security.secret_key = "$__file{${config.sops.secrets.grafana.path}}";
+      analytics.reporting_enabled = false;
+    };
+
+    provision = {
+      enable = true;
+      datasources.settings.datasources = [
+        {
+          name = "Prometheus";
+          type = "prometheus";
+          url = "http://${config.services.prometheus.listenAddress}:${toString config.services.prometheus.port}";
+          isDefault = true;
+          editable = false;
+        }
+      ];
+    };
+  };
+  services.prometheus = {
+    enable = true;
+    listenAddress = "127.0.0.1";
+    port = 64321;
+    globalConfig.scrape_interval = "10m";
+    scrapeConfigs = [
+      {
+        job_name = "quanwutong";
+        static_configs = [
+          {
+            targets = [ config.services.quanwutong-exporter.listenAddress ];
+          }
+        ];
+      }
+    ];
+  };
+  services.quanwutong-exporter = {
+    enable = true;
+    listenAddress = "127.0.0.1:65281";
+    token = "file:${config.sops.secrets.quanwutong-token.path}";
+  };
+
   sops = {
     defaultSopsFile = ./secrets/default.yaml;
     age = {
@@ -378,6 +430,18 @@
         sopsFile = ./secrets/rlamus_apn_password.txt;
         mode = "444";
         restartUnits = [ "rlamus.service" ];
+      };
+      "grafana" = {
+        format = "binary";
+        sopsFile = ./secrets/grafana.txt;
+        mode = "444";
+        restartUnits = [ "grafana.service" ];
+      };
+      "quanwutong-token" = {
+        format = "binary";
+        sopsFile = ./secrets/quanwutong.txt;
+        mode = "444";
+        restartUnits = [ "quanwutong-exporter.service" ];
       };
     };
   };

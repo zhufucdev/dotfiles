@@ -26,13 +26,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ollama = {
-      url = "github:zhufucdev/ollama";
+    rlamus = {
+      url = "github:sumalr-developers/rlamus";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rlamus = {
-      url = "github:sumalr-developers/rlamus";
+    quanwutong-exporter = {
+      url = "github:zhufucdev/quanwutong-exporter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -44,8 +44,8 @@
       not-yet,
       ledoxide,
       nix-gaming-edge,
-      ollama,
       rlamus,
+      quanwutong-exporter,
       ...
     }:
     {
@@ -58,8 +58,8 @@
           not-yet.nixosModules.telegram
           ledoxide.nixosModules.ledoxide
           ledoxide.nixosModules.package
-          ollama.nixosModules.default
           rlamus.nixosModules.server
+          quanwutong-exporter.nixosModules.default
         ];
       };
     };
