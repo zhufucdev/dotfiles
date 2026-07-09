@@ -345,6 +345,7 @@
         http_port = 58193;
         enable_gzip = true;
         domain = "grafana.tail8a9e0.ts.net";
+        root_url = "https://grafana.tail8a9e0.ts.net/";
       };
       security.secret_key = "$__file{${config.sops.secrets.grafana.path}}";
       analytics.reporting_enabled = false;
