@@ -40,6 +40,7 @@
       raycast
       ghostty-bin
       ollama
+      zig
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;

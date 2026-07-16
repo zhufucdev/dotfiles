@@ -35,4 +35,5 @@ with pkgs;
   cmake-language-server
   jinja-lsp
   yazi
+  zls
 ]
