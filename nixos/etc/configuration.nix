@@ -330,10 +330,11 @@
   };
 
   services.rlamus = {
+    user = "rlamus";
     enable = true;
     bind = "[::]:54813";
-    extraOpts = "--apn-p12 ${config.sops.secrets.rlamus-apn-p12.path} --apn-sandbox";
-    extraEnv = "REDDIT_HEADERS=file:${config.sops.secrets.rlamus-reddit.path} APN_P12_PASSWORD=file:${config.sops.secrets.rlamus-apn-p12-password.path}";
+    extraOpts = "--apn-p12 ${config.sops.secrets.rlamus-apn-p12.path}";
+    extraEnv = "REDDIT_HEADERS=file:${config.sops.secrets.rlamus-reddit.path} APN_P12_PASSWORD=file:${config.sops.secrets.rlamus-apn-p12-password.path} EMBEDDING_MODEL=\"hf.co/jinaai/jina-embeddings-v5-text-small-clustering:Q8_0\"";
   };
 
   # Observability
@@ -378,12 +379,32 @@
           }
         ];
       }
+      {
+        job_name = "site";
+        scrape_interval = "1h";
+        static_configs = [
+          {
+            targets =
+              let
+                cfg = config.services.site-exporter;
+              in
+              [ "${if cfg.interface != null then cfg.interface else "127.0.0.1"}:${toString cfg.port}" ];
+          }
+        ];
+      }
     ];
   };
   services.quanwutong-exporter = {
     enable = true;
+    user = "quanwutong-exporter";
     listenAddress = "127.0.0.1:65281";
     token = "file:${config.sops.secrets.quanwutong-token.path}";
+  };
+  services.site-exporter = {
+    enable = true;
+    user = "site-exporter";
+    dbUrl = "file:${config.sops.secrets.site-db-url.path}";
+    port = 61298;
   };
 
   sops = {
@@ -417,32 +438,44 @@
       "rlamus-reddit" = {
         format = "binary";
         sopsFile = ./secrets/rlamus_reddit.toml;
-        mode = "444";
+        mode = "400";
+        owner = config.systemd.services.rlamus.serviceConfig.User;
         restartUnits = [ "rlamus.service" ];
       };
       "rlamus-apn-p12" = {
         format = "binary";
         sopsFile = ./secrets/rlamus_apn.p12;
-        mode = "444";
+        mode = "400";
+        owner = config.systemd.services.rlamus.serviceConfig.User;
         restartUnits = [ "rlamus.service" ];
       };
       "rlamus-apn-p12-password" = {
         format = "binary";
         sopsFile = ./secrets/rlamus_apn_password.txt;
-        mode = "444";
+        mode = "400";
+        owner = config.systemd.services.rlamus.serviceConfig.User;
         restartUnits = [ "rlamus.service" ];
       };
       "grafana" = {
         format = "binary";
         sopsFile = ./secrets/grafana.txt;
-        mode = "444";
+        owner = config.systemd.services.grafana.serviceConfig.User;
+        mode = "400";
         restartUnits = [ "grafana.service" ];
       };
       "quanwutong-token" = {
         format = "binary";
         sopsFile = ./secrets/quanwutong.txt;
-        mode = "444";
+        mode = "400";
+        owner = config.systemd.services.quanwutong-exporter.serviceConfig.User;
         restartUnits = [ "quanwutong-exporter.service" ];
+      };
+      "site-db-url" = {
+        format = "binary";
+        sopsFile = ./secrets/site_db_url.txt;
+        mode = "400";
+        owner = config.systemd.services.site-exporter.serviceConfig.User;
+        restartUnits = [ "site-exporter.service" ];
       };
     };
   };

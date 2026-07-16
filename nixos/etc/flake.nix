@@ -35,6 +35,10 @@
       url = "github:zhufucdev/quanwutong-exporter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    site-exporter = {
+      url = "github:zhufucdev/site-exporter";
+    };
   };
   outputs =
     inputs@{
@@ -46,6 +50,7 @@
       nix-gaming-edge,
       rlamus,
       quanwutong-exporter,
+      site-exporter,
       ...
     }:
     {
@@ -60,6 +65,7 @@
           ledoxide.nixosModules.package
           rlamus.nixosModules.server
           quanwutong-exporter.nixosModules.default
+          site-exporter.nixosModules.default
         ];
       };
     };

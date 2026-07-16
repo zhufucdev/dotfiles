@@ -117,6 +117,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1784007870,
+        "narHash": "sha256-djcLt/JJphyNt4eDY9XTly+/WbCK5lqWq9lSgCmJkkQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "18b9261cb3294b6d2a06d03f96872827b8fe2698",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "not-yet": {
       "inputs": {
         "crane": "crane_2",
@@ -146,11 +162,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783492236,
-        "narHash": "sha256-LovXbgiAB838dKEjYBseSTIwL3eUBZK/OE9chqzMRro=",
+        "lastModified": 1784126832,
+        "narHash": "sha256-dEvufW6hESdkZShkfT3MPdIEAq4wYOKqyqFzdWLP/c8=",
         "owner": "zhufucdev",
         "repo": "quanwutong-exporter",
-        "rev": "c0fc557d2e0f28ec58da3539bb5e378a22abd452",
+        "rev": "05a43899575e2d0cabd42ea7709db92d3ae8055e",
         "type": "github"
       },
       "original": {
@@ -167,11 +183,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783329619,
-        "narHash": "sha256-tIAWwJEQb6YP+WJv6jeXMfbQi54w5cF6rC3doIb9LwA=",
+        "lastModified": 1784156574,
+        "narHash": "sha256-57PzwY3So5z28fjswmn87gWOv4cRzxHJKiKOozAIiBY=",
         "owner": "sumalr-developers",
         "repo": "rlamus",
-        "rev": "b65e91da123373ed20686061c4e8277ed6e145e0",
+        "rev": "aeba66566280f84023afe04d2d9f42b35fc5546e",
         "type": "github"
       },
       "original": {
@@ -188,7 +204,26 @@
         "not-yet": "not-yet",
         "quanwutong-exporter": "quanwutong-exporter",
         "rlamus": "rlamus",
+        "site-exporter": "site-exporter",
         "sops-nix": "sops-nix"
+      }
+    },
+    "site-exporter": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1784167758,
+        "narHash": "sha256-9VWeTVZmqIcyk99Q7mUIMALvAHs7Ol0m7U7xLhYzgWQ=",
+        "owner": "zhufucdev",
+        "repo": "site-exporter",
+        "rev": "9f82e9432bedb54a2f98ff235856175160048d45",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zhufucdev",
+        "repo": "site-exporter",
+        "type": "github"
       }
     },
     "sops-nix": {
