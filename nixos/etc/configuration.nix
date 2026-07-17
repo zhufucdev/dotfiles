@@ -318,7 +318,7 @@
   };
 
   services.not-yet = {
-    enable = true;
+    enable = false;
     package = pkgs.not-yet.override {
       features = [
         "telegram"
