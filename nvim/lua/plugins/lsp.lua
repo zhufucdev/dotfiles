@@ -143,6 +143,10 @@ local function get_servers()
     cmake = { no_install = true },
     jinja_lsp = { no_install = true, filetypes = { 'jinja' } },
     zls = { no_install = true },
+    sourcekit = {
+      no_install = true,
+      filetypes = { 'swift' },
+    },
 
     stylua = { no_install = true }, -- Used to format Lua code,
     black = { no_install = true }, -- Used to format Python,
@@ -317,7 +321,7 @@ return {
     --  By default, Neovim doesn't support everything that is in the LSP specification.
     --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
     --  So, we create new capabilities with cmp-nvim, and then broadcast that to the servers.
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
 
     --
     -- Ensure the servers and tools above are installed

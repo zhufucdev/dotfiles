@@ -41,6 +41,7 @@ return { -- Autoformat
       vue = use_frontend,
       rust = { 'rustfmt' },
       xml = { 'xmllint' },
+      swift = { 'swiftformat' },
     },
   },
 }

@@ -41,6 +41,7 @@
       ghostty-bin
       ollama
       zig
+      zed-editor
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;

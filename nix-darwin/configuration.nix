@@ -52,8 +52,9 @@
     brews = [
       "tw93/tap/mole"
       "zewo/tap/libdill"
+      "xcode-build-server"
     ];
-    #Align homebrew taps config with nix-homebrew
+    # Align homebrew taps config with nix-homebrew
     taps = builtins.attrNames config.nix-homebrew.taps;
     casks = [
       "Sikarugir-App/sikarugir/sikarugir"

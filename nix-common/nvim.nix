@@ -36,4 +36,6 @@ with pkgs;
   jinja-lsp
   yazi
   zls
+  sourcekit-lsp
+  swiftformat
 ]
