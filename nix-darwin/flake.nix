@@ -38,6 +38,10 @@
       url = "github:shichizip/homebrew-tap";
       flake = false;
     };
+    sikarugir = {
+      url = "github:Sikarugir-App/homebrew-sikarugir";
+      flake = false;
+    };
 
     tree-sitter.url = "github:tree-sitter/tree-sitter";
   };

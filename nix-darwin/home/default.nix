@@ -63,7 +63,9 @@
 
   programs.java = (import ./java.nix) { inherit pkgs; };
 
-  programs.poetry.enable = true;
+  programs.poetry = {
+    enable = true;
+  };
 
   programs.git = (import ../../nix-common/git.nix);
 

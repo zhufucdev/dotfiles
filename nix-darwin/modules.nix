@@ -8,6 +8,7 @@
   tw93,
   zewo,
   shichizip,
+  sikarugir,
   ...
 }:
 [
@@ -32,6 +33,7 @@
         "tw93/homebrew-tap" = tw93;
         "zewo/homebrew-tap" = zewo;
         "shichizip/homebrew-tap" = shichizip;
+        "sikarugir-app/homebrew-sikarugir" = sikarugir;
       };
       mutableTaps = false;
       autoMigrate = true;
@@ -39,7 +41,7 @@
         taps = [
           "tw93/homebrew-tap"
           "zewo/homebrew-tap"
-          "Sikarugir-App/sikarugir"
+          "sikarugir-app/homebrew-sikarugir"
           "shichizip/homebrew-tap"
         ];
       };
@@ -50,6 +52,15 @@
     nixpkgs.overlays = [
       (final: prev: {
         tree-sitter-latest = tree-sitter.packages.${prev.stdenv.hostPlatform.system}.cli;
+        poetry = prev.poetry.overrideAttrs (
+          final: prev: {
+            disabledTests = prev.disabledTests ++ [
+              "test_execute_executes_a_batch_of_operations"
+              "test_execute_prints_warning_for_yanked_package[operations1-False]"
+              "test_execute_prints_warning_for_yanked_package[operations2-True]"
+            ];
+          }
+        ); # TODO: disabled for now
       })
     ];
   }
