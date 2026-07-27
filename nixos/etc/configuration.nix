@@ -237,7 +237,10 @@
   };
 
   # Minimal Gnome desktop environment
-  services.displayManager.gdm.enable = true;
+  services.displayManager.gdm = {
+    enable = true;
+    autoSuspend = false;
+  };
   services.desktopManager.gnome.enable = true;
   services.gnome = {
     core-apps.enable = false;
