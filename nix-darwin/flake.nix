@@ -50,16 +50,12 @@
     inputs@{ self, nix-darwin, ... }:
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#zhusmacmini
-      darwinConfigurations."zhusmacmini" = nix-darwin.lib.darwinSystem {
-        modules = (import ./modules.nix) inputs;
-      };
-
+      # $ darwin-rebuild build --flake .#zhusmbp
       darwinConfigurations."zhufusmbp" = nix-darwin.lib.darwinSystem {
         modules = (import ./modules.nix) inputs;
       };
 
-      darwinConfigurations."zhufusmba" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."bigmbp" = nix-darwin.lib.darwinSystem {
         modules = (import ./modules.nix) inputs;
       };
 

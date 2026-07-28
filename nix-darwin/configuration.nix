@@ -51,7 +51,6 @@
     enable = true;
     brews = [
       "tw93/tap/mole"
-      "zewo/tap/libdill"
       "xcode-build-server"
     ];
     # Align homebrew taps config with nix-homebrew
