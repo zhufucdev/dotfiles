@@ -1,0 +1,3 @@
+[submodule "cendre"]
+	path = cendre
+	url = https://github.com/Aejkatappaja/cendre.git

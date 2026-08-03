@@ -12,9 +12,8 @@ To get started, symbolically link per system as follows
 | :----------------- | :--------------------- |
 | nixos/etc          | /etc/nixos             |
 | nixos/home-manager | ~/.config/home-manager |
-| nvim               | ~/.config/nvim         |
 
-Do they same for following files, but copying
+Do the same for following files, but copying
 
 | Source                      | Dest                   |
 | :-------------------------- | :--------------------- |
@@ -28,4 +27,3 @@ Symbolically link
 | :--------- | :---------------- |
 | nix-pkgs   | ~/.config/nixpkgs |
 | nix-darwin | /etc/nix-darwin   |
-| nvim       | ~/.config/nvim    |

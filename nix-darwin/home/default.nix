@@ -47,6 +47,9 @@
       inherit pkgs;
     });
 
+  home.file.".config/yazi".source = ../../yazi;
+  home.file.".config/nvim".source = ../../nvim;
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "less";

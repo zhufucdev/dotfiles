@@ -333,10 +333,10 @@ require('lazy').setup({
   },
 
   {
-    'rebelot/kanagawa.nvim',
-    priority = 1000, -- Ensure it loads first
+    'Aejkatappaja/cendre',
     config = function()
-      vim.cmd 'colorscheme kanagawa-dragon'
+      require('cendre').setup { background = 'soft' }
+      vim.cmd 'colorscheme cendre'
     end,
   },
 
