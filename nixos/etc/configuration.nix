@@ -32,13 +32,9 @@
     # Configure network connections interactively with nmcli or nmtui.
     networkmanager.enable = true;
 
-    bridges.br0.interfaces = [
-      "enp37s0"
-      "enp38s0"
-    ];
     useDHCP = false;
 
-    interfaces.br0 = {
+    interfaces.enp37s0 = {
       ipv4.addresses = [
         {
           address = "192.168.124.10";
@@ -143,7 +139,7 @@
       enable = true;
       addresses = true;
     };
-    allowInterfaces = [ config.networking.interfaces.br0.name ];
+    allowInterfaces = [ "enp37s0" ];
   };
 
   users.mutableUsers = false;
