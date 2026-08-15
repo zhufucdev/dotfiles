@@ -436,6 +436,7 @@ require 'scripts.copypath'
 require 'scripts.fontsize'
 require 'scripts.focusback'
 require 'scripts.cargofeatures'
+require 'scripts.partialsync'
 
 -- Custom file types
 vim.filetype.add {
