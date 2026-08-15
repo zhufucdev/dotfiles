@@ -27,3 +27,10 @@ Symbolically link
 | :--------- | :---------------- |
 | nix-pkgs   | ~/.config/nixpkgs |
 | nix-darwin | /etc/nix-darwin   |
+
+## Developement
+
+### Neovim
+
+Change `XDG_CONFIG_HOME` to repo root cause the configuration
+directory is otherwise managed by nix.
