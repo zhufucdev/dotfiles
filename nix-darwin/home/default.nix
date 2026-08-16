@@ -42,6 +42,7 @@
       ollama
       zig
       zed-editor
+      autoraise
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
