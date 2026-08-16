@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "autoraise": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780989320,
+        "narHash": "sha256-mPXDwnI+a2wDh4rzbsLL2niXHbSUdFl3qeJcboOSSzg=",
+        "owner": "Dimentium",
+        "repo": "homebrew-autoraise",
+        "rev": "95ce2dd02bfbde25ef940abed5eb70e8e97d17fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Dimentium",
+        "repo": "homebrew-autoraise",
+        "type": "github"
+      }
+    },
     "brew-src": {
       "flake": false,
       "locked": {
@@ -176,6 +192,7 @@
     },
     "root": {
       "inputs": {
+        "autoraise": "autoraise",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",

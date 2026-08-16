@@ -59,6 +59,7 @@
       "Sikarugir-App/sikarugir/sikarugir"
       "gaphor"
       "shichizip"
+      "dimentium/autoraise/autoraiseapp"
     ];
   };
 }
