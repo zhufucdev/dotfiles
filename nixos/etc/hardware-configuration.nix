@@ -24,8 +24,13 @@
   ];
   boot.initrd.kernelModules = [ ];
   boot.initrd.extraFiles = [ /usr/lib/firmware/edid/samsung-q800t-hdmi2.1 ];
-  boot.kernelModules = [ "kvm-amd" "amdgpu" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "amdgpu"
+    "nct6687d"
+  ];
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [ nct6687d ];
   boot.supportedFilesystems = [ "zfs" ];
   boot.kernelParams = [
     "zfs.zfs_arc_max=0" # Disable ARC for there's already an SSD for that

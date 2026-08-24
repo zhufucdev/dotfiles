@@ -163,6 +163,10 @@
       isNormalUser = true;
       shell = pkgs.shadow; # No login
     };
+    agent007 = {
+      isNormalUser = true;
+      shell = pkgs.zsh;
+    };
   };
 
   programs.firefox.enable = true;
@@ -189,11 +193,10 @@
     gnome-console
     sops
     age
-    # not-yet
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
-    chromium
+    rustup
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

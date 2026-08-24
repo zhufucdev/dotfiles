@@ -20,7 +20,6 @@
   home.packages =
     with pkgs;
     [
-      rustup
       go
       python3
       nodejs_24
@@ -46,8 +45,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/yazi" = ../../yazi;
-    ".config/nvim" = ../../nvim;
+    ".config/yazi".source = ../../yazi;
+    ".config/nvim".source = ../../nvim;
   };
 
   # Home Manager can also manage your environment variables through
