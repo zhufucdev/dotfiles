@@ -42,6 +42,8 @@
       ollama
       zig
       zed-editor
+      protobuf
+      protoc-gen-swift
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;

@@ -52,6 +52,7 @@
     brews = [
       "tw93/tap/mole"
       "xcode-build-server"
+      "swift-protobuf"
     ];
     # Align homebrew taps config with nix-homebrew
     taps = builtins.attrNames config.nix-homebrew.taps;
