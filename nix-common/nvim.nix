@@ -13,6 +13,7 @@ with pkgs;
   astro-language-server
   vtsls
   docker-language-server
+  buf
   gopls
   isort
   black

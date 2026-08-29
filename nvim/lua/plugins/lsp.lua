@@ -71,7 +71,7 @@ local function get_servers()
     tailwindcss = {
       no_install = true,
     },
-    buf = {
+    buf_ls = {
       no_install = true,
     },
     taplo = {
