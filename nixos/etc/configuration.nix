@@ -496,7 +496,10 @@
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
   nix.settings = {
-    experimental-features = "nix-command flakes";
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     # CUDA cache
     substituters = [ "https://cache.nixos-cuda.org" ];
     trusted-public-keys = [ "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=" ];
