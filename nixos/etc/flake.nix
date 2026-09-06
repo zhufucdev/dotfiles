@@ -39,6 +39,11 @@
     site-exporter = {
       url = "github:zhufucdev/site-exporter";
     };
+
+    securitycam-kit = {
+      url = "git+https://codeberg.org/zhufucdev/securitycam-kit.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{
@@ -51,6 +56,7 @@
       rlamus,
       quanwutong-exporter,
       site-exporter,
+      securitycam-kit,
       ...
     }:
     {
@@ -66,6 +72,7 @@
           rlamus.nixosModules.server
           quanwutong-exporter.nixosModules.default
           site-exporter.nixosModules.default
+          securitycam-kit.nixosModules.default
         ];
       };
     };

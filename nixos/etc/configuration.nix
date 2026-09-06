@@ -409,6 +409,17 @@
     port = 61298;
   };
 
+  services.homebridge = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  services.securitycam-kit = {
+    enable = true;
+    camera = "0";
+    homebridgeUrl = "http://localhost:48123";
+  };
+
   sops = {
     defaultSopsFile = ./secrets/default.yaml;
     age = {

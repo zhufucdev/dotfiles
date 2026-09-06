@@ -204,8 +204,29 @@
         "not-yet": "not-yet",
         "quanwutong-exporter": "quanwutong-exporter",
         "rlamus": "rlamus",
+        "securitycam-kit": "securitycam-kit",
         "site-exporter": "site-exporter",
         "sops-nix": "sops-nix"
+      }
+    },
+    "securitycam-kit": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788680435,
+        "narHash": "sha256-/D9mH9NPWe7YGyvlH5FJ4S+Df5Y/mIbes5+NEYAePQA=",
+        "ref": "refs/heads/main",
+        "rev": "7195bf27b6e54f7c5b68ddf6051660a4d5dc72ce",
+        "revCount": 15,
+        "type": "git",
+        "url": "https://codeberg.org/zhufucdev/securitycam-kit.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/zhufucdev/securitycam-kit.git"
       }
     },
     "site-exporter": {
