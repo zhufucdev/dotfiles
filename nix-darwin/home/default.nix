@@ -51,6 +51,7 @@
 
   home.file.".config/yazi".source = ../../yazi;
   home.file.".config/nvim".source = ../../nvim;
+  home.file."Library/Java/JavaVirtualMachines/17".source = pkgs.jdk17.outPath;
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -66,7 +67,10 @@
   ]
   ++ (import ./path.nix);
 
-  programs.java = (import ./java.nix) { inherit pkgs; };
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk21;
+  };
 
   programs.poetry = {
     enable = true;
