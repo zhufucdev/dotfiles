@@ -120,6 +120,15 @@
         "directory mask" = "0755";
         "force user" = "caturday";
       };
+
+      security_camera = {
+        "path" = "/var/lib/securitycam-kit/recordings";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+      };
     };
     openFirewall = true;
   };
@@ -320,7 +329,7 @@
   };
 
   services.not-yet = {
-    enable = true;
+    enable = false;
     package = pkgs.not-yet.override {
       features = [
         "telegram"
@@ -418,6 +427,7 @@
     enable = true;
     camera = "0";
     homebridgeUrl = "http://localhost:48123";
+    logLevel = "info";
   };
 
   sops = {
