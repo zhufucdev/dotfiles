@@ -19,6 +19,7 @@
     ripgrep
     llama-cpp
     ninja
+    nix-output-monitor
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
