@@ -380,29 +380,6 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
-  { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    version = 'main',
-    lazy = false,
-    build = ':TSUpdate',
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-    },
-    config = function()
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = { '<filetype>' },
-        callback = function()
-          -- Syntax highlighting supported by neovim
-          vim.treesitter.start()
-          -- Indent with treesitter
-          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end,
-      })
-    end,
-  },
   'davidmh/mdx.nvim',
   { import = 'plugins' },
 }, {
