@@ -42,6 +42,14 @@
 
   system.primaryUser = "zhufu";
 
+  services.openssh = {
+    enable = true;
+    extraConfig = ''
+      PasswordAuthentication no
+      ChallengeResponseAuthentication no
+    '';
+  };
+
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
