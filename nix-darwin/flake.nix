@@ -54,8 +54,8 @@
     inputs@{ self, nix-darwin, ... }:
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#zhusmbp
-      darwinConfigurations."zhufusmbp" = nix-darwin.lib.darwinSystem {
+      # $ darwin-rebuild build --flake .#Ophelia
+      darwinConfigurations."Ophelia" = nix-darwin.lib.darwinSystem {
         modules = (import ./modules.nix) inputs;
       };
 
@@ -64,6 +64,6 @@
       };
 
       # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."zhusmacmini".pkgs;
+      darwinPackages = self.darwinConfigurations."ophelia".pkgs;
     };
 }

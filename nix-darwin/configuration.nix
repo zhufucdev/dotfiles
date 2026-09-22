@@ -20,6 +20,7 @@
     llama-cpp
     ninja
     nix-output-monitor
+    jdk25
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
