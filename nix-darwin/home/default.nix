@@ -36,7 +36,6 @@
       prettierd
       python313Packages.debugpy
       python313Packages.huggingface-hub
-      macism
       raycast
       ghostty-bin
       ollama
