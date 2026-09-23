@@ -39,6 +39,7 @@
       raycast
       ghostty-bin
       ollama
+      blender
       zig
       zed-editor
       protobuf
