@@ -45,6 +45,7 @@
       protobuf
       protoc-gen-swift
       nix-output-monitor
+      codex
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
