@@ -74,7 +74,11 @@
 
   fonts.fontconfig.enable = true;
 
-  programs.zsh = import ../../nix-common/zsh.nix { inherit config; };
+  programs.zsh = import ../../nix-common/zsh.nix { inherit config; } // {
+    shellAliases = {
+      nixos-rebuild-nom = "sudo nixos-rebuild switch --log-format internal-json -v |& nom --json";
+    };
+  };
   programs.git = import ../../nix-common/git.nix;
 
   # Enable unfree packages
