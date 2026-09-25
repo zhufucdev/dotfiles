@@ -21,6 +21,7 @@
     ninja
     nix-output-monitor
     jdk25
+    sops
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
@@ -50,6 +51,14 @@
     '';
   };
 
+  services.ledoxide = {
+    enable = true;
+    package = pkgs.ledoxide-openai;
+    authKeyFile = "/var/run/secrets/ledoxide";
+    captionModel = "Qwen3.8-27B-4bit";
+    extractModel = "Qwen3.8-27B-4bit";
+  };
+
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -72,5 +81,22 @@
       "shichizip"
       "dimentium/autoraise/autoraiseapp"
     ];
+  };
+
+  sops = {
+    defaultSopsFile = ./secrets/default.yaml;
+    age = {
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      # This will generate a new key if the key specified above does not exist
+      generateKey = true;
+    };
+    secrets = {
+      "ledoxide" = {
+        format = "dotenv";
+        sopsFile = ./secrets/ledoxide.env;
+        mode = "444";
+      };
+    };
   };
 }

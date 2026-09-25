@@ -16,11 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ledoxide = {
-      url = "github:zhufucdev/ledoxide";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-gaming-edge = {
       url = "github:powerofthe69/nix-gaming-edge";
       inputs.nixpkgs.follows = "nixpkgs";

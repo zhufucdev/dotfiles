@@ -33,6 +33,21 @@
         "type": "github"
       }
     },
+    "crane": {
+      "locked": {
+        "lastModified": 1778106249,
+        "narHash": "sha256-cM/AuKy5tMhwOOQIbha8ZRRMHVfNf7cv2aljIw+qoCg=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "6d015ea29630b7ad2402841386da2cb617a470a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -101,6 +116,27 @@
       "original": {
         "owner": "homebrew",
         "repo": "homebrew-core",
+        "type": "github"
+      }
+    },
+    "ledoxide": {
+      "inputs": {
+        "crane": "crane",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790338014,
+        "narHash": "sha256-LADrrfhotehW1Ds0s91XMUnKmyc6wQjsZRodk4jIqac=",
+        "owner": "zhufucdev",
+        "repo": "ledoxide",
+        "rev": "521dfdc8991e7e6e4b85ce02497b23a43c79f9cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zhufucdev",
+        "repo": "ledoxide",
         "type": "github"
       }
     },
@@ -197,12 +233,14 @@
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "ledoxide": "ledoxide",
         "macos-cross-toolchains": "macos-cross-toolchains",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",
         "shichizip": "shichizip",
         "sikarugir": "sikarugir",
+        "sops-nix": "sops-nix",
         "tree-sitter": "tree-sitter",
         "tw93": "tw93",
         "zewo": "zewo"
@@ -237,6 +275,26 @@
       "original": {
         "owner": "Sikarugir-App",
         "repo": "homebrew-sikarugir",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790247521,
+        "narHash": "sha256-TNfgoHsqsYYvaJImlWctfRkh4PseTagzegU1Dgdbehw=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "2bd00bd9bb35fe6d114888c8f1c2e946c541dd8f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },

@@ -10,6 +10,8 @@
   shichizip,
   sikarugir,
   autoraise,
+  ledoxide,
+  sops-nix,
   ...
 }:
 [
@@ -67,5 +69,8 @@
       })
     ];
   }
+  ledoxide.darwinModules.ledoxide
+  ledoxide.darwinModules.package
+  sops-nix.darwinModules.sops
   ./configuration.nix
 ]

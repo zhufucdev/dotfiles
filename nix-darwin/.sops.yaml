@@ -1,0 +1,9 @@
+keys:
+  - &fk age14hdk3gjygvkfqz47y5ae87z0l60sda3yapj2q06pt23xfltqlf7skx5fpl
+  - &ophelia age1698uy9t7uptyk2g8sxajt09v58rwn7xzzrespymkektr507h8f2qn8t7s8
+creation_rules:
+  - path_regex: secrets/[^/.]+\..+$
+    key_groups:
+      - age:
+          - *fk
+          - *ophelia

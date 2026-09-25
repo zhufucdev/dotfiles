@@ -12,6 +12,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-core = {
@@ -48,6 +52,11 @@
     };
 
     tree-sitter.url = "github:tree-sitter/tree-sitter";
+
+    ledoxide = {
+      url = "github:zhufucdev/ledoxide";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

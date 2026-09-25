@@ -46,6 +46,7 @@
       protoc-gen-swift
       nix-output-monitor
       codex
+      tlrc
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
