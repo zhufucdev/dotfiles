@@ -299,15 +299,6 @@
     systemCronJobs = [ ];
   };
 
-  services.ledoxide = {
-    enable = true;
-    authKeyFile = "/var/run/secrets/ledoxide";
-    captionModel = "gemma4-uncensored:12b";
-    extractModel = "gemma4:e4b";
-    extraEnv = "RUST_LOG=debug";
-    extraOpts = "--offline";
-  };
-
   services.jellyfin = {
     enable = true;
     openFirewall = true;
@@ -439,11 +430,6 @@
       generateKey = true;
     };
     secrets = {
-      "ledoxide" = {
-        format = "dotenv";
-        sopsFile = ./secrets/ledoxide.env;
-        mode = "444";
-      };
       "mihomo" = {
         format = "yaml";
         sopsFile = ./secrets/mihomo.yaml;

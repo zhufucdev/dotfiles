@@ -46,7 +46,6 @@
       nixpkgs,
       sops-nix,
       not-yet,
-      ledoxide,
       nix-gaming-edge,
       rlamus,
       quanwutong-exporter,
@@ -62,8 +61,6 @@
           ./gaming.nix
           sops-nix.nixosModules.sops
           not-yet.nixosModules.telegram
-          ledoxide.nixosModules.ledoxide
-          ledoxide.nixosModules.package
           rlamus.nixosModules.server
           quanwutong-exporter.nixosModules.default
           site-exporter.nixosModules.default
