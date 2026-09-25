@@ -55,8 +55,8 @@
     enable = true;
     package = pkgs.ledoxide-openai;
     authKeyFile = "/var/run/secrets/ledoxide";
-    captionModel = "Qwen3.8-27B-4bit";
-    extractModel = "Qwen3.8-27B-4bit";
+    captionModel = "Qwen3.8-27B-oQ4e-mtp";
+    extractModel = "Qwen3.8-27B-oQ4e-mtp";
   };
 
   # The platform the configuration will be used on.
