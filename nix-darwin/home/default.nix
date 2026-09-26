@@ -48,6 +48,7 @@
       codex
       tlrc
       moonlight-qt
+      iina
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
