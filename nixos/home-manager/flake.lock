@@ -25,11 +25,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789765459,
-        "narHash": "sha256-voJJ5IZR4w2149u2Jm/j2zifeWROlpZQ+JzmCQwjgn8=",
+        "lastModified": 1790292277,
+        "narHash": "sha256-z+knvdMItRrMonmG4RIsqKYIa/hwYUzKjotDTfC5DDc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "17903129f47656fa4d07e78ad87f6592ff4f2527",
+        "rev": "4b9add8645d5e2b0f7de18f7a442d08fe2bdcc91",
         "type": "github"
       },
       "original": {
@@ -44,11 +44,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1789774351,
-        "narHash": "sha256-6R/jp+iIVscGzL7H/ltA/N7auoL1Q/EbQXHRrGKA8Zs=",
+        "lastModified": 1790339629,
+        "narHash": "sha256-vb9yRX1aJGuXXYUvEo3mBG5ShrFSEN8oy4Kkt+B4sWo=",
         "owner": "ggml-org",
         "repo": "llama.cpp",
-        "rev": "60081bb2b5b3294165a4d67c5cbeebe74c868014",
+        "rev": "e85e15cf6d810cd1268498c2e5b657bb3ece47bc",
         "type": "github"
       },
       "original": {
@@ -59,11 +59,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1789684949,
-        "narHash": "sha256-ZKhUe/2IJUq1JhKxKMu8rbkgSGmPP2ZCqlIPn40aGCM=",
+        "lastModified": 1790185690,
+        "narHash": "sha256-xJ+X4hBtOcAFGBOe5nAMyMUeF9foJBmIOu3NjBqBycU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e554fab72f81915600f3f449b786fd9af40439a5",
+        "rev": "4975466d324710c576dc11ad614684e6bd8cad8e",
         "type": "github"
       },
       "original": {
@@ -90,11 +90,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1789684949,
-        "narHash": "sha256-ZKhUe/2IJUq1JhKxKMu8rbkgSGmPP2ZCqlIPn40aGCM=",
+        "lastModified": 1790185690,
+        "narHash": "sha256-xJ+X4hBtOcAFGBOe5nAMyMUeF9foJBmIOu3NjBqBycU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e554fab72f81915600f3f449b786fd9af40439a5",
+        "rev": "4975466d324710c576dc11ad614684e6bd8cad8e",
         "type": "github"
       },
       "original": {
@@ -133,11 +133,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1789671712,
-        "narHash": "sha256-neKliSjKOa0a94cF8udJgp2tNfcmiN2Wa6e8/Mbu+ys=",
+        "lastModified": 1790239195,
+        "narHash": "sha256-ex6qbAa/Adl5NOmo6wQfwz+Aa8JyJKvd8zOEW/jqhvQ=",
         "owner": "tree-sitter",
         "repo": "tree-sitter",
-        "rev": "5b951eff4f8b1431e933ed0fe45e48fcd4036a38",
+        "rev": "dcdc8cc55e5dfedfc858080835f153999a29ec40",
         "type": "github"
       },
       "original": {
