@@ -23,7 +23,6 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.initrd.extraFiles = [ /usr/lib/firmware/edid/samsung-q800t-hdmi2.1 ];
   boot.kernelModules = [
     "kvm-amd"
     "amdgpu"
@@ -34,7 +33,6 @@
   boot.supportedFilesystems = [ "zfs" ];
   boot.kernelParams = [
     "zfs.zfs_arc_max=0" # Disable ARC for there's already an SSD for that
-    "drm.edid_firmware=HDMI-A-1:edid/samsung-q800t-hdmi2.1" # load fake EDID
     "video=HDMI-A-1:e"
   ];
   boot.zswap = {
