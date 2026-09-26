@@ -47,6 +47,7 @@
       nix-output-monitor
       codex
       tlrc
+      moonlight-qt
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
