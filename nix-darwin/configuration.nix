@@ -57,7 +57,7 @@
     authKeyFile = "/var/run/secrets/ledoxide";
     captionModel = "Qwen3.8-27B-oQ4e-mtp";
     extractModel = "Qwen3.8-27B-oQ4e-mtp";
-    extraOpts = "-c Gorceries -c Transport -c Rent -c Entertainment -c Shopping -c Drink -c Food -c Food -c Salary";
+    extraOpts = "-c Gorceries -c Transport -c Rent -c Entertainment -c Shopping -c Drink -c Food -c Food -c Health -c Salary";
   };
 
   # The platform the configuration will be used on.
