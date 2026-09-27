@@ -127,11 +127,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790384514,
-        "narHash": "sha256-sGirwQf8nfxWoPsmbOfyaDTKcuv7I+T5HoffcaKwU5g=",
+        "lastModified": 1790490407,
+        "narHash": "sha256-5vkySJbVPNipYiodonraL/4sAtxbuP+hOZFnlFz0PIY=",
         "owner": "zhufucdev",
         "repo": "ledoxide",
-        "rev": "dabc858477a17e4e8e2bd8df9c6503d833291d4f",
+        "rev": "52663a5355e6934f7afda63b56c6fda0f8a657e8",
         "type": "github"
       },
       "original": {
