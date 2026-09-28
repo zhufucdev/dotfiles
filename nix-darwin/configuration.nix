@@ -76,6 +76,7 @@
     };
     extraConfig = ''
       yabai -m rule --add app='System Settings' manage=off
+      yabai -m rule --add app='Tailscale' manage=off
     '';
   };
 
