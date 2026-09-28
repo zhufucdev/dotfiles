@@ -74,15 +74,17 @@
       window_gap = 0;
       layout = "bsp";
     };
+    extraConfig = ''
+      yabai -m rule --add app='System Settings' manage=off
+    '';
   };
 
   services.skhd = {
     enable = true;
     skhdConfig = ''
-    fn - escape : yabai -m window --toggle float
+      fn - escape : yabai -m window --toggle float
     '';
   };
-
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
