@@ -49,6 +49,7 @@
       tlrc
       moonlight-qt
       iina
+      keycastr
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
