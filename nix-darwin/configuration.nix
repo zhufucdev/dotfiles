@@ -65,14 +65,18 @@
     config = {
       focus_follows_mouse = "autoraise";
       mouse_follows_focus = "off";
-      window_placement = "second_child";
-      window_opacity = "off";
       top_padding = 0;
       bottom_padding = 10;
       left_padding = 10;
       right_padding = 10;
       window_gap = 0;
       layout = "bsp";
+      window_animation_duration = 1;
+      window_shadow = "off";
+      window_opacity = "on";
+      active_window_opacity = "1";
+      normal_window_opacity = "0.4";
+      insert_feedback_color = "#F7821B";
     };
     extraConfig = ''
       yabai -m rule --add app='System Settings' manage=off
@@ -107,7 +111,6 @@
       "Sikarugir-App/sikarugir/sikarugir"
       "gaphor"
       "shichizip"
-      "dimentium/autoraise/autoraiseapp"
     ];
   };
 

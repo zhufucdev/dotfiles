@@ -9,7 +9,6 @@
   zewo,
   shichizip,
   sikarugir,
-  autoraise,
   ledoxide,
   sops-nix,
   ...
@@ -37,7 +36,6 @@
         "zewo/homebrew-tap" = zewo;
         "shichizip/homebrew-tap" = shichizip;
         "sikarugir-app/homebrew-sikarugir" = sikarugir;
-        "Dimentium/homebrew-autoraise" = autoraise;
       };
       mutableTaps = false;
       autoMigrate = true;
@@ -47,7 +45,6 @@
           "zewo/homebrew-tap"
           "sikarugir-app/homebrew-sikarugir"
           "shichizip/homebrew-tap"
-          "Dimentium/homebrew-autoraise"
         ];
       };
     };

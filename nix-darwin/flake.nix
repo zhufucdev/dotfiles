@@ -46,10 +46,6 @@
       url = "github:Sikarugir-App/homebrew-sikarugir";
       flake = false;
     };
-    autoraise = {
-      url = "github:Dimentium/homebrew-autoraise";
-      flake = false;
-    };
 
     tree-sitter.url = "github:tree-sitter/tree-sitter";
 
