@@ -60,6 +60,30 @@
     extraOpts = "-c Gorceries -c Transport -c Rent -c Entertainment -c Shopping -c Drink -c Food -c Food -c Health -c Salary";
   };
 
+  services.yabai = {
+    enable = true;
+    config = {
+      focus_follows_mouse = "autoraise";
+      mouse_follows_focus = "off";
+      window_placement = "second_child";
+      window_opacity = "off";
+      top_padding = 0;
+      bottom_padding = 10;
+      left_padding = 10;
+      right_padding = 10;
+      window_gap = 0;
+      layout = "bsp";
+    };
+  };
+
+  services.skhd = {
+    enable = true;
+    skhdConfig = ''
+    fn - escape : yabai -m window --toggle float
+    '';
+  };
+
+
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
