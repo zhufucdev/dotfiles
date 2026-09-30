@@ -16,6 +16,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-spotlight = {
+      url = "github:anntnzrb/nix-spotlight";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-core = {

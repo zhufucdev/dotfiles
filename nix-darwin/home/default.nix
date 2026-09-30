@@ -21,6 +21,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Makes spotlight spot
+  programs.nix-spotlight.enable = true;
+
   home.packages =
     with pkgs;
     [
@@ -36,7 +39,6 @@
       prettierd
       python313Packages.debugpy
       python313Packages.huggingface-hub
-      raycast
       ghostty-bin
       ollama
       blender

@@ -11,12 +11,14 @@
   sikarugir,
   ledoxide,
   sops-nix,
+  nix-spotlight,
   ...
 }:
 [
   home-manager.darwinModules.home-manager
   {
     home-manager = {
+      sharedModules = [ nix-spotlight.homeManagerModules.default ];
       users.zhufu = ./home;
       useGlobalPkgs = true;
       useUserPackages = true;

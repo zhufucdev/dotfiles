@@ -178,6 +178,26 @@
         "type": "github"
       }
     },
+    "nix-spotlight": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790489939,
+        "narHash": "sha256-yqVwyCnpunoGnNdtDqJwf0o6KJBHrxW+AHRNgRVNmmE=",
+        "owner": "anntnzrb",
+        "repo": "nix-spotlight",
+        "rev": "54d4048993202eebdf349bf3b129e1bedede1f45",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anntnzrb",
+        "repo": "nix-spotlight",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1789684949,
@@ -220,6 +240,7 @@
         "macos-cross-toolchains": "macos-cross-toolchains",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
+        "nix-spotlight": "nix-spotlight",
         "nixpkgs": "nixpkgs",
         "shichizip": "shichizip",
         "sikarugir": "sikarugir",
