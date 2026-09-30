@@ -113,6 +113,7 @@
       "Sikarugir-App/sikarugir/sikarugir"
       "gaphor"
       "shichizip"
+      "proxy-audio-device"
     ];
   };
 
