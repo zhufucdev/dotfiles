@@ -58,7 +58,7 @@
     captionModel = "Qwen3.8-27B-oQ4e-mtp";
     extractModel = "Qwen3.8-27B-oQ4e-mtp";
     extraOpts = ''
-      -c Gorceries -c Transport -c Rent -c Entertainment
+      -c Groceries -c Transport -c Rent -c Entertainment
           -c Shopping -c Drink -c Food -c Food -c Health -c Salary -c "Credit repay"'';
   };
 
