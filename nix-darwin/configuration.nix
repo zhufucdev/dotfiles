@@ -58,8 +58,9 @@
     captionModel = "Qwen3.8-27B-oQ4e-mtp";
     extractModel = "Qwen3.8-27B-oQ4e-mtp";
     extraOpts = ''
-      -c Groceries -c Transport -c Rent -c Entertainment
-          -c Shopping -c Drink -c Food -c Food -c Health -c Salary -c "Credit repay"'';
+      -c Transport -c Rent -c Entertainment
+          -c Drink -c Food -c Groceries -c Health 
+          -c Salary -c Shopping  -c "Credit repay"'';
   };
 
   services.yabai = {
