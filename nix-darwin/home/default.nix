@@ -59,6 +59,7 @@
 
   home.file.".config/yazi".source = ../../yazi;
   home.file.".config/nvim".source = ../../nvim;
+  home.file.".config/ghostty".source = ../../ghostty;
   home.file."Library/Java/JavaVirtualMachines/17".source = pkgs.jdk17.outPath;
 
   home.sessionVariables = {
