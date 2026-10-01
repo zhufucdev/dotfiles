@@ -114,6 +114,7 @@
       "gaphor"
       "shichizip"
       "proxy-audio-device"
+      "apparency"
     ];
   };
 
