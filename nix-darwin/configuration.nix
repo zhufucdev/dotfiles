@@ -57,10 +57,18 @@
     authKeyFile = "/var/run/secrets/ledoxide";
     captionModel = "Qwen3.8-27B-oQ4e-mtp";
     extractModel = "Qwen3.8-27B-oQ4e-mtp";
-    extraOpts = ''
-      -c Transport -c Rent -c Entertainment
-          -c Drink -c Food -c Groceries -c Health 
-          -c Salary -c Shopping  -c "Credit repay"'';
+    extraOpts = [
+      ''-c "Transport: railway, subway, rental vehicles"''
+      ''-c "Rent: charged as a household from landlord"''
+      ''-c "Entertainment: virtual&online, video games, movies, theatre"''
+      ''-c "Drink"''
+      ''-c "Food"''
+      ''-c "Groceries: household items, furniture, cleaning tools"''
+      ''-c "Health: skin care, healing"''
+      ''-c "Salary"''
+      ''-c "Shopping: clothes, other hardwares&softwares, misc"''
+      ''-c "Credit repay"''
+    ];
   };
 
   services.yabai = {
