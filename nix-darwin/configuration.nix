@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }:
 {
@@ -97,9 +98,21 @@
 
   services.skhd = {
     enable = true;
-    skhdConfig = ''
-      fn - escape : yabai -m window --toggle float
-    '';
+    skhdConfig =
+      with lib;
+      concatLines (
+        [
+          "fn - escape : yabai -m window --toggle float"
+          ''fn + shift - escape : if [ $(yabai -m query --spaces | jq -Mc '.[] | select(."has-focus") | select(."type" == "bsp")') ]; then yabai -m space --layout float; else yabai -m space --layout bsp; fi''
+        ]
+        ++ map (
+          i:
+          let
+            s = toString i;
+          in
+          "fn - ${s} : yabai -m window --space ${s}"
+        ) (range 1 3)
+      );
   };
 
   # The platform the configuration will be used on.
