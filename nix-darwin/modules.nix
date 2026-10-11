@@ -56,15 +56,15 @@
     nixpkgs.overlays = [
       (final: prev: {
         tree-sitter-latest = tree-sitter.packages.${prev.stdenv.hostPlatform.system}.cli;
-        poetry = prev.poetry.overrideAttrs (
-          final: prev: {
-            disabledTests = prev.disabledTests ++ [
-              "test_execute_executes_a_batch_of_operations"
-              "test_execute_prints_warning_for_yanked_package[operations1-False]"
-              "test_execute_prints_warning_for_yanked_package[operations2-True]"
-            ];
-          }
-        ); # TODO: disabled for now
+        python313Packages = prev.python313Packages // {
+          debugpy = prev.python313Packages.debugpy.overrideAttrs (
+            final: prev: {
+              disabledTests = prev.disabledTests ++ [
+                "test_lldb_command"
+              ];
+            }
+          ); # TODO: disabled for now
+        };
       })
     ];
   }
