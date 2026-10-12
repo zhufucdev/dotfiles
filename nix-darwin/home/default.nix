@@ -50,8 +50,8 @@
       codex
       tlrc
       moonlight-qt
-      iina
       keycastr
+      mpv
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
