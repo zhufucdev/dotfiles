@@ -52,6 +52,7 @@
       moonlight-qt
       keycastr
       mpv
+      lan-mouse
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
