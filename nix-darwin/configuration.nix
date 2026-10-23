@@ -74,6 +74,7 @@
 
   services.yabai = {
     enable = true;
+    package = pkgs.yabai;
     config = {
       focus_follows_mouse = "autoraise";
       mouse_follows_focus = "off";
@@ -135,7 +136,6 @@
       "Sikarugir-App/sikarugir/sikarugir"
       "gaphor"
       "shichizip"
-      "monitorcontrol"
       "apparency"
     ];
   };
