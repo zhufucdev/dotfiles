@@ -83,6 +83,25 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.bash.enable = true;
+
+  programs.lan-mouse = {
+    enable = true;
+    systemd = true;
+    settings = {
+      authorized_fingerprints = {
+        "96:91:fc:85:3d:1d:51:10:c3:f9:42:4a:e2:59:65:6f:29:8c:7a:0a:92:7b:41:3b:e0:c3:1a:c9:dd:9a:2f:33" =
+          "Ophelia";
+      };
+      clients = [
+        {
+          position = "left";
+          hostname = "Ophelia";
+          activate_on_startup = true;
+        }
+      ];
+    };
+  };
+
   xdg = {
     enable = true;
     mime.enable = true;

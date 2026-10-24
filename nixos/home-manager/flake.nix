@@ -11,6 +11,7 @@
 
     tree-sitter.url = "github:tree-sitter/tree-sitter";
     llama-cpp.url = "github:ggml-org/llama.cpp";
+    lan-mouse.url = "github:feschber/lan-mouse";
   };
 
   outputs =
@@ -19,6 +20,7 @@
       home-manager,
       tree-sitter,
       llama-cpp,
+      lan-mouse,
       ...
     }:
     let
@@ -32,6 +34,7 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
+          lan-mouse.homeManagerModules.default
           ./home.nix
           {
             nixpkgs.overlays = [
