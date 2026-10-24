@@ -12,6 +12,7 @@
   sops-nix,
   nix-spotlight,
   omp,
+  yabai,
   ...
 }:
 [
@@ -57,6 +58,7 @@
       (final: prev: {
         tree-sitter-latest = tree-sitter.packages.${prev.stdenv.hostPlatform.system}.cli;
         omp = omp.packages.${prev.stdenv.hostPlatform.system}.default;
+        yabai = yabai.packages.${prev.stdenv.hostPlatform.system}.default;
         python313Packages = prev.python313Packages // {
           debugpy = prev.python313Packages.debugpy.overrideAttrs (
             final: prev: {

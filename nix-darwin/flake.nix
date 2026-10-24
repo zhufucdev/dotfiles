@@ -61,6 +61,10 @@
       url = "github:can1357/oh-my-pi?ref=v18.12.6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    yabai = {
+      url = "github:zhufucdev/yabai";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

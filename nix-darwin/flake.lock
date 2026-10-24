@@ -403,6 +403,7 @@
         "sops-nix": "sops-nix",
         "tree-sitter": "tree-sitter",
         "tw93": "tw93",
+        "yabai": "yabai",
         "zewo": "zewo"
       }
     },
@@ -599,6 +600,26 @@
       "original": {
         "owner": "tw93",
         "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
+    "yabai": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792800108,
+        "narHash": "sha256-nsdQpHGTTpV3ZgJ7TxKpbhz212kmvqmcXKVb7JLLo6A=",
+        "owner": "zhufucdev",
+        "repo": "yabai",
+        "rev": "99bc23a73ae2b7e985d9740f0462bc8fe0819092",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zhufucdev",
+        "repo": "yabai",
         "type": "github"
       }
     },

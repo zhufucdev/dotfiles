@@ -74,7 +74,7 @@
 
   services.yabai = {
     enable = true;
-    package = pkgs.yabai;
+    enableScriptingAddition = true;
     config = {
       focus_follows_mouse = "autoraise";
       mouse_follows_focus = "off";
@@ -111,7 +111,10 @@
           let
             s = toString i;
           in
-          "fn - ${s} : yabai -m window --space ${s}"
+          ''
+            fn - ${s} : yabai -m window --space ${s}
+            fn + shift - ${s} : yabai -m space --focus ${s}
+          ''
         ) (range 1 3)
       );
   };
