@@ -54,6 +54,7 @@
       mpv
       lan-mouse
       omp
+      android-tools
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
@@ -95,8 +96,6 @@
   programs.zsh = (import ../../nix-common/zsh.nix) { inherit config; } // {
     shellAliases = {
       tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
-      adb = "/Users/zhufu/Library/Android/sdk/platform-tools/adb";
-      fastboot = "/Users/zhufu/Library/Android/sdk/platform-tools/fastboot";
       darwin-rebuild-nom = "sudo darwin-rebuild switch --log-format internal-json -v |& nom --json; afplay /System/Library/Sounds/Ping.aiff";
     };
   };
