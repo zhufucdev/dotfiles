@@ -57,6 +57,10 @@
       url = "github:zhufucdev/ledoxide";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    omp = {
+      url = "github:can1357/oh-my-pi?ref=v18.12.6";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

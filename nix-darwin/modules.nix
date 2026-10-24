@@ -1,5 +1,4 @@
 {
-  self,
   home-manager,
   nix-homebrew,
   homebrew-core,
@@ -12,6 +11,7 @@
   ledoxide,
   sops-nix,
   nix-spotlight,
+  omp,
   ...
 }:
 [
@@ -56,6 +56,7 @@
     nixpkgs.overlays = [
       (final: prev: {
         tree-sitter-latest = tree-sitter.packages.${prev.stdenv.hostPlatform.system}.cli;
+        omp = omp.packages.${prev.stdenv.hostPlatform.system}.default;
         python313Packages = prev.python313Packages // {
           debugpy = prev.python313Packages.debugpy.overrideAttrs (
             final: prev: {

@@ -53,6 +53,7 @@
       keycastr
       mpv
       lan-mouse
+      omp
     ]
     ++ (import ../../nix-common/nvim.nix {
       inherit pkgs;
