@@ -85,10 +85,10 @@
       window_gap = 0;
       layout = "bsp";
       window_animation_duration = 1;
-      window_shadow = "off";
+      window_shadow = "float";
       window_opacity = "on";
       active_window_opacity = "1";
-      normal_window_opacity = "0.4";
+      normal_window_opacity = "0.95";
       insert_feedback_color = "#F7821B";
     };
     extraConfig = ''
