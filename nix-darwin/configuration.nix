@@ -112,8 +112,8 @@
             s = toString i;
           in
           ''
-            fn - ${s} : yabai -m window --space ${s}
-            fn + shift - ${s} : yabai -m space --focus ${s}
+            fn + shift - ${s} : yabai -m window --space ${s}
+            fn - ${s} : yabai -m space --focus ${s}
           ''
         ) (range 1 3)
       );
