@@ -115,7 +115,7 @@
             fn + shift - ${s} : yabai -m window --space ${s}
             fn - ${s} : yabai -m space --focus ${s}
           ''
-        ) (range 1 3)
+        ) (range 1 4)
       );
   };
 
