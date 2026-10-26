@@ -13,6 +13,7 @@
   nix-spotlight,
   omp,
   yabai,
+  scaledaemon,
   ...
 }:
 [
@@ -73,6 +74,7 @@
   }
   ledoxide.darwinModules.ledoxide
   ledoxide.darwinModules.package
+  scaledaemon.darwinModules.default
   sops-nix.darwinModules.sops
   ./configuration.nix
 ]

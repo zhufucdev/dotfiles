@@ -345,6 +345,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1792812153,
+        "narHash": "sha256-T2+XBfNbf9pecLUWS4+RtuVNZ3W8K5taG5QdV71mWlk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "674a2028661e550a97400c1cc992b9cca9a668a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1791260994,
         "narHash": "sha256-Miqqk/ammqnTUxaoCyvtwoPeLbI1ksFyLxi/CazZpWY=",
         "owner": "NixOS",
@@ -398,6 +414,7 @@
         "nix-spotlight": "nix-spotlight",
         "nixpkgs": "nixpkgs",
         "omp": "omp",
+        "scaledaemon": "scaledaemon",
         "shichizip": "shichizip",
         "sikarugir": "sikarugir",
         "sops-nix": "sops-nix",
@@ -426,6 +443,24 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "type": "github"
+      }
+    },
+    "scaledaemon": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1793033517,
+        "narHash": "sha256-oSsSnC8BtO8ObVEiSvxiXeGnnlqeGxLTVXjJKDv0Yzs=",
+        "ref": "refs/heads/main",
+        "rev": "251b8c9ea2fb4316fb6d50dcfc9131c3159d7c4a",
+        "revCount": 5,
+        "type": "git",
+        "url": "https://codeberg.org/zhufucdev/KeepHealth.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/zhufucdev/KeepHealth.git"
       }
     },
     "shichizip": {
@@ -527,7 +562,7 @@
     },
     "tree-sitter": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1791654512,

@@ -119,6 +119,14 @@
       );
   };
 
+  services.scaledaemon = {
+    enable = true;
+    config = {
+      reconnectCooldown = 800;
+      gRPC.port = 58127;
+    };
+  };
+
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -132,6 +140,7 @@
       "tw93/tap/mole"
       "xcode-build-server"
       "swift-protobuf"
+      "protoc-gen-grpc-swift"
     ];
     # Align homebrew taps config with nix-homebrew
     taps = builtins.attrNames config.nix-homebrew.taps;

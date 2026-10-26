@@ -65,6 +65,7 @@
       url = "github:zhufucdev/yabai";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    scaledaemon.url = "git+https://codeberg.org/zhufucdev/KeepHealth.git";
   };
 
   outputs =
