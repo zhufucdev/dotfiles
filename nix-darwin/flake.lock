@@ -645,11 +645,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792800108,
-        "narHash": "sha256-nsdQpHGTTpV3ZgJ7TxKpbhz212kmvqmcXKVb7JLLo6A=",
+        "lastModified": 1793115124,
+        "narHash": "sha256-Ui2JF6w1a5jcWA37e7BCFnaC7VlVs2Sx69edDL4cpDQ=",
         "owner": "zhufucdev",
         "repo": "yabai",
-        "rev": "99bc23a73ae2b7e985d9740f0462bc8fe0819092",
+        "rev": "b69b209550fe3e77d1e021555743dfe0a8c5c011",
         "type": "github"
       },
       "original": {
