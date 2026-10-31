@@ -450,11 +450,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1793033517,
-        "narHash": "sha256-oSsSnC8BtO8ObVEiSvxiXeGnnlqeGxLTVXjJKDv0Yzs=",
+        "lastModified": 1793409707,
+        "narHash": "sha256-D8w8eeG6ks5JcGhooOTN3B2BsA10MUdGpztszXcy6yo=",
         "ref": "refs/heads/main",
-        "rev": "251b8c9ea2fb4316fb6d50dcfc9131c3159d7c4a",
-        "revCount": 5,
+        "rev": "83de5f5ad6b10ea5cb72300e0d02e399f3de1905",
+        "revCount": 14,
         "type": "git",
         "url": "https://codeberg.org/zhufucdev/KeepHealth.git"
       },

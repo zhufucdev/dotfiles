@@ -55,7 +55,7 @@
   services.ledoxide = {
     enable = true;
     package = pkgs.ledoxide-openai;
-    authKeyFile = "/var/run/secrets/ledoxide";
+    authKeyFile = config.sops.secrets.ledoxide.path;
     captionModel = "Qwen3.8-27B-oQ4e-mtp";
     extractModel = "Qwen3.8-27B-oQ4e-mtp";
     extraOpts = [
@@ -122,8 +122,21 @@
   services.scaledaemon = {
     enable = true;
     config = {
-      reconnectCooldown = 800;
+      reconnectCooldown = 300;
       gRPC.port = 58127;
+      apn = {
+        environment = "development";
+        authentication.tls = {
+          privateKeyPath = config.sops.secrets."apns-hkbridgehost-key".path;
+          privateKeyFormat = "pem";
+          certificateChains = [
+            {
+              filePath = config.sops.secrets."apns-hkbridgehost-cert".path;
+              format = "pem";
+            }
+          ];
+        };
+      };
     };
   };
 
@@ -164,6 +177,16 @@
       "ledoxide" = {
         format = "dotenv";
         sopsFile = ./secrets/ledoxide.env;
+        mode = "444";
+      };
+      "apns-hkbridgehost-key" = {
+        format = "binary";
+        sopsFile = ./secrets/apns-hkbridgehost.key;
+        mode = "444";
+      };
+      "apns-hkbridgehost-cert" = {
+        format = "binary";
+        sopsFile = ./secrets/apns-hkbridgehost.cert;
         mode = "444";
       };
     };
