@@ -105,6 +105,8 @@
         [
           "fn - escape : yabai -m window --toggle float"
           ''fn + shift - escape : if [ $(yabai -m query --spaces | jq -Mc '.[] | select(."has-focus") | select(."type" == "bsp")') ]; then yabai -m space --layout float; else yabai -m space --layout bsp; fi''
+          "shift - pageup : yabai -m space --mirror y-axis"
+          "shift - pagedown : yabai -m space --mirror x-axis"
         ]
         ++ map (
           i:
@@ -116,6 +118,24 @@
             fn - ${s} : yabai -m space --focus ${s}
           ''
         ) (range 1 4)
+        ++ map (pair: "alt - ${elemAt pair 0} : yabai -m window --swap ${elemAt pair 1}") [
+          [
+            "home"
+            "west"
+          ]
+          [
+            "end"
+            "east"
+          ]
+          [
+            "pageup"
+            "north"
+          ]
+          [
+            "pagedown"
+            "south"
+          ]
+        ]
       );
   };
 
