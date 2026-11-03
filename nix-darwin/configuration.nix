@@ -69,6 +69,7 @@
       ''-c "Salary"''
       ''-c "Shopping: clothes, other hardwares&softwares, misc"''
       ''-c "Credit repay"''
+      ''-c "Refund"''
     ];
   };
 
