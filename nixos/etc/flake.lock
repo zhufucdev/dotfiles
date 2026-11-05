@@ -179,11 +179,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791126912,
-        "narHash": "sha256-x7oDXptSNgP/ypgnpk8/VSmY5dTJT5mAXoboz+50SvM=",
+        "lastModified": 1793449402,
+        "narHash": "sha256-G0oWtY/zrlIky6pwdwxYmq1OzlyM3rZitbbDAo6fvYU=",
         "ref": "refs/heads/main",
-        "rev": "6296b09655b65a8b6f2ae20fc10a45f40ad59870",
-        "revCount": 39,
+        "rev": "4523057aceb39d191bdbb0a2899f1193fbb78f99",
+        "revCount": 40,
         "type": "git",
         "url": "https://codeberg.org/zhufucdev/securitycam-kit.git"
       },

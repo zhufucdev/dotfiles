@@ -383,7 +383,7 @@
       }
       {
         job_name = "site";
-        scrape_interval = "1h";
+        scrape_interval = "12h";
         static_configs = [
           {
             targets =
