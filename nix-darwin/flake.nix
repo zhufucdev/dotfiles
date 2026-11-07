@@ -58,7 +58,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     omp = {
-      url = "github:can1357/oh-my-pi?ref=v18.12.6";
+      url = "github:can1357/oh-my-pi?ref=v18.18.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     yabai = {
