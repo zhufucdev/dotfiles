@@ -144,11 +144,10 @@
     nssmdns4 = true;
     nssmdns6 = true;
     openFirewall = true;
-    publish = {
-      enable = true;
-      addresses = true;
+    settings = {
+      publish.publish-addresses = true;
+      server.allow-interfaces = [ "enp37s0" ];
     };
-    allowInterfaces = [ "enp37s0" ];
   };
 
   users.mutableUsers = false;
@@ -536,6 +535,5 @@
 
   security.pki.caCertificateBlacklist = [
     "Comodo AAA Services root"
-    "emSign ECC Root CA - G3"
   ];
 }
